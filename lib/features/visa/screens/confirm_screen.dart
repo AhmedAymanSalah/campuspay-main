@@ -23,7 +23,7 @@ class ConformScreen extends StatelessWidget {
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
-          elevation: 0,
+           elevation: 0,
           backgroundColor: Colors.transparent,
           centerTitle: true,
           title: const CustomTextWidget(
