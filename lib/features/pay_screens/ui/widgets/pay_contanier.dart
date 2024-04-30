@@ -23,7 +23,7 @@ class CustomContainer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomTextWidget(
-          text: titel,
+           text: titel,
           fontSize: 10.sp,
           color: ColorsManager.gray,
         ),
