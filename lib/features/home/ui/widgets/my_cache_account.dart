@@ -1,4 +1,6 @@
 import 'package:campuspay/core/helpers/app_images.dart';
+import 'package:campuspay/core/theme/colors.dart';
+import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,29 +36,17 @@ class MyCacheAccount extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(
-                  '763 L.E',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: const Color(0xFF132647),
-                    fontSize: 21.82.sp,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600,
-                    height: 0.04.h,
-                    letterSpacing: 0.31,
-                  ),
+                const CustomTextWidget(
+                  text: "763 L.E",
+                  color: ColorsManager.darkBlue,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
                 ),
                 Positioned(
                   bottom: 40.h,
-                  child: Text(
-                    'Total cash',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: const Color(0xFF132647),
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w300,
-                      letterSpacing: 0.28.w,
-                    ),
+                  child: const CustomTextWidget(
+                    text: "Total Cash",
+                    color: ColorsManager.darkBlue,
                   ),
                 )
               ],
@@ -68,36 +58,25 @@ class MyCacheAccount extends StatelessWidget {
                   width: 148.91.w,
                   height: 60.12.h,
                   decoration: ShapeDecoration(
-                    color: const Color(0xFF132647),
+                    color: ColorsManager.darkBlue,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6)),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text(
-                        'Recent Deposit',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14.sp,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 0.28,
-                        ),
+                      CustomTextWidget(
+                        text: "Recent Deposit",
+                        color: ColorsManager.morelighterGray,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14.sp,
                       ),
-                      Text(
-                        '3913 L.E',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16.sp,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
-                          height: 0.07.h,
-                          letterSpacing: 0.31.w,
-                        ),
-                      )
+                      CustomTextWidget(
+                        text: "3913 L.E",
+                        color: ColorsManager.lightGray,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14.sp,
+                      ),
                     ],
                   ),
                 ),
@@ -105,36 +84,25 @@ class MyCacheAccount extends StatelessWidget {
                   width: 148.91.w,
                   height: 60.12.h,
                   decoration: ShapeDecoration(
-                    color: const Color(0xFF132647),
+                    color: ColorsManager.darkBlue,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6)),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text(
-                        'Recent Deposit',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14.sp,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 0.28.w,
-                        ),
+                      CustomTextWidget(
+                        text: "Recent Payment",
+                        color: ColorsManager.morelighterGray,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14.sp,
                       ),
-                      Text(
-                        '3150 L.E',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16.sp,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
-                          height: 0.07.h,
-                          letterSpacing: 0.31.w,
-                        ),
-                      )
+                      CustomTextWidget(
+                        text: "3913 L.E",
+                        color: ColorsManager.lightGray,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14.sp,
+                      ),
                     ],
                   ),
                 ),

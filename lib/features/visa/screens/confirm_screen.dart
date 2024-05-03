@@ -3,6 +3,7 @@
 
 import 'package:campuspay/core/helpers/app_images.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
+import 'package:campuspay/features/visa/screens/top_up_success.dart';
 import 'package:campuspay/features/visa/widget/row_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -60,7 +61,12 @@ class ConformScreen extends StatelessWidget {
             const RowWidget(text: "Date", data: "Aug 19, 2024 · 10:34 PM"),
             const Spacer(),
             AppTextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TopUpSuccess()),
+                );
+              },
               text: "confirm",
               buttonColor: ColorsManager.darkBlue,
             )

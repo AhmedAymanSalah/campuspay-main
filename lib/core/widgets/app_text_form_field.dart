@@ -93,7 +93,7 @@ class AppTextFormField extends StatelessWidget {
             ),
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
-        fillColor: backGroundColorHint ?? ColorsManager.moreLightGray,
+        fillColor: backGroundColorHint ?? ColorsManager.morelighterGray,
         filled: true,
       ),
       obscureText: isObscureText ?? false,

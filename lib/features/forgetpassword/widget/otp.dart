@@ -20,7 +20,7 @@ class OtpWidget extends StatelessWidget {
         decoration: InputDecoration(
           fillColor: ColorsManager.hintBlue,
           filled: true,
-          counterStyle: TextStyle(color: ColorsManager.lighterGray),
+          counterStyle: const TextStyle(color: ColorsManager.lighterGray),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(
               color: ColorsManager.mainBlue,
@@ -36,7 +36,8 @@ class OtpWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        style: TextStyle(fontSize: 20.0.sp, color: ColorsManager.moreLightGray),
+        style:
+            TextStyle(fontSize: 20.0.sp, color: ColorsManager.morelighterGray),
         keyboardType: TextInputType.number,
         textAlign: TextAlign.center,
         inputFormatters: [

@@ -1,6 +1,6 @@
 class Assets {
   Assets._();
-
+  
   /// Assets for imagesBackgrond
   /// assets/images/backgrond.png
   static const String imagesBackgrond = "assets/images/backgrond.png";
@@ -49,6 +49,10 @@ class Assets {
   /// assets/images/fayoum_logo.png
   static const String imagesFayoumLogo = "assets/images/fayoum_logo.png";
 
+  /// Assets for imagesGgg
+  /// assets/images/ggg.png
+  static const String imagesGgg = "assets/images/ggg.png";
+
   /// Assets for imagesGreenpay
   /// assets/images/greenpay.png
   static const String imagesGreenpay = "assets/images/greenpay.png";
@@ -57,9 +61,13 @@ class Assets {
   /// assets/images/Gym.png
   static const String imagesGym = "assets/images/Gym.png";
 
-  /// Assets for imagesIcon!
-  /// assets/images/Icon_!.png
-  static const String imagesIcon = "assets/images/Icon_!.png";
+  /// Assets for imagesIcon
+  /// assets/images/Icon.png
+  static const String imagesIcon = "assets/images/Icon.png";
+
+  /// Assets for imagesIcon1
+  /// assets/images/Icon1.png
+  static const String imagesIcon1 = "assets/images/Icon1.png";
 
   /// Assets for imagesIconmyCache
   /// assets/images/IconmyCache.png
@@ -75,8 +83,7 @@ class Assets {
 
   /// Assets for imagesMedicalExamination
   /// assets/images/Medical_examination.png
-  static const String imagesMedicalExamination =
-      "assets/images/Medical_examination.png";
+  static const String imagesMedicalExamination = "assets/images/Medical_examination.png";
 
   /// Assets for imagesOnboarding1
   /// assets/images/onboarding1.png
@@ -108,6 +115,6 @@ class Assets {
 
   /// Assets for imagesUniversityTrip
   /// assets/images/University_trip.png
-  static const String imagesUniversityTrip =
-      "assets/images/University_trip.png";
+  static const String imagesUniversityTrip = "assets/images/University_trip.png";
 }
+
