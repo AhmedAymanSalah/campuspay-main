@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +22,7 @@ class ContainerWidget extends StatelessWidget {
             Icons.error_outline_outlined,
             color: ColorsManager.darkBlue,
           ),
+          
           CustomTextWidget(
             text: "Top up with Campuspay will not cost any fee!",
             color: ColorsManager.darkBlue,
