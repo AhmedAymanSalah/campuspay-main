@@ -6,6 +6,7 @@ import 'package:campuspay/features/pay_screens/ui/screens/error_Screen.dart';
 import 'package:campuspay/features/profile/ui/screens/my_account_screen.dart';
 import 'package:campuspay/features/profile/ui/screens/settings_screen.dart';
 import 'package:campuspay/features/services/ui/screens/services_list_view.dart';
+import 'package:campuspay/features/transfer_money/screens/transfer_success.dart';
 
 import '../../features/forgetpassword/screens/forget_password_screen.dart';
 import '../../features/forgetpassword/screens/new_password.dart';
@@ -112,6 +113,9 @@ class AppRouter {
       case Routes.caredsScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const CaredsScreen());
+      case Routes.transferSuccess:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const TransferSuccess());
     }
     return null;
   }

@@ -11,7 +11,7 @@ class Routes {
 
   static const String newPasswordScreen = '/newPasswordScreen';
 
-   static const String passwordGhangeedScreen = '/passwordGhangeedScreen';
+  static const String passwordGhangeedScreen = '/passwordGhangeedScreen';
 
   static const String verificationScreen = '/verificationScreen';
 
@@ -39,6 +39,7 @@ class Routes {
 
   static const String addNewCard = '/addNewCard';
 
-   static const String caredsScreen = '/caredsScreen';
+  static const String caredsScreen = '/caredsScreen';
 
+  static const String transferSuccess = '/transferSuccess';
 }

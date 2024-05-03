@@ -1,7 +1,9 @@
 // ignore_for_file: file_names
 
 import 'package:campuspay/core/helpers/app_images.dart';
+import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
+import 'package:campuspay/core/routes/routes.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/widgets/app_button.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
@@ -9,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/widgets/custom_text_form_filed.dart';
-import '../../visa/screens/cardes_screen.dart';
 import '../widget/balance.dart';
 
 class TransferMoney extends StatelessWidget {
@@ -71,11 +72,7 @@ class TransferMoney extends StatelessWidget {
                       AppTextButton(
                         text: "Transfer",
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const CaredsScreen()),
-                          );
+                          context.navigateTo(Routes.transferSuccess);
                         },
                         buttonColor: ColorsManager.darkBlue,
                       )

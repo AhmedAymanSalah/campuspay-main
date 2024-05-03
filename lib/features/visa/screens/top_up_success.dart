@@ -86,12 +86,12 @@ class TopUpSuccess extends StatelessWidget {
                 ),
                 const Positioned(
                   bottom: 430,
-                  right: 135,
+                  right: 120,
                   child: Image(
                     image: AssetImage(Assets.imagesIcon1),
                     fit: BoxFit.cover,
-                    width: 100,
-                    height: 100,
+                    width: 130,
+                    height: 130,
                   ),
                 )
                 // child: Padding(
