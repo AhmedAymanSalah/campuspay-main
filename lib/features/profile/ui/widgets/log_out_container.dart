@@ -1,10 +1,9 @@
-import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
+import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/routes/routes.dart';
 
 class LogOut extends StatelessWidget {
   const LogOut({super.key});
@@ -13,7 +12,7 @@ class LogOut extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.navigateToReplacement(Routes.loginScreen);
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
       },
       child: Container(
         height: 60.h,

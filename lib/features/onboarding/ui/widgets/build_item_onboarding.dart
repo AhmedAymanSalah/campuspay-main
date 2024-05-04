@@ -1,3 +1,6 @@
+import 'package:campuspay/features/login/ui/screen/login_screen.dart';
+import 'package:campuspay/features/login/ui/widgets/email_and_password.dart';
+
 import '../../../../core/helpers/extentions.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/colors.dart';
@@ -115,7 +118,7 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
               AppTextButton(
                 text: "Sign In",
                 onPressed: () {
-                  context.navigateTo(Routes.loginScreen);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
                 },
                 buttonColor: Colors.white,
                 textColor: ColorsManager.mainBlue,

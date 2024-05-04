@@ -5,7 +5,6 @@ class Routes {
 
   static const String attentionPage = '/attentionPage';
 
-  static const String loginScreen = '/loginScreen';
 
   static const String forgetPasswordScreen = '/forgetPasswordScreen';
 
@@ -15,7 +14,6 @@ class Routes {
 
   static const String verificationScreen = '/verificationScreen';
 
-  static const String signUpScreen = '/signUpScreen';
 
   static const String bottomNavBar = '/bottomNavBar';
 

@@ -1,3 +1,5 @@
+import 'package:campuspay/features/sign_up/ui/screens/sign_up_screen.dart';
+
 import '../../../../core/helpers/extentions.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/routes/routes.dart';
@@ -53,7 +55,7 @@ class DontHaveAccountText extends StatelessWidget {
             verticalSpace(4),
             GestureDetector(
               onTap: () {
-                context.navigateToReplacement(Routes.signUpScreen);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const SignupScreen()));
               },
               child: Text(
                 '  Register Now',

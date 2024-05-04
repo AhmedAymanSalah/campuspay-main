@@ -3,16 +3,13 @@ import 'package:campuspay/core/routes/routes.dart';
 
 import '../widgets/icon_and_Text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/custom_text_widget.dart';
-import '../../logic/cubit/login_cubit.dart';
 import '../widgets/dont_have_account_text.dart';
 import '../widgets/email_and_password.dart';
-import '../widgets/login_bloc_listener.dart';
 import '../widgets/terms_and_conditions_text.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -54,16 +51,12 @@ class LoginScreen extends StatelessWidget {
                       verticalSpace(25),
                       AppTextButton(
                         text: "Login",
-                        onPressed: () {
-                          //validateThenDoLogin(context);
-                          context.navigateToReplacement(Routes.bottomNavBar);
-                        },
+                        onPressed: () {},
                       ),
                       verticalSpace(14),
                       const TermsAndConditionsText(),
                       verticalSpace(20),
                       const DontHaveAccountText(),
-                      const LoginBlocListener(),
                     ],
                   ),
                 ],
@@ -73,11 +66,5 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void validateThenDoLogin(BuildContext context) {
-    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates();
-    }
   }
 }

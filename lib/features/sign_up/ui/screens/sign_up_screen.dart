@@ -1,14 +1,11 @@
 import '../widgets/icon_and_Text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../login/ui/widgets/terms_and_conditions_text.dart';
-import '../../logic/sign_up_cubit.dart';
 import '../widgets/already_have_account_text.dart';
-import '../widgets/sign_up_bloc_listener.dart';
 import '../widgets/sign_up_form.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -38,15 +35,13 @@ class SignupScreen extends StatelessWidget {
                         verticalSpace(30),
                         AppTextButton(
                           text: "Create Account",
-                          onPressed: () {
-                            validateThenDoSignup(context);
-                          },
+                          onPressed: () {},
                         ),
                         verticalSpace(14),
                         const TermsAndConditionsText(),
                         verticalSpace(20),
                         const AlreadyHaveAccountText(),
-                        const SignupBlocListener(),
+                        //const SignupBlocListener(),
                       ],
                     ),
                   ],
@@ -57,11 +52,5 @@ class SignupScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void validateThenDoSignup(BuildContext context) {
-    if (context.read<SignupCubit>().formKey.currentState!.validate()) {
-      context.read<SignupCubit>().emitSignupStates();
-    }
   }
 }

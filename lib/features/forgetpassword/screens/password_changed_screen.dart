@@ -1,5 +1,6 @@
 import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
+import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -52,7 +53,7 @@ class PasswordGhangeedScreen extends StatelessWidget {
               const Spacer(),
               AppTextButton(
                 onPressed: () {
-                  context.navigateTo(Routes.loginScreen);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
                 },
                 text: "Login",
               )

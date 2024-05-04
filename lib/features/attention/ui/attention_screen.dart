@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:campuspay/features/attention/ui/widget/text1_2.dart';
+import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -46,13 +47,10 @@ class AttentionScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 textAlign: TextAlign.start,
               ),
-              ///////////// mail link//////////////
-              //const CollageMailLink(),
-              ////////////// butten
               AppTextButton(
                 text: "Start",
                 onPressed: () {
-                  context.navigateToReplacement(Routes.loginScreen);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
                 },
                 textColor: Colors.white,
               ),

@@ -1,9 +1,8 @@
-import '../../../../core/helpers/extentions.dart';
+import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/spacing.dart';
-import '../../../../core/routes/routes.dart';
 
 class AlreadyHaveAccountText extends StatelessWidget {
   const AlreadyHaveAccountText({super.key});
@@ -54,7 +53,7 @@ class AlreadyHaveAccountText extends StatelessWidget {
             verticalSpace(4),
             GestureDetector(
               onTap: () {
-                context.navigateToReplacement(Routes.loginScreen);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
               },
               child: Text(
                 '  Sign in',
