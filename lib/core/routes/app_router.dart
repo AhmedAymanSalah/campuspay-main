@@ -12,6 +12,8 @@ import '../../features/forgetpassword/screens/forget_password_screen.dart';
 import '../../features/forgetpassword/screens/new_password.dart';
 import '../../features/forgetpassword/screens/password_changed_screen.dart';
 import '../../features/forgetpassword/screens/verification_screen.dart';
+import '../../features/home/ui/screen/recent_transaction_screen.dart';
+import '../../features/status/ui/screens/top_spending_screen.dart';
 import '../../features/transfer_money/screens/transfer_money_Screen.dart';
 import '../../features/visa/screens/cardes_screen.dart';
 import 'routes.dart';
@@ -116,6 +118,12 @@ class AppRouter {
       case Routes.transferSuccess:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const TransferSuccess());
+      case Routes.recentTransactionScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const RecentTransactionScreen());
+      case Routes.topSpendingScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const TopSpendingScreen());
     }
     return null;
   }

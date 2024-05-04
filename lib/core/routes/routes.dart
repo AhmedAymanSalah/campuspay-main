@@ -42,4 +42,8 @@ class Routes {
   static const String caredsScreen = '/caredsScreen';
 
   static const String transferSuccess = '/transferSuccess';
+
+  static const String recentTransactionScreen = '/recentTransactionScreen';
+
+  static const String topSpendingScreen = '/topSpendingScreen';
 }

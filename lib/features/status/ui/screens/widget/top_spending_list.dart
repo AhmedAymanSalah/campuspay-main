@@ -1,16 +1,17 @@
 import 'package:campuspay/core/helpers/extentions.dart';
+import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
-import 'package:campuspay/features/home/ui/widgets/build_item_recent_transactions.dart';
+import 'package:campuspay/features/status/ui/screens/widget/build_item_top_spendiong.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/routes/routes.dart';
+import '../../../../../core/routes/routes.dart';
 
-class RecentTransactionsList extends StatelessWidget {
-  const RecentTransactionsList({super.key});
+class TopSpendingList extends StatelessWidget {
+  const TopSpendingList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +26,14 @@ class RecentTransactionsList extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CustomTextWidget(
-                      text: "Recent Transactions",
+                      text: "Top Spending",
                       fontWeight: FontWeight.bold,
                       fontSize: 16.sp,
                       color: ColorsManager.darkBlue,
                     ),
                     GestureDetector(
                       onTap: () {
-                        context.navigateTo(Routes.recentTransactionScreen);
+                        context.navigateTo(Routes.topSpendingScreen);
                       },
                       child: CustomTextWidget(
                         text: "View all",
@@ -46,7 +47,8 @@ class RecentTransactionsList extends StatelessWidget {
               ),
             ],
           ),
-          BuildItemRecentTransactions(),
+          verticalSpace(15),
+          BuildItemTopSpending(),
         ],
       ),
     );
