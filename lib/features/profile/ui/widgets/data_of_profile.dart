@@ -14,6 +14,7 @@ class DataProfileFormField extends StatelessWidget {
     return Column(
       children: [
         CustomTextFormFiled(
+          textInputType: TextInputType.name,
           controller: nameController,
           titel: "Full Name",
           hintText: "Ahmed Ayman",
@@ -25,6 +26,7 @@ class DataProfileFormField extends StatelessWidget {
         ),
         verticalSpace(20),
         CustomTextFormFiled(
+          textInputType: TextInputType.emailAddress,
           controller: nameController,
           titel: "Email",
           hintText: "aa****@fayoum.edu.eg",

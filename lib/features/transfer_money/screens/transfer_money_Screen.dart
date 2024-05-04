@@ -58,11 +58,13 @@ class TransferMoney extends StatelessWidget {
                     children: [
                       const Spacer(),
                       const CustomTextFormFiled(
+                        textInputType: TextInputType.number,
                         titel: "Recipient ID",
                         hintText: "Recipient",
                       ),
                       verticalSpace(40),
                       const CustomTextFormFiled(
+                        textInputType: TextInputType.number,
                         titel: "Amount",
                         hintText: "Amount",
                         suffixIcon: Icon(Icons.attach_money),

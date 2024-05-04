@@ -51,6 +51,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
             ),
             verticalSpace(50),
             CustomTextFormFiled(
+              textInputType: TextInputType.visiblePassword,
               isObscureText: isObscureText,
               suffixIcon: GestureDetector(
                 onTap: () {
@@ -71,6 +72,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
             ),
             verticalSpace(25),
             CustomTextFormFiled(
+              textInputType: TextInputType.visiblePassword,
               isObscureText: isObscureText,
               suffixIcon: GestureDetector(
                 onTap: () {

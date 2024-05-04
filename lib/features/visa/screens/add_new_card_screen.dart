@@ -69,18 +69,21 @@ class AddNewCard extends StatelessWidget {
                     children: [
                       const Spacer(),
                       CustomTextFormFiled(
+                        textInputType: TextInputType.number,
                         titel: "Card Number",
                         hintText: "**** **** **** ****",
                         controller: cardNumberController,
                       ),
                       verticalSpace(40),
                       CustomTextFormFiled(
+                        textInputType: TextInputType.name,
                         titel: "Card Holder",
                         hintText: "Card Holder",
                         controller: cardHolderController,
                       ),
                       verticalSpace(40),
                       CustomTextFormFiled(
+                        textInputType: TextInputType.name,
                         titel: "CVV/CVC",
                         hintText: "CVV/CVC",
                         controller: cvvController,

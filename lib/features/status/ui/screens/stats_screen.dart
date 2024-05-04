@@ -13,6 +13,7 @@ class StatsScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           centerTitle: true,
           title: const CustomTextWidget(
             text: "Statistics",

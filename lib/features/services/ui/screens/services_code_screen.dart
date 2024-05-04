@@ -54,6 +54,7 @@ class PayServicesSceen extends StatelessWidget {
             ),
             verticalSpace(50),
             const CustomTextFormFiled(
+              textInputType: TextInputType.number,
               hintText: "Enter your code",
             ),
             const Spacer(),

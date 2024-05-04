@@ -16,11 +16,14 @@ class CustomTextFormFiled extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final bool? isObscureText;
+  final TextInputType textInputType;
+
   final TextEditingController? controller;
   const CustomTextFormFiled({
     super.key,
     required this.hintText,
     this.titel = "",
+    required this.textInputType,
     this.suffixIcon,
     this.prefixIcon,
     this.isObscureText, this.controller,
@@ -38,6 +41,7 @@ class CustomTextFormFiled extends StatelessWidget {
         ),
         verticalSpace(8),
         AppTextFormField(
+
           controller: controller ,
           backGroundColorHint: Colors.white,
           isObscureText: isObscureText,
@@ -58,7 +62,7 @@ class CustomTextFormFiled extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           hintText: hintText,
-          textInputType: TextInputType.number,
+          textInputType: textInputType,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter a valid code';

@@ -50,6 +50,7 @@ class ForgetPasswordScreen extends StatelessWidget {
             ),
             verticalSpace(50),
             CustomTextFormFiled(
+              textInputType: TextInputType.emailAddress,
               titel: "Email..",
               prefixIcon: Icon(
                 Icons.email_outlined,
