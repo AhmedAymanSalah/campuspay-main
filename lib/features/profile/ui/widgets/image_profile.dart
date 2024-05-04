@@ -2,6 +2,9 @@ import 'package:campuspay/core/helpers/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/theme/colors.dart';
+import '../../../../core/widgets/custom_text_widget.dart';
+
 class ImageProfile extends StatelessWidget {
   const ImageProfile({super.key});
 
@@ -17,17 +20,13 @@ class ImageProfile extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(vertical: 24.h),
           child: TextButton(
+            autofocus: true,
             onPressed: () {},
-            child: Text(
-              'Change Picture',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: const Color(0xFF3784FA),
-                fontSize: 16.h,
-                fontFamily: 'Alexandria',
-                fontWeight: FontWeight.w400,
-                height: 0.09.h,
-              ),
+            child: const CustomTextWidget(
+              text: "Change Picture",
+              color: ColorsManager.mainBlue,
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
             ),
           ),
         ),

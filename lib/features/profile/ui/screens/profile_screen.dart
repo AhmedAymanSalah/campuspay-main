@@ -1,8 +1,9 @@
-import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
-import 'package:campuspay/core/routes/routes.dart';
+import 'package:campuspay/core/theme/colors.dart';
+import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:campuspay/features/profile/ui/widgets/info_list_tile_user.dart';
 import 'package:campuspay/features/profile/ui/widgets/list_service_profile.dart';
+import 'package:campuspay/features/profile/ui/widgets/log_out_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,54 +15,21 @@ class ProfileScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 80.h),
+          padding: EdgeInsets.symmetric(vertical: 80.h, horizontal: 25.h),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Profile',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: const Color(0xFF111827),
-                      fontSize: 20.sp,
-                      fontFamily: 'Alexandria',
-                      fontWeight: FontWeight.w700,
-                      height: 0.07,
-                    ),
-                  ),
-                ],
+              const CustomTextWidget(
+                text: "Profile",
+                color: ColorsManager.darkBlue,
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
               ),
               verticalSpace(22.h),
               const InfoListTileUser(),
               verticalSpace(16.h),
               const ListItemsAllServices(),
-              verticalSpace(24.h),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.h),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        context.navigateToReplacement(Routes.loginScreen);
-                      },
-                      child: const Text(
-                        'Logout',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFFFC6C6B),
-                          fontSize: 16,
-                          fontFamily: 'Alexandria',
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 0.30,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              verticalSpace(100.h),
+              const LogOut(),
             ],
           ),
         ),

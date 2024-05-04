@@ -1,6 +1,9 @@
 import 'package:campuspay/core/helpers/app_images.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/theme/colors.dart';
+import '../../../../core/widgets/custom_text_widget.dart';
+
 class InfoListTileUser extends StatelessWidget {
   const InfoListTileUser({
     super.key,
@@ -20,26 +23,17 @@ class InfoListTileUser extends StatelessWidget {
             Assets.imagesPngStudent,
           ),
         ),
-        title: Text(
-          'Abdullah Khaled',
-          style: TextStyle(
-            color: Color(0xFF111827),
-            fontSize: 16,
-            fontFamily: 'Alexandria',
-            fontWeight: FontWeight.w700,
-            height: 0.09,
-            letterSpacing: 0.30,
-          ),
+        title: CustomTextWidget(
+          text: "Ahmed Ayman",
+          color: ColorsManager.gray,
+          fontWeight: FontWeight.bold,
+          fontSize: 14,
         ),
-        subtitle: Text(
-          'ak***@fayoum.edu.eg',
-          style: TextStyle(
-            color: Color(0xFF9CA3AF),
-            fontSize: 14,
-            fontFamily: 'Alexandria',
-            fontWeight: FontWeight.w400,
-            height: 0.10,
-          ),
+        subtitle: CustomTextWidget(
+          text: "aa****@fayoum.edu.eg",
+          color: ColorsManager.mainBlue,
+          fontWeight: FontWeight.bold,
+          fontSize: 14,
         ),
       ),
     );
