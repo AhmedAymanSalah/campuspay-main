@@ -28,7 +28,7 @@ class SignUpCubit extends Cubit<SignUpStates>
     required String name,
     required String ssn,
     required String password,
-    required String confirmPassword,
+    required String confirmPassword
 }){
     emit(SignUpLoadingStates());
     ApiService.postData(

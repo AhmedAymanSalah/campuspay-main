@@ -34,4 +34,5 @@ class VerificationErrorStates extends SignUpStates{
   final String error;
 
   VerificationErrorStates(this.error);
+
 }
