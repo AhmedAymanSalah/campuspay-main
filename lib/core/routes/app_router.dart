@@ -11,7 +11,6 @@ import 'package:campuspay/features/transfer_money/screens/transfer_success.dart'
 import '../../features/forgetpassword/screens/forget_password_screen.dart';
 import '../../features/forgetpassword/screens/new_password.dart';
 import '../../features/forgetpassword/screens/password_changed_screen.dart';
-import '../../features/forgetpassword/screens/verification_screen.dart';
 import '../../features/home/ui/screen/recent_transaction_screen.dart';
 import '../../features/status/ui/screens/top_spending_screen.dart';
 import '../../features/transfer_money/screens/transfer_money_Screen.dart';
@@ -41,23 +40,6 @@ class AppRouter {
       case Routes.attentionPage:
         // Return a MaterialPageRoute for the AttentionScreen route.
         return MaterialPageRoute(builder: (_) => const AttentionScreen());
-
-      // case Routes.signUpScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (context) => getIt<SignupCubit>(),
-      //       child: const SignupScreen(),
-      //     ),
-      //   );
-
-      // case Routes.loginScreen:
-      //   // Return a MaterialPageRoute for the LoginScreen route.
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (context) => getIt<LoginCubit>(),
-      //       child: const LoginScreen(),
-      //     ),
-      //   );
 
       case Routes.homeScreen:
         // Return a MaterialPageRoute for the HomeScreen route.

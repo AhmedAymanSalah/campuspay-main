@@ -36,7 +36,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         if (state is ForgetPasswordSuccessStates) {
           showToast(
             text: state.forgetPasswordModel.massage!,
-            color: Colors.green,
+            color: Colors.green
           );
           MaterialPageRoute(
               builder: (context) => const VerificationScreenForgetPassword());
