@@ -41,23 +41,6 @@ class AppRouter {
         // Return a MaterialPageRoute for the AttentionScreen route.
         return MaterialPageRoute(builder: (_) => const AttentionScreen());
 
-      // case Routes.signUpScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (context) => getIt<SignupCubit>(),
-      //       child: const SignupScreen(),
-      //     ),
-      //   );
-
-      // case Routes.loginScreen:
-      //   // Return a MaterialPageRoute for the LoginScreen route.
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (context) => getIt<LoginCubit>(),
-      //       child: const LoginScreen(),
-      //     ),
-      //   );
-
       case Routes.homeScreen:
         // Return a MaterialPageRoute for the HomeScreen route.
         return MaterialPageRoute(
