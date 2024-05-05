@@ -12,9 +12,6 @@ class Routes {
 
   static const String passwordGhangeedScreen = '/passwordGhangeedScreen';
 
-  static const String verificationScreen = '/verificationScreen';
-
-
   static const String bottomNavBar = '/bottomNavBar';
 
   static const String homeScreen = '/homeScreen';

@@ -77,9 +77,7 @@ class AppRouter {
       case Routes.forgetPasswordScreen:
         // Return a MaterialPageRoute for the MyAccountScreen route.
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
-      case Routes.verificationScreen:
-        // Return a MaterialPageRoute for the MyAccountScreen route.
-        return MaterialPageRoute(builder: (_) => const VerificationScreen());
+
       case Routes.newPasswordScreen:
         // Return a MaterialPageRoute for the MyAccountScreen route.
         return MaterialPageRoute(builder: (_) => const NewPasswordScreen());

@@ -3,19 +3,14 @@ import 'package:flutter/material.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 
-class SignupForm extends StatefulWidget {
-  const SignupForm({super.key});
-
-  @override
-  State<SignupForm> createState() => _SignupFormState();
-}
-
-class _SignupFormState extends State<SignupForm> {
-  var nameController=TextEditingController();
-  var phoneController=TextEditingController();
-  var emailController=TextEditingController();
-  var passwordController=TextEditingController();
-  var passwordConfirmationController=TextEditingController();
+class SignupForm extends StatelessWidget {
+  const SignupForm({super.key, this.nameController, this.phoneController, this.emailController, this.passwordController, this.passwordConfirmationController, this.cubit});
+  final nameController;
+  final phoneController;
+  final emailController;
+  final passwordController;
+  final passwordConfirmationController;
+  final cubit;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +25,7 @@ class _SignupFormState extends State<SignupForm> {
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter a valid name';
+              return 'Please enter name';
             }
           },
           controller: nameController,
@@ -43,7 +38,11 @@ class _SignupFormState extends State<SignupForm> {
             size: 22,
           ),
           hintText: 'ID number',
-          validator: (p0) {},
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter name';
+            }
+          },
           controller: phoneController,
         ),
         verticalSpace(18),
@@ -54,7 +53,11 @@ class _SignupFormState extends State<SignupForm> {
             Icons.email_outlined,
             size: 22,
           ),
-          validator: (value) {},
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter name';
+            }
+          },
           controller: emailController,
         ),
         verticalSpace(18),
@@ -62,20 +65,22 @@ class _SignupFormState extends State<SignupForm> {
           textInputType: TextInputType.visiblePassword,
           controller: passwordController,
           hintText: 'Password',
-          isObscureText: true,
+          isObscureText: cubit.obscureText,
           prefixIcon: const Icon(
             Icons.lock_outline,
             size: 22,
           ),
           suffixIcon: GestureDetector(
-            onTap: () {},
-            child: const Icon(
-              Icons.visibility_off,
+            onTap: () {
+              cubit.changeObscureText();
+            },
+            child:  Icon(
+              cubit.obscureText? Icons.visibility:Icons.visibility_off,
             ),
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter a valid password';
+              return 'Please enter password';
             }
           },
         ),
@@ -84,18 +89,22 @@ class _SignupFormState extends State<SignupForm> {
           textInputType: TextInputType.visiblePassword,
           controller:passwordConfirmationController,
           hintText: 'Password Confirmation',
-          isObscureText: true,
+          isObscureText: cubit.obscureText1,
           prefixIcon: const Icon(
             Icons.lock_outline,
             size: 22,
           ),
           suffixIcon: GestureDetector(
-            onTap: () {},
-            child: const Icon(Icons.visibility,),
+            onTap: () {
+              cubit.changeObscureText1();
+            },
+            child: Icon(
+              cubit.obscureText1? Icons.visibility:Icons.visibility_off,
+            ),
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter a valid password';
+              return 'Please enter password';
             }
           },
         ),
