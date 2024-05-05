@@ -1,5 +1,10 @@
 import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/routes/routes.dart';
+import 'package:campuspay/core/utils/constant.dart';
+import 'package:campuspay/features/home/ui/screen/home_screen.dart';
+import 'package:campuspay/features/login/presentation/manage/cubit/login_cubit.dart';
+import 'package:campuspay/features/login/presentation/manage/cubit/login_states.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/icon_and_Text.dart';
 import 'package:flutter/material.dart';
@@ -12,59 +17,105 @@ import '../widgets/dont_have_account_text.dart';
 import '../widgets/email_and_password.dart';
 import '../widgets/terms_and_conditions_text.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  var emailController = TextEditingController();
+
+  var passwordController = TextEditingController();
+  var formKey = GlobalKey<FormState>();
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey.shade200,
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-          child: SingleChildScrollView(
-            child: Center(
-              child: Column(
-                //crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  verticalSpace(20),
-                  const IconAndText(),
-                  verticalSpace(30),
-                  Column(
-                    children: [
-                      const EmailAndPassword(),
-                      verticalSpace(15),
-                      Align(
-                        alignment: AlignmentDirectional.centerEnd,
-                        child: GestureDetector(
-                          onTap: () {
-                            context.navigateTo(Routes.forgetPasswordScreen);
-                          },
-                          child: CustomTextWidget(
-                            text: "Forget Password?",
-                            color: Colors.grey.shade600,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13.sp,
-                          ),
+    return BlocConsumer<LoginCubit, LoginStates>(
+      listener: (BuildContext context, state) {
+        if (state is LoginSuccessStates) {
+          showToast(
+            text: state.loginModel.massage!,
+            color: Colors.green,
+          );
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomeScreen()));
+            }
+        if(state is LoginErrorStates){
+          showToast(
+            text: 'Invalid email or password combination. Please check your credentials and try again.',
+            color: Colors.red,
+          );
+        }
+      },
+      builder: (BuildContext context, Object? state) {
+        var cubit = LoginCubit().get(context);
+        return Form(
+          key: formKey,
+          child: Scaffold(
+            backgroundColor: Colors.grey.shade200,
+            body: SafeArea(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+                child: SingleChildScrollView(
+                  child: Center(
+                    child: Column(
+                      //crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        verticalSpace(20),
+                        const IconAndText(),
+                        verticalSpace(30),
+                        Column(
+                          children: [
+                            EmailAndPassword(
+                              cubit: cubit,
+                              passwordController: passwordController,
+                              emailController: emailController,
+                            ),
+                            verticalSpace(15),
+                            Align(
+                              alignment: AlignmentDirectional.centerEnd,
+                              child: GestureDetector(
+                                onTap: () {
+                                  context
+                                      .navigateTo(Routes.forgetPasswordScreen);
+                                },
+                                child: CustomTextWidget(
+                                  text: "Forget Password?",
+                                  color: Colors.grey.shade600,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 13.sp,
+                                ),
+                              ),
+                            ),
+                            verticalSpace(25),
+                            AppTextButton(
+                              text: "Login",
+                              onPressed: () {
+                                if (formKey.currentState!.validate()) {
+                                  cubit.userLogin(
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                  );
+                                }
+                              },
+                            ),
+                            verticalSpace(14),
+                            const TermsAndConditionsText(),
+                            verticalSpace(20),
+                            const DontHaveAccountText(),
+                          ],
                         ),
-                      ),
-                      verticalSpace(25),
-                      AppTextButton(
-                        text: "Login",
-                        onPressed: () {},
-                      ),
-                      verticalSpace(14),
-                      const TermsAndConditionsText(),
-                      verticalSpace(20),
-                      const DontHaveAccountText(),
-                    ],
+                      ],
+                    ),
                   ),
-                ],
+                ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

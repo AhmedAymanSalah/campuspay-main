@@ -5,16 +5,17 @@ import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
 
 class EmailAndPassword extends StatefulWidget {
-  const EmailAndPassword({super.key});
+  const EmailAndPassword({super.key, this.cubit, this.emailController, this.passwordController});
 
+  final cubit;
+  final emailController;
+  final passwordController;
   @override
   State<EmailAndPassword> createState() => _EmailAndPasswordState();
 }
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
-  var emailController=TextEditingController();
 
-  var passwordController=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,26 +28,34 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             size: 20.sp,
           ),
           hintText: 'University Email',
-          validator: (value) {},
-          controller: emailController,
+          validator: (value) {
+            if(value!.isEmpty){
+              return 'Enter your Email';
+            }
+          },
+          controller: widget.emailController,
         ),
         verticalSpace(18),
         AppTextFormField(
           textInputType: TextInputType.visiblePassword,
-          controller: passwordController,
+          controller: widget.passwordController,
           prefixIcon: Icon(
             Icons.lock_outline,
             size: 20.sp,
           ),
           hintText: 'Password',
-          isObscureText: true,
+          isObscureText: widget.cubit.obscureText,
           suffixIcon: GestureDetector(
-            onTap: () {},
-            child: Icon(Icons.visibility,),
+            onTap: () {
+              widget.cubit.changeObscureText();
+            },
+            child: Icon(
+            widget.cubit.obscureText?  Icons.visibility :Icons.visibility_off,
+            ),
           ),
           validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Please enter a valid password';
+            if (value!.isEmpty) {
+              return 'Please enter password';
             }
           },
         ),

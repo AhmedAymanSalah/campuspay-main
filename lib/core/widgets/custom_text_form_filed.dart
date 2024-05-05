@@ -41,7 +41,6 @@ class CustomTextFormFiled extends StatelessWidget {
         ),
         verticalSpace(8),
         AppTextFormField(
-
           controller: controller ,
           backGroundColorHint: Colors.white,
           isObscureText: isObscureText,
