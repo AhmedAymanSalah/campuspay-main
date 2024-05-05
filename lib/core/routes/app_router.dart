@@ -11,7 +11,6 @@ import 'package:campuspay/features/transfer_money/screens/transfer_success.dart'
 import '../../features/forgetpassword/screens/forget_password_screen.dart';
 import '../../features/forgetpassword/screens/new_password.dart';
 import '../../features/forgetpassword/screens/password_changed_screen.dart';
-import '../../features/forgetpassword/screens/verification_screen.dart';
 import '../../features/home/ui/screen/recent_transaction_screen.dart';
 import '../../features/status/ui/screens/top_spending_screen.dart';
 import '../../features/transfer_money/screens/transfer_money_Screen.dart';
