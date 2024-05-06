@@ -1,3 +1,4 @@
+import 'package:campuspay/core/errors/failure.dart';
 import 'package:campuspay/core/utils/api_service.dart';
 import 'package:campuspay/features/forgetpassword/date/model/forget_password_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +34,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
     emit(ForgetPasswordLoadingStates());
     ApiService.postData(
       url: 'Authentcation/ForgetPassword',
-      data: {
+      query: {
         'email':email,
       },
     ).then((value){
