@@ -2,7 +2,6 @@
 
 import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/features/attention/ui/widget/text1_2.dart';
-import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,10 +10,7 @@ import 'package:campuspay/core/theme/colors.dart';
 import '../../../core/routes/routes.dart';
 import '../../../core/widgets/app_button.dart';
 import '../../../core/widgets/custom_text_widget.dart';
-import '../../../moderator/features/home/ui/screens/moderator_botton_nav_bar.dart';
-import '../../../moderator/features/request_data/ui/screens/request_data.dart';
-import '../../../moderator/request_info/screens/request_info.dart';
-import '../../home/ui/screen/bottom_nav_bar.dart';
+
 
 class AttentionScreen extends StatelessWidget {
   const AttentionScreen({super.key});

@@ -1,4 +1,3 @@
-import 'package:campuspay/core/errors/failure.dart';
 import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_cubit.dart';
 import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
