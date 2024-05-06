@@ -1,8 +1,12 @@
+import 'package:campuspay/core/errors/error_model.dart';
+import 'package:campuspay/core/errors/failure.dart';
 import 'package:campuspay/core/utils/api_service.dart';
-import 'package:campuspay/features/forgetpassword/date/model/forget_password_model.dart';
 import 'package:campuspay/features/login/data/model/login_model.dart';
 import 'package:campuspay/features/login/presentation/manage/cubit/login_states.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../core/utils/components.dart';
 
 class LoginCubit extends Cubit<LoginStates>
 {
@@ -20,8 +24,10 @@ class LoginCubit extends Cubit<LoginStates>
   void userLogin({
     required String email,
     required String password,
+    required context,
 }){
     emit(LoginLoadingStates());
+    buildShowLoading(context);
     ApiService.postData(
       url: 'Authentcation/LogIn',
       data: {
@@ -34,8 +40,10 @@ class LoginCubit extends Cubit<LoginStates>
       print(loginModel.token);
       emit(LoginSuccessStates(loginModel));
     }).catchError((error){
-      print(error.toString());
+
+     // print(error.toString());
       emit(LoginErrorStates(error.toString()));
+      Navigator.pop(context);
     });
   }
 

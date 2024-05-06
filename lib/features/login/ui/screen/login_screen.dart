@@ -6,6 +6,7 @@ import 'package:campuspay/features/login/presentation/manage/cubit/login_cubit.d
 import 'package:campuspay/features/login/presentation/manage/cubit/login_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/utils/components.dart';
 import '../widgets/icon_and_Text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return BlocConsumer<LoginCubit, LoginStates>(
       listener: (BuildContext context, state) {
         if (state is LoginSuccessStates) {
+          buildShowLoading(context);
           showToast(
             text: state.loginModel.massage!,
             color: Colors.green,
@@ -43,8 +45,9 @@ class _LoginScreenState extends State<LoginScreen> {
               MaterialPageRoute(builder: (context) => const HomeScreen()));
             }
         if(state is LoginErrorStates){
+         // buildShowLoading(context);
           showToast(
-            text: 'Invalid email or password combination. Please check your credentials and try again.',
+            text: state.error,
             color: Colors.red,
           );
         }
@@ -96,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 if (formKey.currentState!.validate()) {
                                   cubit.userLogin(
                                     email: emailController.text,
-                                    password: passwordController.text,
+                                    password: passwordController.text, context: context,
                                   );
                                 }
                               },

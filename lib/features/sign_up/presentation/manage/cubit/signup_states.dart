@@ -6,7 +6,10 @@ abstract class SignUpStates{}
 class SignUpInitialStates extends SignUpStates{}
 
 class SignUpChangeObscureTextStates extends SignUpStates{}
+
 class SignUpChangeObscureText1States extends SignUpStates{}
+
+class SignUpRadioListTitleStates extends SignUpStates{}
 
 class SignUpSuccessStates extends SignUpStates{
   final SignUpModel signUpModel;
@@ -20,6 +23,19 @@ class SignUpErrorStates extends SignUpStates{
   final String error;
 
   SignUpErrorStates(this.error);
+}
+class SignUpDonorSuccessStates extends SignUpStates{
+  final SignUpModel signUpModel;
+
+  SignUpDonorSuccessStates({required this.signUpModel});
+}
+
+class SignUpDonorLoadingStates extends SignUpStates{}
+
+class SignUpDonorErrorStates extends SignUpStates{
+  final String error;
+
+  SignUpDonorErrorStates(this.error);
 }
 
 class VerificationSuccessStates extends SignUpStates{

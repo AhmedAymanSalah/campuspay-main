@@ -1,18 +1,19 @@
-import 'package:campuspay/core/errors/failure.dart';
 import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_cubit.dart';
 import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_states.dart';
+import 'package:campuspay/features/sign_up/ui/screens/custom_buttom.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/utils/components.dart';
 import '../../../../core/utils/constant.dart';
 import '../widgets/icon_and_Text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/spacing.dart';
-import '../../../../core/widgets/app_button.dart';
 import '../../../login/ui/widgets/terms_and_conditions_text.dart';
 import '../widgets/already_have_account_text.dart';
 import '../widgets/sign_up_form.dart';
+import 'radio_list.dart';
 import 'verification_screen_signup.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -34,21 +35,38 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpCubit, SignUpStates>(
       listener: (BuildContext context, state) {
-        if (state is SignUpSuccessStates) {
-          showToast(
+        if (state is SignUpSuccessStates || state is SignUpDonorSuccessStates) {
+          buildShowLoading(context);
+          if (state is SignUpSuccessStates) {
+            showToast(
             text: state.signUpModel.massage!,
             color: Colors.green,
           );
+          }
+          if(state is SignUpDonorSuccessStates){
+            showToast(
+              text: state.signUpModel.massage!,
+              color: Colors.green,
+            );
+          }
           Navigator.push(
               context,
               MaterialPageRoute(
                   builder: (context) => const VerificationScreenSignUp()));
         }
-        if (state is SignUpErrorStates) {
-          showToast(
+        if (state is SignUpErrorStates || state is SignUpDonorErrorStates) {
+          if (state is SignUpErrorStates) {
+            showToast(
             text: state.error,
             color: Colors.red,
           );
+          }
+          if(state is SignUpDonorErrorStates){
+            showToast(
+              text: state.error,
+              color: Colors.red,
+            );
+          }
         }
       },
       builder: (BuildContext context, Object? state) {
@@ -82,29 +100,15 @@ class _SignupScreenState extends State<SignupScreen> {
                                     passwordConfirmationController,
                                 cubit: cubit,
                               ),
-                              verticalSpace(30),
-                              AppTextButton(
-                                text: "Create Account",
-                                onPressed: () {
-                                  if (formKey.currentState!.validate()) {
-                                    if (passwordController.text ==
-                                        passwordConfirmationController.text) {
-                                      cubit.createUser(
-                                        email: emailController.text,
-                                        name: nameController.text,
-                                        ssn: phoneController.text,
-                                        password: passwordController.text,
-                                        confirmPassword:
-                                            passwordConfirmationController.text,
-                                      );
-                                    } else {
-                                      showToast(
-                                        text: 'Password Mismatch',
-                                        color: Colors.red,
-                                      );
-                                    }
-                                  }
-                                },
+                              CustomRadioListTitle(cubit: cubit,),
+                              CustomButton(
+                                cubit: cubit,
+                                passwordConfirmationController: passwordConfirmationController,
+                                phoneController: phoneController,
+                                nameController: nameController,
+                                passwordController: passwordController,
+                                emailController: emailController,
+                                formKey: formKey,
                               ),
                               verticalSpace(14),
                               const TermsAndConditionsText(),
