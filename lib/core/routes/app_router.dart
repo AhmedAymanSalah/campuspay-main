@@ -16,6 +16,13 @@ import '../../features/home/ui/screen/recent_transaction_screen.dart';
 import '../../features/status/ui/screens/top_spending_screen.dart';
 import '../../features/transfer_money/screens/transfer_money_Screen.dart';
 import '../../features/visa/screens/cardes_screen.dart';
+import '../../moderator/features/home/logic/moderator_nav_bar_cubit/moderator_nav_bar_cubit.dart';
+import '../../moderator/features/home/ui/screens/moderator_botton_nav_bar.dart';
+import '../../moderator/features/home/ui/screens/moderator_home_Screen.dart';
+import '../../moderator/features/request_data/ui/screens/request_data.dart';
+import '../../moderator/request_info/screens/accept_screen.dart';
+import '../../moderator/request_info/screens/all_info_screen.dart';
+import '../../moderator/request_info/screens/request_refused.dart';
 import 'routes.dart';
 import '../../features/attention/ui/attention_Screen.dart';
 import '../../features/home/ui/screen/home_screen.dart';
@@ -85,7 +92,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const NewPasswordScreen());
       case Routes.passwordGhangeedScreen:
         // Return a MaterialPageRoute for the MyAccountScreen route.
-        return MaterialPageRoute(builder: (_) => const PasswordGhangeedScreen());
+        return MaterialPageRoute(
+            builder: (_) => const PasswordGhangeedScreen());
       case Routes.myAccountScreen:
         // Return a MaterialPageRoute for the MyAccountScreen route.
         return MaterialPageRoute(builder: (_) => const MyAccountScreen());
@@ -114,10 +122,35 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const TransferSuccess());
       case Routes.recentTransactionScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
-        return MaterialPageRoute(builder: (_) => const RecentTransactionScreen());
+        return MaterialPageRoute(
+            builder: (_) => const RecentTransactionScreen());
       case Routes.topSpendingScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const TopSpendingScreen());
+      case Routes.moderatorHomeScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const ModeratorHomeScreen());
+
+      case Routes.moderatorBottomNavBar:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => ModeratorBottomNavBarCubit(),
+                  child: const ModeratorBottomNavBar(),
+                ));
+
+      case Routes.allInfoScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const AllInfoScreen());
+      case Routes.requestAcceptScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const RequestAcceptScreen());
+      case Routes.requestRefusedScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const RequestRefusedScreen());
+      case Routes.requestDataScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const RequestDataScreen());
     }
     return null;
   }

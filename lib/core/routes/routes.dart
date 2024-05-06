@@ -5,7 +5,6 @@ class Routes {
 
   static const String attentionPage = '/attentionPage';
 
-
   static const String forgetPasswordScreen = '/forgetPasswordScreen';
 
   static const String newPasswordScreen = '/newPasswordScreen';
@@ -13,7 +12,6 @@ class Routes {
   static const String passwordGhangeedScreen = '/passwordGhangeedScreen';
 
   static const String verificationScreen = '/verificationScreen';
-
 
   static const String bottomNavBar = '/bottomNavBar';
 
@@ -44,4 +42,19 @@ class Routes {
   static const String recentTransactionScreen = '/recentTransactionScreen';
 
   static const String topSpendingScreen = '/topSpendingScreen';
+
+  static const String moderatorHomeScreen = '/moderatorHomeScreen';
+
+  //------------------------------------------------------------//
+
+  static const String moderatorBottomNavBar = '/moderatorBottomNavBar';
+
+  static const String allInfoScreen = '/allInfoScreen';
+
+  static const String requestAcceptScreen = '/requestAcceptScreen';
+
+  static const String requestRefusedScreen = '/requestRefusedScreen';
+
+    static const String requestDataScreen = '/requestDataScreen';
+
 }

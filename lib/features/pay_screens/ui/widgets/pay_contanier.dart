@@ -6,11 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 
-class CustomContainer extends StatelessWidget {
+class PayContainer extends StatelessWidget {
   final String titel;
   final String text;
   final String? assetImagePath;
-  const CustomContainer({
+  const PayContainer({
     super.key,
     required this.titel,
     required this.text,

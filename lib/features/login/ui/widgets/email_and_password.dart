@@ -42,7 +42,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           isObscureText: true,
           suffixIcon: GestureDetector(
             onTap: () {},
-            child: Icon(Icons.visibility,),
+            child: const Icon(Icons.visibility,),
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {

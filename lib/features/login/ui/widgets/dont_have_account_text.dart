@@ -1,8 +1,6 @@
 import 'package:campuspay/features/sign_up/ui/screens/sign_up_screen.dart';
 
-import '../../../../core/helpers/extentions.dart';
 import '../../../../core/helpers/spacing.dart';
-import '../../../../core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

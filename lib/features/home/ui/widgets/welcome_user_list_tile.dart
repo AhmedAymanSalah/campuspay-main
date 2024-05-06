@@ -11,26 +11,28 @@ class WelcomeUserListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-        title: CustomTextWidget(
-            text: "Good morning,", fontSize: 12.sp, color: ColorsManager.gray),
-        subtitle: CustomTextWidget(
-          text: "Abdullah Khaled\n",
-          fontSize: 16.sp,
-          fontWeight: FontWeight.bold,
+      title: CustomTextWidget(
+          text: "Good morning,", fontSize: 12.sp, color: ColorsManager.gray),
+      subtitle: CustomTextWidget(
+        text: "Ahmed Ayman\n",
+        fontSize: 16.sp,
+        fontWeight: FontWeight.bold,
+        color: ColorsManager.darkBlue,
+      ),
+      trailing: Container(
+        width: 48.h,
+        height: 48.w,
+        decoration: const ShapeDecoration(
+          color: Colors.white,
+          shape: OvalBorder(
+            side: BorderSide(width: 1, color: Color(0xFFE5E7EB)),
+          ),
         ),
-        trailing: Container(
-          width: 48.h,
-          height: 48.w,
-          decoration: const ShapeDecoration(
-            color: Colors.white,
-            shape: OvalBorder(
-              side: BorderSide(width: 1, color: Color(0xFFE5E7EB)),
-            ),
-          ),
-          child: const Icon(
-            Icons.watch_later_outlined,
-            color: Colors.black,
-          ),
-        ));
+        child: const Icon(
+          Icons.watch_later_outlined,
+          color: ColorsManager.darkBlue,
+        ),
+      ),
+    );
   }
 }
