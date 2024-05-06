@@ -1,15 +1,15 @@
 class ResetPasswordModel {
-  String? error;
+  String? massage;
 
-  ResetPasswordModel({this.error, });
+  ResetPasswordModel({this.massage, });
 
   ResetPasswordModel.fromJson(Map<String, dynamic> json) {
-    error = json['error'];
+    massage = json['massage'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['error'] = this.error;
+    data['massage'] = this.massage;
     return data;
   }
 }

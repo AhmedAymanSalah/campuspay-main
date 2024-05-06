@@ -1,8 +1,9 @@
-import 'package:campuspay/core/errors/failure.dart';
 import 'package:campuspay/core/utils/api_service.dart';
 import 'package:campuspay/features/forgetpassword/date/model/forget_password_model.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/components.dart';
 import '../../../../sign_up/data/model/verification_model.dart';
 import '../../../date/model/reset_password_model.dart';
 import 'forget_password_states.dart';
@@ -30,8 +31,10 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
   late ForgetPasswordModel forgetPasswordModel;
   void forgetPassword({
     required String email,
+    required context,
   }){
     emit(ForgetPasswordLoadingStates());
+    buildShowLoading(context);
     ApiService.postData(
       url: 'Authentcation/ForgetPassword',
       query: {
@@ -44,6 +47,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
     }).catchError((error){
       print(error.toString());
       emit(ForgetPasswordErrorStates(error.toString()));
+      Navigator.pop(context);
     });
   }
 
@@ -51,13 +55,15 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
   void verificationCode({
     required String verificationCode,
     required String userId,
+    required context,
   }){
     emit(VerificationForgetPasswordLoadingStates());
+    buildShowLoading(context);
     ApiService.getData(
-      url: 'Authentcation/SendVerificationCode',
+      url: 'Authentcation/VerificationCode',
       query: {
         'verificationCode':verificationCode,
-        'userId':userId,
+        'userId':userId
       },
     ).then((value){
       verificationModel=VerificationModel.fromJson(value.data);
@@ -65,6 +71,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
     }).catchError((error){
       print(error.toString());
       emit(VerificationForgetPasswordErrorStates(error.toString()));
+      Navigator.pop(context);
     });
   }
 
@@ -72,8 +79,10 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
   void resetPassword({
     required String userId,
     required String newPassword,
+    required context,
   }){
     emit(ResetPasswordLoadingStates());
+    buildShowLoading(context);
     ApiService.postData(
       url: 'Authentcation/ResetPassword',
       query: {
@@ -82,11 +91,12 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
       },
     ).then((value){
       resetPasswordModel=ResetPasswordModel.fromJson(value.data);
-      print(resetPasswordModel.error);
+      print(resetPasswordModel.massage);
       emit(ResetPasswordSuccessStates(resetPasswordModel: resetPasswordModel));
     }).catchError((error){
       print(error.toString());
       emit(ResetPasswordErrorStates(error.toString()));
+      Navigator.pop(context);
     });
   }
 }

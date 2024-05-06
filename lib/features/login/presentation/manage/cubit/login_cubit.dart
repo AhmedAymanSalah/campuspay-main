@@ -1,5 +1,3 @@
-import 'package:campuspay/core/errors/error_model.dart';
-import 'package:campuspay/core/errors/failure.dart';
 import 'package:campuspay/core/utils/api_service.dart';
 import 'package:campuspay/features/login/data/model/login_model.dart';
 import 'package:campuspay/features/login/presentation/manage/cubit/login_states.dart';
@@ -30,12 +28,13 @@ class LoginCubit extends Cubit<LoginStates>
     buildShowLoading(context);
     ApiService.postData(
       url: 'Authentcation/LogIn',
-      data: {
+      query: {
         'email':email,
         'password':password,
       },
     ).then((value){
       loginModel=LoginModel.fromJson(value.data);
+      print(loginModel.status);
       print(loginModel.massage);
       print(loginModel.token);
       emit(LoginSuccessStates(loginModel));
@@ -45,6 +44,7 @@ class LoginCubit extends Cubit<LoginStates>
       emit(LoginErrorStates(error.toString()));
       Navigator.pop(context);
     });
+
   }
 
 }

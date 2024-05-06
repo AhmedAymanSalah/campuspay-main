@@ -11,6 +11,7 @@ import '../../../../core/theme/colors.dart';
 import '../../../../core/utils/constant.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
+import '../../../core/utils/components.dart';
 import 'new_password.dart';
 
 class VerificationScreenForgetPassword extends StatefulWidget {
@@ -29,6 +30,7 @@ class _VerificationScreenState extends State<VerificationScreenForgetPassword> {
     return BlocConsumer<ForgetPasswordCubit, ForgetPasswordStates>(
       listener: (BuildContext context, state) {
         if (state is VerificationForgetPasswordSuccessStates) {
+          buildShowLoading(context);
           showToast(
             text: state.verificationModel.massage!,
             color: Colors.green,
@@ -119,6 +121,7 @@ class _VerificationScreenState extends State<VerificationScreenForgetPassword> {
                           cubit.verificationCode(
                             verificationCode: controller.text,
                             userId: cubit.forgetPasswordModel.userId!,
+                            context: context,
                           );
                           print(controller.text);
                           //context.navigateTo(Routes.newPasswordScreen);
