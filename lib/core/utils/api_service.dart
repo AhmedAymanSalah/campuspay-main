@@ -17,6 +17,7 @@ class ApiService
   static Future<Response> getData({
     required String url,
     dynamic query,
+    dynamic data,
     String? token,
   })async
   {
@@ -27,6 +28,7 @@ class ApiService
     return await dio.get(
       url,
       queryParameters:query,
+      data: data,
     );
   }
 

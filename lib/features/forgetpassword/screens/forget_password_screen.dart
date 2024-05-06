@@ -1,4 +1,3 @@
-
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/features/forgetpassword/screens/verification_screen_forget_password.dart';
@@ -9,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:campuspay/core/widgets/app_button.dart';
 
 import '../../../core/helpers/spacing.dart';
+import '../../../core/utils/components.dart';
 import '../../../core/widgets/custom_text_form_filed.dart';
 import '../../../core/widgets/custom_text_widget.dart';
 import '../presentation/cubit/forget_password_cubit/forget_password_cubit.dart';
@@ -32,12 +32,16 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
     return BlocConsumer<ForgetPasswordCubit, ForgetPasswordStates>(
       listener: (BuildContext context, state) {
         if (state is ForgetPasswordSuccessStates) {
+          buildShowLoading(context);
           showToast(
             text: state.forgetPasswordModel.massage!,
-            color: Colors.green
+            color: Colors.green,
           );
-          MaterialPageRoute(
-              builder: (context) => const VerificationScreenForgetPassword());
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const VerificationScreenForgetPassword()),
+          );
         }
         if (state is ForgetPasswordErrorStates) {
           showToast(
@@ -100,7 +104,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           cubit.forgetPassword(
-                              email: emailResetController.text);
+                            email: emailResetController.text,
+                            context: context,
+                          );
                         }
                       },
                     ),
