@@ -59,17 +59,18 @@ class PayServicesSceen extends StatelessWidget {
             ),
             const Spacer(),
             AppTextButton(
-                text: "Go",
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PayScreen(
-                        service: service,
-                      ),
+              text: "Go",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PayScreen(
+                      service: service,
                     ),
-                  );
-                })
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),

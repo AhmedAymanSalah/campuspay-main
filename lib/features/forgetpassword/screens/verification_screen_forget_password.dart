@@ -1,8 +1,6 @@
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:campuspay/features/forgetpassword/presentation/cubit/forget_password_cubit/forget_password_cubit.dart';
 import 'package:campuspay/features/forgetpassword/presentation/cubit/forget_password_cubit/forget_password_states.dart';
-import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_cubit.dart';
-import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

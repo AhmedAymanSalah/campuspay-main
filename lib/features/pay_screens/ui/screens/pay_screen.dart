@@ -55,13 +55,13 @@ class PayScreen extends StatelessWidget {
                 ],
               ),
               verticalSpace(40),
-              const CustomContainer(
+              const PayContainer(
                 titel: "PROVIDER",
                 assetImagePath: "assets/images/fayoum_logo.png",
                 text: "Fayoum university ",
               ),
               verticalSpace(30),
-              const CustomContainer(
+              const PayContainer(
                 titel: "identity number",
                 text: "3362049413216549402 ",
               ),
@@ -69,12 +69,12 @@ class PayScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  const CustomContainer(
+                  const PayContainer(
                     titel: "AMOUNT",
                     text: "1355.9 ",
                   ),
                   horizontalSpace(20),
-                  const CustomContainer(
+                  const PayContainer(
                     titel: "FEE / TAxes",
                     text: "0.00 ",
                   )

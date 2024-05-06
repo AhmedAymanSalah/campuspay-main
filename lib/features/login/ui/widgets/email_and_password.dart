@@ -46,12 +46,8 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           hintText: 'Password',
           isObscureText: widget.cubit.obscureText,
           suffixIcon: GestureDetector(
-            onTap: () {
-              widget.cubit.changeObscureText();
-            },
-            child: Icon(
-            widget.cubit.obscureText?  Icons.visibility :Icons.visibility_off,
-            ),
+            onTap: () {},
+            child: Icon(Icons.visibility,),
           ),
           validator: (value) {
             if (value!.isEmpty) {

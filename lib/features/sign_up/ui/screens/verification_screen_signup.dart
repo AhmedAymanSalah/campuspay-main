@@ -1,4 +1,5 @@
-import 'package:campuspay/core/helpers/extentions.dart';
+// ignore_for_file: avoid_print
+
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_cubit.dart';
 import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_states.dart';

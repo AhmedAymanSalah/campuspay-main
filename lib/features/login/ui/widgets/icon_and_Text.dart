@@ -16,7 +16,7 @@ class IconAndText extends StatelessWidget {
         const Icon(
           Icons.lock,
           size: 100,
-          color: ColorsManager.darkGrey,
+          color: ColorsManager.darkBlue,
         ),
         verticalSpace(30),
         // text

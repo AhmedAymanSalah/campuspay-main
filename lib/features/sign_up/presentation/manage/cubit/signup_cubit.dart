@@ -3,7 +3,10 @@ import 'package:campuspay/core/utils/api_service.dart';
 import 'package:campuspay/features/sign_up/data/model/signup_model.dart';
 import 'package:campuspay/features/sign_up/data/model/verification_model.dart';
 import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_states.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../core/utils/components.dart';
 
 class SignUpCubit extends Cubit<SignUpStates>
 {
@@ -22,17 +25,26 @@ class SignUpCubit extends Cubit<SignUpStates>
     emit(SignUpChangeObscureText1States());
   }
 
+  String? type;
+  void changeRadioList(value)
+  {
+    type=value;
+    emit(SignUpRadioListTitleStates());
+  }
+
  late SignUpModel signUpModel;
-  void createUser({
+  void createStudentUser({
     required String email,
     required String name,
     required String ssn,
     required String password,
-    required String confirmPassword
+    required String confirmPassword,
+    required context,
 }){
     emit(SignUpLoadingStates());
+    buildShowLoading(context);
     ApiService.postData(
-      url: 'Authentcation/DonorSignUp',
+      url: 'Authentcation/StudentSignUp',
       query: {
         'Email':email,
         'FullName':name,
@@ -45,8 +57,39 @@ class SignUpCubit extends Cubit<SignUpStates>
       print(signUpModel.massage);
       emit(SignUpSuccessStates(signUpModel: signUpModel));
     }).catchError((error){
-      print(ServerFailure(error.toString()));
       emit(SignUpErrorStates(error.toString()));
+      Navigator.pop(context);
+    });
+  }
+
+
+  late SignUpModel signUpDonorModel;
+  void createDonorUser({
+    required String email,
+    required String name,
+    required String ssn,
+    required String password,
+    required String confirmPassword,
+    required context,
+}){
+    emit(SignUpDonorLoadingStates());
+    buildShowLoading(context);
+    ApiService.postData(
+      url: 'Authentcation/DonorSignUp',
+      query: {
+        'Email':email,
+        'FullName':name,
+        'SSN':ssn,
+        'Password':password,
+        'ConfirmPassword':confirmPassword,
+      },
+    ).then((value){
+      signUpDonorModel=SignUpModel.fromJson(value.data);
+      print(signUpDonorModel.massage);
+      emit(SignUpDonorSuccessStates(signUpModel: signUpDonorModel));
+    }).catchError((error){
+      emit(SignUpDonorErrorStates(error.toString()));
+      Navigator.pop(context);
     });
   }
 

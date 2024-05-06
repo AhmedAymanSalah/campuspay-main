@@ -16,6 +16,7 @@ class CustomTextFormFiled extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final bool? isObscureText;
+  final Color color;
   final TextInputType textInputType;
 
   final TextEditingController? controller;
@@ -26,7 +27,8 @@ class CustomTextFormFiled extends StatelessWidget {
     required this.textInputType,
     this.suffixIcon,
     this.prefixIcon,
-    this.isObscureText, this.controller,
+    this.isObscureText,
+    this.controller,  this.color=ColorsManager.darkBlue,
   });
 
   @override
@@ -41,21 +43,22 @@ class CustomTextFormFiled extends StatelessWidget {
         ),
         verticalSpace(8),
         AppTextFormField(
+
           controller: controller ,
           backGroundColorHint: Colors.white,
           isObscureText: isObscureText,
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: ColorsManager.darkBlue,
+            borderSide:  BorderSide(
+              color: color,
               width: 1.3,
             ),
             borderRadius: BorderRadius.circular(10),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(
-              color: ColorsManager.darkBlue,
+              color: ColorsManager.mainBlue,
               width: 1.3,
             ),
             borderRadius: BorderRadius.circular(10),

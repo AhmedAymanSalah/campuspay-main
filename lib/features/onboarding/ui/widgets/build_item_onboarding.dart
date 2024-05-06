@@ -1,5 +1,4 @@
 import 'package:campuspay/features/login/ui/screen/login_screen.dart';
-import 'package:campuspay/features/login/ui/widgets/email_and_password.dart';
 
 import '../../../../core/helpers/extentions.dart';
 import '../../../../core/helpers/spacing.dart';
