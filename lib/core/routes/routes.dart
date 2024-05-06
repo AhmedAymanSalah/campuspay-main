@@ -22,6 +22,10 @@ class Routes {
 
   static const String doneScreen = '/doneScreen';
 
+  static const String socialRequestScreen = '/socialRequestScreen';
+
+   static const String submetSccessScreen = '/submetSccessScreen';
+
   static const String errorScreen = '/errorScreen';
 
   static const String myAccountScreen = '/myAccountScreen';

@@ -12,6 +12,8 @@ import '../../features/forgetpassword/screens/forget_password_screen.dart';
 import '../../features/forgetpassword/screens/new_password.dart';
 import '../../features/forgetpassword/screens/password_changed_screen.dart';
 import '../../features/home/ui/screen/recent_transaction_screen.dart';
+import '../../features/social_request/ui/screen/social_request_screen.dart';
+import '../../features/social_request/ui/screen/submit_sccessed_screen.dart';
 import '../../features/status/ui/screens/top_spending_screen.dart';
 import '../../features/transfer_money/screens/transfer_money_Screen.dart';
 import '../../features/visa/screens/cardes_screen.dart';
@@ -85,6 +87,12 @@ class AppRouter {
       case Routes.servicesScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const ServicesScreen());
+      case Routes.socialRequestScreen:
+        // Return a MaterialPageRoute for the MyAccountScreen route.
+        return MaterialPageRoute(builder: (_) => const SocialRequestScreen());
+      case Routes.submetSccessScreen:
+        // Return a MaterialPageRoute for the MyAccountScreen route.
+        return MaterialPageRoute(builder: (_) => const SubmitSccessScreen());
       case Routes.doneScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const DoneScreen());

@@ -27,11 +27,13 @@ class ServicesInHomeScreen extends StatelessWidget {
           children: [
             ContainerIconService(
               image: Assets.imagesPaybill,
-              onTap: () {},
+              onTap: () {
+                context.navigateTo(Routes.socialRequestScreen);
+              },
             ),
             verticalSpace(16),
             CustomTextWidget(
-              text: "Pay Bill",
+              text: "social request",
               color: ColorsManager.gray,
               fontSize: 12.sp,
             ),

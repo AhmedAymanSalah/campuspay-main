@@ -1,4 +1,3 @@
-import 'package:campuspay/core/errors/failure.dart';
 import 'package:campuspay/core/utils/api_service.dart';
 import 'package:campuspay/features/sign_up/data/model/signup_model.dart';
 import 'package:campuspay/features/sign_up/data/model/verification_model.dart';
