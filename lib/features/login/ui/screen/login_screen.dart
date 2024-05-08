@@ -36,21 +36,25 @@ class _LoginScreenState extends State<LoginScreen> {
     return BlocConsumer<LoginCubit, LoginStates>(
       listener: (BuildContext context, state) {
         if (state is LoginSuccessStates) {
-          buildShowLoading(context);
-          showToast(
-            text: state.loginModel.massage!,
-            color: Colors.green,
-          );
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomeScreen()));
-            }
-        if(state is LoginErrorStates){
-         // buildShowLoading(context);
-          showToast(
-            text: state.error,
-            color: Colors.red,
-          );
+          if (state.loginModel.status!) {
+            buildShowLoading(context);
+            showToast(
+              text: state.loginModel.massage!,
+              color: Colors.green,
+            );
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()));
+          }else{
+            showToast(
+              text: state.loginModel.massage!,
+              color: Colors.red,
+            );
+          }
         }
+        // if(state is LoginErrorStates){
+        //  // buildShowLoading(context);
+        //
+        // }
       },
       builder: (BuildContext context, Object? state) {
         var cubit = LoginCubit().get(context);

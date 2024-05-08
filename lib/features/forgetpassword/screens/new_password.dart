@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/helpers/spacing.dart';
 import '../../../core/theme/colors.dart';
+import '../../../core/utils/components.dart';
 import '../../../core/widgets/app_button.dart';
 import '../../../core/widgets/custom_text_form_filed.dart';
 import '../../../core/widgets/custom_text_widget.dart';
@@ -31,8 +32,9 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
     return BlocConsumer<ForgetPasswordCubit, ForgetPasswordStates>(
       listener: (BuildContext context, state) {
         if (state is ResetPasswordSuccessStates) {
+          buildShowLoading(context);
           showToast(
-            text: state.resetPasswordModel.error!,
+            text: state.resetPasswordModel.massage!,
             color: Colors.green,
           );
           Navigator.push(
@@ -133,7 +135,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                             confirmPasswordController.text) {
                           cubit.resetPassword(
                             userId: cubit.forgetPasswordModel.userId!,
-                            newPassword: passwordController.text,
+                            newPassword: passwordController.text, context: context,
                           );
                         } else {
                           showToast(
