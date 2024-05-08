@@ -86,10 +86,10 @@ class TransferSuccess extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Positioned(
-                    bottom: 430,
-                    right: 120,
-                    child: Image(
+                  Positioned(
+                    bottom: 430.h,
+                    right: 100.h,
+                    child: const Image(
                       image: AssetImage(Assets.imagesIcon1),
                       fit: BoxFit.cover,
                       width: 130,

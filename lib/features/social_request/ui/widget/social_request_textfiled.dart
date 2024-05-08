@@ -72,7 +72,7 @@ class SocialRequestTextFiled extends StatelessWidget {
         ),
         verticalSpace(20),
         const CustomTextFormFiled(
-          hintText: "آumber..",
+          hintText: "Number..",
           textInputType: TextInputType.number,
           titel: "Num of your family members",
           prefixIcon: Icon(

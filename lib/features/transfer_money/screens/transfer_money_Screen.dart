@@ -36,53 +36,58 @@ class TransferMoney extends StatelessWidget {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(Assets.imagesBackgrond), fit: BoxFit.cover)),
-        child: Padding(
-          padding:
-              EdgeInsets.only(top: 65.h, left: 25.h, bottom: 30.h, right: 25.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const BalanceWidget(),
-              verticalSpace(45),
-              Container(
-                height: 500.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(25)),
-                child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.h),
-                  child: Column(
-                    children: [
-                      const Spacer(),
-                      const CustomTextFormFiled(
-                        textInputType: TextInputType.number,
-                        titel: "Recipient ID",
-                        hintText: "Recipient",
-                      ),
-                      verticalSpace(40),
-                      const CustomTextFormFiled(
-                        textInputType: TextInputType.number,
-                        titel: "Amount",
-                        hintText: "Amount",
-                        suffixIcon: Icon(Icons.attach_money),
-                      ),
-                      //verticalSpace(50),
-                      const Spacer(),
-                      AppTextButton(
-                        text: "Transfer",
-                        onPressed: () {
-                          context.navigateTo(Routes.transferSuccess);
-                        },
-                        buttonColor: ColorsManager.darkBlue,
-                      )
-                    ],
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Padding(
+            padding: EdgeInsets.only(
+                top: 65.h, left: 25.h, bottom: 30.h, right: 25.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const BalanceWidget(),
+                verticalSpace(45),
+                Container(
+                  height: 500.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(25)),
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.h),
+                    child: Column(
+                      children: [
+                        //const Spacer(),
+                        verticalSpace(50),
+                        const CustomTextFormFiled(
+                          textInputType: TextInputType.number,
+                          titel: "Recipient ID",
+                          hintText: "Recipient",
+                        ),
+                        verticalSpace(30),
+                        const CustomTextFormFiled(
+                          textInputType: TextInputType.number,
+                          titel: "Amount",
+                          hintText: "Amount",
+                          suffixIcon: Icon(Icons.attach_money),
+                        ),
+                        //verticalSpace(50),
+                        const Spacer(),
+                        AppTextButton(
+                          text: "Transfer",
+                          onPressed: () {
+                            context.navigateTo(Routes.transferSuccess);
+                          },
+                          buttonColor: ColorsManager.darkBlue,
+                        ),
+                        const Spacer(),
+                      ],
+                    ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),

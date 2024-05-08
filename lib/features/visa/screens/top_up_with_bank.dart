@@ -41,11 +41,12 @@ class TopUpWithBank extends StatelessWidget {
         height: double.infinity.h,
         width: double.infinity.h,
         decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(Assets.imagesBackgrond), fit: BoxFit.cover)),
+          image: DecorationImage(
+              image: AssetImage(Assets.imagesBackgrond), fit: BoxFit.cover),
+        ),
         child: Padding(
           padding: EdgeInsets.only(
-            top: 65.h,
+            top: 100.h,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,18 +62,18 @@ class TopUpWithBank extends StatelessWidget {
                   //height: 500.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25)),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(25),
+                  ),
                   child: Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 25.h, horizontal: 25.h),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 25.h,
+                    ),
+                    child: ListView(
                       children: [
-                        CustomTextWidget(
+                        const CustomTextWidget(
                           text: "Selected bank",
                           color: ColorsManager.darkBlue,
-                          fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
                         ),
                         verticalSpace(10),

@@ -20,15 +20,15 @@ class CustomNumberTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomTextWidget(
+        const CustomTextWidget(
           text: "set Amount..",
           fontWeight: FontWeight.bold,
-          fontSize: 14.sp,
+          //fontSize: 14.sp,
         ),
         verticalSpace(10),
         CustomTextWidget(
           text: "How much would you like to top up?",
-          fontSize: 12.sp,
+          fontSize: 14.sp,
           color: ColorsManager.gray,
         ),
         verticalSpace(20),

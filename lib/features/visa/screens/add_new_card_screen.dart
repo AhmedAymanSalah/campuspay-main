@@ -47,69 +47,75 @@ class AddNewCard extends StatelessWidget {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(Assets.imagesBackgrond), fit: BoxFit.cover)),
-        child: Padding(
-          padding:
-              EdgeInsets.only(top: 65.h, left: 25.h, bottom: 30.h, right: 25.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              //const BalanceWidget(),
-              verticalSpace(45),
-              Container(
-                height: 500.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(25)),
-                child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.h),
-                  child: Column(
-                    children: [
-                      const Spacer(),
-                      CustomTextFormFiled(
-                        textInputType: TextInputType.number,
-                        titel: "Card Number",
-                        hintText: "**** **** **** ****",
-                        controller: cardNumberController,
-                      ),
-                      verticalSpace(40),
-                      CustomTextFormFiled(
-                        textInputType: TextInputType.name,
-                        titel: "Card Holder",
-                        hintText: "Card Holder",
-                        controller: cardHolderController,
-                      ),
-                      verticalSpace(40),
-                      CustomTextFormFiled(
-                        textInputType: TextInputType.name,
-                        titel: "CVV/CVC",
-                        hintText: "CVV/CVC",
-                        controller: cvvController,
-                      ),
-                      //verticalSpace(50),
-                      const Spacer(),
-                      AppTextButton(
-                        text: "Add",
-                        onPressed: () {
-                          // Retrieve input values from text fields
-                          String cardNumber = cardNumberController.text;
-                          String cardHolder = cardHolderController.text;
-                          String cvv = cvvController.text;
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: 65.h,
+              left: 25.h,
+              bottom: 30.h,
+              right: 25.h,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                verticalSpace(100),
+                Container(
+                  height: 500.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(25)),
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.h),
+                    child: Column(
+                      children: [
+                        const Spacer(),
+                        CustomTextFormFiled(
+                          textInputType: TextInputType.number,
+                          titel: "Card Number",
+                          hintText: "**** **** **** ****",
+                          controller: cardNumberController,
+                        ),
+                        verticalSpace(40),
+                        CustomTextFormFiled(
+                          textInputType: TextInputType.name,
+                          titel: "Card Holder",
+                          hintText: "Card Holder",
+                          controller: cardHolderController,
+                        ),
+                        verticalSpace(40),
+                        CustomTextFormFiled(
+                          textInputType: TextInputType.name,
+                          titel: "CVV/CVC",
+                          hintText: "CVV/CVC",
+                          controller: cvvController,
+                        ),
+                        //verticalSpace(50),
+                        const Spacer(),
+                        AppTextButton(
+                          text: "Add",
+                          onPressed: () {
+                            // Retrieve input values from text fields
+                            String cardNumber = cardNumberController.text;
+                            String cardHolder = cardHolderController.text;
+                            String cvv = cvvController.text;
 
-                          // Call the callback function with the card data
-                          onCardAdded(cardNumber, cardHolder, cvv);
-                          // Navigate back to the outer page if needed
-                          Navigator.pop(context);
-                        },
-                        buttonColor: ColorsManager.darkBlue,
-                      )
-                    ],
+                            // Call the callback function with the card data
+                            onCardAdded(cardNumber, cardHolder, cvv);
+                            // Navigate back to the outer page if needed
+                            Navigator.pop(context);
+                          },
+                          buttonColor: ColorsManager.darkBlue,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
         ),
       ),

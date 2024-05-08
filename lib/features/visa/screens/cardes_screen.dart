@@ -54,7 +54,7 @@ class _CaredsScreenState extends State<CaredsScreen> {
                 image: AssetImage(Assets.imagesBackgrond), fit: BoxFit.cover)),
         child: Padding(
           padding: EdgeInsets.only(
-            top: 65.h,
+            top: 80.h,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +68,7 @@ class _CaredsScreenState extends State<CaredsScreen> {
                   fontSize: 18.sp,
                 ),
               ),
-              verticalSpace(45),
+              verticalSpace(50),
               Expanded(
                 child: Container(
                   //height: double.infinity,
