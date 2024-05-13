@@ -1,3 +1,4 @@
+import 'package:campuspay/admin/features/home/logic/cubit/admin_nav_Bar_cubit.dart';
 import 'package:campuspay/features/home/logic/cubit/home_cubit.dart';
 import 'package:campuspay/features/home/logic/nav_bar_cubit/bottom_nav_bar_cubit.dart';
 import 'package:campuspay/features/home/ui/screen/bottom_nav_bar.dart';
@@ -8,6 +9,11 @@ import 'package:campuspay/features/profile/ui/screens/settings_screen.dart';
 import 'package:campuspay/features/services/ui/screens/services_list_view.dart';
 import 'package:campuspay/features/transfer_money/screens/transfer_success.dart';
 
+import '../../admin/features/admin_service/ui/screens/create_service_screen.dart';
+import '../../admin/features/admin_service/ui/screens/service_done_screen.dart';
+import '../../admin/features/admin_service/ui/screens/update_servise.dart';
+import '../../admin/features/home/ui/screens/admin_bottom_nav_bar.dart';
+import '../../admin/features/home/ui/screens/home_screen.dart';
 import '../../features/forgetpassword/screens/forget_password_screen.dart';
 import '../../features/forgetpassword/screens/new_password.dart';
 import '../../features/forgetpassword/screens/password_changed_screen.dart';
@@ -61,10 +67,11 @@ class AppRouter {
       case Routes.bottomNavBar:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => BottomNavBarCubit(),
-                  child: const BottomNavBar(),
-                ));
+          builder: (_) => BlocProvider(
+            create: (context) => BottomNavBarCubit(),
+            child: const BottomNavBar(),
+          ),
+        );
       case Routes.forgetPasswordScreen:
         // Return a MaterialPageRoute for the MyAccountScreen route.
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
@@ -122,10 +129,11 @@ class AppRouter {
       case Routes.moderatorBottomNavBar:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => ModeratorBottomNavBarCubit(),
-                  child: const ModeratorBottomNavBar(),
-                ));
+          builder: (_) => BlocProvider(
+            create: (context) => ModeratorBottomNavBarCubit(),
+            child: const ModeratorBottomNavBar(),
+          ),
+        );
 
       case Routes.allInfoScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
@@ -139,6 +147,25 @@ class AppRouter {
       case Routes.requestDataScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const RequestDataScreen());
+      case Routes.adminHomeScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const AdminHomeScreen());
+      case Routes.adminNavBar:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => AdminNavBarCubit(),
+            child: const AdminNavBar(),
+          ),
+        );
+      case Routes.createServiceScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const CreateServiceScreen());
+      case Routes.serviceDoneScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const ServiceDoneScreen());
+      case Routes.updateServiceScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const UpdateServiceScreen());
     }
     return null;
   }

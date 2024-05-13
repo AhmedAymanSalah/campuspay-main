@@ -11,7 +11,6 @@ import '../../../core/routes/routes.dart';
 import '../../../core/widgets/app_button.dart';
 import '../../../core/widgets/custom_text_widget.dart';
 
-
 class AttentionScreen extends StatelessWidget {
   const AttentionScreen({super.key});
   static String id = "AttentionPage";
@@ -50,7 +49,7 @@ class AttentionScreen extends StatelessWidget {
               AppTextButton(
                 text: "Start",
                 onPressed: () {
-                  context.navigateToReplacement(Routes.bottomNavBar);
+                  context.navigateToReplacement(Routes.adminNavBar);
                 },
                 textColor: Colors.white,
               ),

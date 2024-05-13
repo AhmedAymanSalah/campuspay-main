@@ -105,6 +105,10 @@ class Assets {
   /// assets/images/Medical_examination.png
   static const String imagesMedicalExamination = "assets/images/Medical_examination.png";
 
+  /// Assets for imagesNBcharts
+  /// assets/images/NBcharts.png
+  static const String imagesNBcharts = "assets/images/NBcharts.png";
+
   /// Assets for imagesNewTask
   /// assets/images/new_task.png
   static const String imagesNewTask = "assets/images/new_task.png";
@@ -140,6 +144,10 @@ class Assets {
   /// Assets for imagesRefused
   /// assets/images/refused.png
   static const String imagesRefused = "assets/images/refused.png";
+
+  /// Assets for imagesStates2
+  /// assets/images/states2.png
+  static const String imagesStates2 = "assets/images/states2.png";
 
   /// Assets for imagesSvgStudent
   /// assets/images/svgStudent.svg

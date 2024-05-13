@@ -60,6 +60,18 @@ class Routes {
 
   static const String requestRefusedScreen = '/requestRefusedScreen';
 
-    static const String requestDataScreen = '/requestDataScreen';
+  static const String requestDataScreen = '/requestDataScreen';
+
+  // ---------------------------------------------------------------// 
+
+  static const String adminHomeScreen = '/adminHomeScreen';
+
+  static const String adminNavBar = '/adminNavBar';
+
+  static const String createServiceScreen = '/createServiceScreen';
+
+  static const String serviceDoneScreen = '/serviceDoneScreen';
+
+  static const String updateServiceScreen = '/updateServiceScreen';
 
 }
