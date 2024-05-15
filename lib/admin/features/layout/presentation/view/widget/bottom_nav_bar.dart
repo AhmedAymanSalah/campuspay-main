@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -5,7 +7,7 @@ import '../../manage/cubit/Layout_cubit.dart';
 import '../../manage/cubit/Layout_states.dart';
 
 class BottomNavBar extends StatelessWidget {
-   BottomNavBar({Key? key}) : super(key: key);
+   BottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {

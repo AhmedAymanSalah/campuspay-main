@@ -1,6 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:campuspay/admin/features/admin_service/data/models/service/get_service_model.dart';
 import 'package:campuspay/core/theme/colors.dart';
-import 'package:campuspay/features/services/data/models/services_list_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
