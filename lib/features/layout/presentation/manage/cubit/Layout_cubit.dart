@@ -1,4 +1,5 @@
-import 'package:campuspay/admin/features/home/ui/screens/home_screen.dart';
+// ignore_for_file: file_names
+
 import 'package:campuspay/features/home/ui/screen/home_screen.dart';
 import 'package:campuspay/features/services/ui/screens/services_list_view.dart';
 import 'package:campuspay/features/status/ui/screens/stats_screen.dart';

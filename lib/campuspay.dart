@@ -1,12 +1,10 @@
 import 'package:campuspay/admin/features/admin_service/presentation/manage/cubit/cubit.dart';
 import 'package:campuspay/admin/features/layout/presentation/manage/cubit/Layout_cubit.dart';
-import 'package:campuspay/admin/features/layout/presentation/view/layout_view.dart';
 import 'package:campuspay/features/layout/presentation/manage/cubit/Layout_cubit.dart';
 import 'package:campuspay/features/login/presentation/manage/cubit/login_cubit.dart';
 import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_cubit.dart';
 import 'package:campuspay/moderator/features/layout/presentation/manage/cubit/Layout_cubit.dart';
-import 'package:campuspay/moderator/features/layout/presentation/view/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,13 +12,11 @@ import 'package:campuspay/core/routes/app_router.dart';
 import 'features/forgetpassword/presentation/cubit/forget_password_cubit/forget_password_cubit.dart';
 
 class Campuspay extends StatelessWidget {
-   Campuspay({
+   const Campuspay({
     super.key,
     required this.appRouter,
-     required this.startWidget
   });
   final AppRouter appRouter;
-   Widget? startWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +34,7 @@ class Campuspay extends StatelessWidget {
           BlocProvider(create: (BuildContext context)=>SignUpCubit(),),
           BlocProvider(create: (BuildContext context)=>ServiceCubit()..getService(),),
         ],
-        child: MaterialApp(
+        child: const MaterialApp(
           debugShowCheckedModeBanner: false,
          // initialRoute: Routes.myCustomSplashScreen,
           home: LoginScreen(),
