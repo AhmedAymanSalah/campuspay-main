@@ -9,11 +9,14 @@ import 'package:campuspay/features/profile/ui/screens/settings_screen.dart';
 import 'package:campuspay/features/services/ui/screens/services_list_view.dart';
 import 'package:campuspay/features/transfer_money/screens/transfer_success.dart';
 
+import '../../admin/features/accounts/ui/screens/stoped_email_screen.dart';
+import '../../admin/features/accounts/ui/screens/student_info_screen.dart';
 import '../../admin/features/admin_service/ui/screens/create_service_screen.dart';
 import '../../admin/features/admin_service/ui/screens/service_done_screen.dart';
 import '../../admin/features/admin_service/ui/screens/update_servise.dart';
 import '../../admin/features/home/ui/screens/admin_bottom_nav_bar.dart';
 import '../../admin/features/home/ui/screens/home_screen.dart';
+import '../../features/feedback/ui/screens/feedback_screen.dart';
 import '../../features/forgetpassword/screens/forget_password_screen.dart';
 import '../../features/forgetpassword/screens/new_password.dart';
 import '../../features/forgetpassword/screens/password_changed_screen.dart';
@@ -122,6 +125,9 @@ class AppRouter {
       case Routes.topSpendingScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const TopSpendingScreen());
+      case Routes.feedbackPage:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const FeedbackPage());
       case Routes.moderatorHomeScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const ModeratorHomeScreen());
@@ -166,6 +172,13 @@ class AppRouter {
       case Routes.updateServiceScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const UpdateServiceScreen());
+      case Routes.studentInfoScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const StudentInfoScreen());
+        case Routes.stopedEmailScreen:
+        // Return a MaterialPageRoute for the OnBoardingScreen route.
+        return MaterialPageRoute(builder: (_) => const StopedEmailScreen());
+    
     }
     return null;
   }
