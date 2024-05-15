@@ -72,6 +72,5 @@ class Routes {
 
   static const String serviceDoneScreen = '/serviceDoneScreen';
 
-  static const String updateServiceScreen = '/updateServiceScreen';
 
 }

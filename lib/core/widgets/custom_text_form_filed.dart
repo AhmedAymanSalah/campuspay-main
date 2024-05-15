@@ -18,10 +18,14 @@ class CustomTextFormFiled extends StatelessWidget {
   final bool? isObscureText;
   final Color color;
   final TextInputType textInputType;
-
   final TextEditingController? controller;
+  final int? maxLines;
+  final Function(String?)? validator;
+
   const CustomTextFormFiled({
     super.key,
+    this.validator,
+    this.maxLines,
     required this.hintText,
     this.titel = "",
     required this.textInputType,
@@ -44,6 +48,7 @@ class CustomTextFormFiled extends StatelessWidget {
         ),
         verticalSpace(8),
         AppTextFormField(
+          maxLines: maxLines,
           controller: controller,
           backGroundColorHint: Colors.white,
           isObscureText: isObscureText,

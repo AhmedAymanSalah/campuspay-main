@@ -1,6 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/theme/colors.dart';
+import 'package:campuspay/core/widgets/custom_text_form_filed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,9 +7,7 @@ import 'package:campuspay/core/widgets/app_button.dart';
 import 'package:campuspay/features/services/data/models/services_model.dart';
 
 import '../../../../../core/helpers/spacing.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../../../../core/widgets/custom_text_widget.dart';
-import '../widgets/display_services_data_container.dart';
 
 class AdminServicresInfoScreen extends StatelessWidget {
   final ServicesModel service;
@@ -55,24 +52,24 @@ class AdminServicresInfoScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              verticalSpace(50),
-              DisplayServiceDataContainer(
-                titel: "Service Name",
-                text: service.title,
-              ),
+              verticalSpace(40),
+              CustomTextFormFiled(titel:"Service Name" ,hintText: service.title, textInputType: TextInputType.text),
               verticalSpace(20),
-              const DisplayServiceDataContainer(
-                titel: "Cost",
-                text: "500 L.E",
-              ),
+              CustomTextFormFiled(titel:"Cost" ,hintText: "500 L.E", textInputType: TextInputType.text),
+
               verticalSpace(20),
-              DisplayServiceDataContainer(
-                titel: "info",
-                height: 140.sp,
-                text:
-                    "xxxxxxxxxdddddddddddddddddddddddddddxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-              ),
-              //const Spacer(),
+              CustomTextFormFiled(titel:"Squad Year" ,hintText: "SquadYear", textInputType: TextInputType.number),
+              verticalSpace(20),
+
+
+              CustomTextFormFiled(titel:"College Name" ,hintText: "CollegeName", textInputType: TextInputType.text),
+              verticalSpace(20),
+
+              CustomTextFormFiled(titel:"Type" ,hintText: "Type", textInputType: TextInputType.text),
+              verticalSpace(20),
+              CustomTextFormFiled(maxLines: 7,titel:"Description" ,hintText: "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww", textInputType: TextInputType.text),
+
+
               verticalSpace(50),
               Column(
                 children: [
@@ -80,7 +77,7 @@ class AdminServicresInfoScreen extends StatelessWidget {
                     text: "Update Service",
                     buttonColor: ColorsManager.darkBlue,
                     onPressed: () {
-                      context.navigateTo(Routes.updateServiceScreen);
+                      //navigateTo(context, UpdateServiceScreen());
                     },
                   ),
                   AppTextButton(

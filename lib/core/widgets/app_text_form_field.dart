@@ -7,7 +7,7 @@ import '../theme/colors.dart';
 class AppTextFormField extends StatelessWidget {
   final String hintText;
   final Widget? suffixIcon;
-
+  final int? maxLines ;
   final Widget? prefixIcon;
   final Widget? prefix;
   final bool? isObscureText;
@@ -25,6 +25,7 @@ class AppTextFormField extends StatelessWidget {
     super.key,
     required this.hintText,
     this.suffixIcon,
+    this.maxLines,
     this.prefixIcon,
     this.isObscureText,
     this.focusedBorder,
@@ -42,6 +43,7 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxLines,
       controller: controller,
       keyboardType: textInputType,
       style: TextStyle(

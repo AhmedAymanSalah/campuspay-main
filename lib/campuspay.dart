@@ -1,18 +1,26 @@
+import 'package:campuspay/admin/features/admin_service/presentation/manage/cubit/cubit.dart';
+import 'package:campuspay/admin/features/layout/presentation/manage/cubit/Layout_cubit.dart';
+import 'package:campuspay/admin/features/layout/presentation/view/layout_view.dart';
+import 'package:campuspay/features/layout/presentation/manage/cubit/Layout_cubit.dart';
 import 'package:campuspay/features/login/presentation/manage/cubit/login_cubit.dart';
+import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_cubit.dart';
+import 'package:campuspay/moderator/features/layout/presentation/manage/cubit/Layout_cubit.dart';
+import 'package:campuspay/moderator/features/layout/presentation/view/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:campuspay/core/routes/app_router.dart';
-import 'core/routes/routes.dart';
 import 'features/forgetpassword/presentation/cubit/forget_password_cubit/forget_password_cubit.dart';
 
 class Campuspay extends StatelessWidget {
-  const Campuspay({
+   Campuspay({
     super.key,
     required this.appRouter,
+     required this.startWidget
   });
   final AppRouter appRouter;
+   Widget? startWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +30,19 @@ class Campuspay extends StatelessWidget {
       splitScreenMode: true,
       child: MultiBlocProvider(
         providers: [
+          BlocProvider(create: (BuildContext context)=>StudentLayoutCubit(),),
+          BlocProvider(create: (BuildContext context)=>ModeratorLayoutCubit(),),
+          BlocProvider(create: (BuildContext context)=>LayoutCubit(),),
           BlocProvider(create: (BuildContext context)=>LoginCubit(),),
           BlocProvider(create: (BuildContext context)=>ForgetPasswordCubit(),),
           BlocProvider(create: (BuildContext context)=>SignUpCubit(),),
+          BlocProvider(create: (BuildContext context)=>ServiceCubit()..getService(),),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.myCustomSplashScreen,
-          onGenerateRoute: appRouter.generateRoute,
+         // initialRoute: Routes.myCustomSplashScreen,
+          home: LoginScreen(),
+          //onGenerateRoute: appRouter.generateRoute,
           //theme: ThemeData(useMaterial3: false),
         ),
       ),

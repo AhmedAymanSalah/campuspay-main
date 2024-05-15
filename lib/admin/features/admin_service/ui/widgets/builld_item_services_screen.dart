@@ -1,3 +1,4 @@
+import 'package:campuspay/admin/features/admin_service/data/models/service/get_service_model.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/features/services/data/models/services_list_data.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +9,10 @@ import '../../../../../core/widgets/custom_text_widget.dart';
 
 
 class BuildItemServicesScreen extends StatelessWidget {
-  final int index;
 
-  const BuildItemServicesScreen({super.key, required this.index});
+   BuildItemServicesScreen({super.key,required this.model});
 
+  GetServiceModel model;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,20 +23,20 @@ class BuildItemServicesScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
-                width: 64,
-                height: 64,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFEFF5FF),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32),
-                  ),
-                ),
-                child: Image.asset(servicesList[index].image),
-              ),
+              // Container(
+              //   width: 64,
+              //   height: 64,
+              //   decoration: ShapeDecoration(
+              //     color: const Color(0xFFEFF5FF),
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(32),
+              //     ),
+              //   ),
+              //   child: Image.asset(servicesList[index].image),
+              // ),
               horizontalSpace(8),
               CustomTextWidget(
-                text: servicesList[index].title,
+                text: model.name!,
                 fontWeight: FontWeight.bold,
                 color: ColorsManager.darkBlue,
               ),

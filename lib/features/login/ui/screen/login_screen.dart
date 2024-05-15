@@ -4,9 +4,13 @@ import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/features/home/ui/screen/home_screen.dart';
 import 'package:campuspay/features/login/presentation/manage/cubit/login_cubit.dart';
 import 'package:campuspay/features/login/presentation/manage/cubit/login_states.dart';
+import 'package:campuspay/moderator/features/layout/presentation/view/layout_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../admin/features/layout/presentation/view/layout_view.dart';
 import '../../../../core/utils/components.dart';
+import '../../../../core/utils/shared_preference.dart';
+import '../../../layout/presentation/view/layout_view.dart';
 import '../widgets/icon_and_Text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -42,9 +46,21 @@ class _LoginScreenState extends State<LoginScreen> {
               text: state.loginModel.massage!,
               color: Colors.green,
             );
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()));
-          }else{
+            SharedPreference.saveData(
+                    key: "token", value: state.loginModel.token)
+                .then((value) {
+                  token=state.loginModel.token;
+                  if(state.loginModel.type =='Student') {
+                    navigateAndFinish(context, const StudentLayoutView());
+                  }else if(state.loginModel.type =='Admin'){
+                    navigateAndFinish(context, const AdminLayoutView());
+                  }else if(state.loginModel.type =='Moderator'){
+                    navigateAndFinish(context, const ModeratorLayoutView());
+                  }else if(state.loginModel.type =='Donor'){
+                    navigateAndFinish(context, const HomeScreen());
+                  }
+            });
+          } else {
             showToast(
               text: state.loginModel.massage!,
               color: Colors.red,
@@ -103,7 +119,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 if (formKey.currentState!.validate()) {
                                   cubit.userLogin(
                                     email: emailController.text,
-                                    password: passwordController.text, context: context,
+                                    password: passwordController.text,
+                                    context: context,
                                   );
                                 }
                               },

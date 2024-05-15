@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+String? token;
+
+
 void showToast({
   required String text,
   required Color color
@@ -12,4 +15,17 @@ void showToast({
   backgroundColor: color,
   textColor: Colors.white,
   fontSize: 16.0,
+);
+
+ navigateTo(context,Widget)=>Navigator.push(
+    context,
+    MaterialPageRoute(
+        builder: (context)=>Widget
+    ));
+
+ navigateAndFinish(context,Widget)=>  Navigator.pushAndRemoveUntil(
+  context,
+  MaterialPageRoute(
+      builder: (context) => Widget),
+      (route) => false,
 );
