@@ -32,12 +32,14 @@ class _FeedbackPageState extends State<FeedbackPage> {
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              verticalSpace(100),
               const CustomTextWidget(
                 text: "How was your experience?",
                 fontWeight: FontWeight.bold,
-                color: ColorsManager.darkBlue,
+                color: ColorsManager.gray,
               ),
               verticalSpace(15),
               Row(

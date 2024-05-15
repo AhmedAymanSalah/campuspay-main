@@ -184,5 +184,9 @@ class Assets {
   /// Assets for imagesVector14
   /// assets/images/Vector14.png
   static const String imagesVector14 = "assets/images/Vector14.png";
+
+  /// Assets for imagesWarning
+  /// assets/images/warning.png
+  static const String imagesWarning = "assets/images/warning.png";
 }
 
