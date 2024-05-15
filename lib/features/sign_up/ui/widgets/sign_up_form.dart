@@ -62,6 +62,7 @@ class SignupForm extends StatelessWidget {
         ),
         verticalSpace(18),
         AppTextFormField(
+          maxLines: 1,
           textInputType: TextInputType.visiblePassword,
           controller: passwordController,
           hintText: 'Password',
@@ -86,6 +87,7 @@ class SignupForm extends StatelessWidget {
         ),
         verticalSpace(18),
         AppTextFormField(
+          maxLines: 1,
           textInputType: TextInputType.visiblePassword,
           controller:passwordConfirmationController,
           hintText: 'Password Confirmation',

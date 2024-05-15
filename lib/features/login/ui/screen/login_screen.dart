@@ -1,6 +1,7 @@
 import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/routes/routes.dart';
 import 'package:campuspay/core/utils/constant.dart';
+import 'package:campuspay/features/forgetpassword/screens/forget_password_screen.dart';
 import 'package:campuspay/features/home/ui/screen/home_screen.dart';
 import 'package:campuspay/features/login/presentation/manage/cubit/login_cubit.dart';
 import 'package:campuspay/features/login/presentation/manage/cubit/login_states.dart';
@@ -101,8 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               alignment: AlignmentDirectional.centerEnd,
                               child: GestureDetector(
                                 onTap: () {
-                                  context
-                                      .navigateTo(Routes.forgetPasswordScreen);
+                                  navigateTo(context, ForgetPasswordScreen());
                                 },
                                 child: CustomTextWidget(
                                   text: "Forget Password?",
