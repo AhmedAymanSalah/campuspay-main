@@ -13,7 +13,7 @@ class ImageProfile extends StatelessWidget {
     return Column(
       children: [
         const CircleAvatar(
-          radius: 90,
+          radius: 80,
           backgroundColor: Color(0xffDCE9FE),
           backgroundImage: AssetImage(Assets.imagesPngStudent),
         ),

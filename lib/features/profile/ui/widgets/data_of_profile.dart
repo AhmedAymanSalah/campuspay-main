@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 class DataProfileFormField extends StatelessWidget {
   DataProfileFormField({super.key});
-
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController ssnController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
 
   @override
@@ -27,11 +27,23 @@ class DataProfileFormField extends StatelessWidget {
         verticalSpace(20),
         CustomTextFormFiled(
           textInputType: TextInputType.emailAddress,
-          controller: nameController,
-          titel: "Email",
-          hintText: "aa****@fayoum.edu.eg",
+          controller: emailController,
+          titel: "Email Address",
+          hintText: "aa3901@fayoum.edu.eg",
           prefixIcon: const Icon(
-            Icons.email,
+            Icons.person,
+            color: ColorsManager.mainBlue,
+            size: 20,
+          ),
+        ),
+        verticalSpace(20),
+        CustomTextFormFiled(
+          textInputType: TextInputType.number,
+          controller: ssnController,
+          titel: "SSN",
+          hintText: "30208025462814",
+          prefixIcon: const Icon(
+            Icons.person,
             color: ColorsManager.mainBlue,
             size: 20,
           ),

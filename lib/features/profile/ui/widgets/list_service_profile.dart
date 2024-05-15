@@ -1,6 +1,7 @@
-import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
-import 'package:campuspay/core/routes/routes.dart';
+import 'package:campuspay/core/utils/constant.dart';
+import 'package:campuspay/features/feedback/ui/screens/feedback_screen.dart';
+import 'package:campuspay/features/profile/ui/screens/update_profile_screen.dart';
 import 'package:campuspay/features/profile/ui/widgets/setting_box.dart';
 import 'package:flutter/material.dart';
 
@@ -14,19 +15,19 @@ class ListItemsAllServices extends StatelessWidget {
         verticalSpace(25),
         SettingsTile(
           color: Colors.teal,
-          title: "My Account",
+          title: "Update Profile",
           icon: Icons.person,
           onTap: () {
-            context.navigateTo(Routes.myAccountScreen);
+            navigateTo(context, const UpdateProfileScreen());
           },
         ),
         verticalSpace(25),
         SettingsTile(
           color: Colors.blueAccent,
-          title: "Settings",
-          icon: Icons.settings,
+          title: "Add Feedback",
+          icon: Icons.feedback,
           onTap: () {
-            context.navigateTo(Routes.myAccountScreen);
+            navigateTo(context, const FeedbackPage());
           },
         ),
         verticalSpace(25),
@@ -34,12 +35,9 @@ class ListItemsAllServices extends StatelessWidget {
           color: Colors.deepOrange,
           title: "Help Center",
           icon: Icons.help_center_rounded,
-          onTap: () {
-            context.navigateTo(Routes.myAccountScreen);
-          },
+          onTap: () {},
         ),
       ],
     );
   }
 }
-

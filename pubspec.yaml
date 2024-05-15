@@ -32,6 +32,7 @@ dependencies:
   build_runner: ^2.4.8
   carp_serializable: ^1.1.1
   cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
   dio: ^5.4.1
   easy_localization: null
   flutter:
@@ -44,6 +45,7 @@ dependencies:
   flutter_native_splash: ^2.3.13
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.10+1
+  fluttertoast: ^8.2.5
   freezed: ^2.4.7
   freezed_annotation: ^2.4.1
   get_it: ^7.6.7
@@ -60,8 +62,6 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   smooth_page_indicator: ^1.1.0
   url_launcher: ^6.2.5
-  dartz: ^0.10.1
-  fluttertoast: ^8.2.5
 
 dev_dependencies:
   flutter_lints: ^3.0.1

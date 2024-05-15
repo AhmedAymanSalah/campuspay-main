@@ -12,23 +12,28 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 80.h, horizontal: 25.h),
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 25.h),
+        child: SingleChildScrollView(
           child: Column(
             children: [
+              verticalSpace(50),
               const CustomTextWidget(
                 text: "Profile",
                 color: ColorsManager.darkBlue,
                 fontWeight: FontWeight.bold,
                 fontSize: 25,
               ),
-              verticalSpace(22.h),
+              verticalSpace(22),
               const InfoListTileUser(),
-              verticalSpace(16.h),
+              verticalSpace(22),
+              const Divider(),
+              verticalSpace(16),
               const ListItemsAllServices(),
-              verticalSpace(100.h),
+              verticalSpace(40),
+              const Divider(),
+              verticalSpace(70),
               const LogOut(),
             ],
           ),

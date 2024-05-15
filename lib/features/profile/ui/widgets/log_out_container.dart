@@ -1,9 +1,10 @@
+import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/theme/colors.dart';
+import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class LogOut extends StatelessWidget {
   const LogOut({super.key});
@@ -12,38 +13,27 @@ class LogOut extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
+        navigateAndFinish(context, const LoginScreen());
       },
       child: Container(
         height: 60.h,
-        width: 170.h,
+        width: 200.h,
         decoration: BoxDecoration(
-          color: Colors.redAccent,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(15),
-          boxShadow: const [
-            BoxShadow(
-                offset: Offset(5, 5),
-                blurRadius: 10,
-                spreadRadius: 1,
-                color: ColorsManager.white),
-            BoxShadow(
-                offset: Offset(-5, -5),
-                blurRadius: 10,
-                spreadRadius: 1,
-                color: Colors.grey),
-          ],
         ),
-        child: const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomTextWidget(
+            const CustomTextWidget(
               text: "LogOut",
-              color: ColorsManager.darkBlue,
+              color: ColorsManager.red,
               fontWeight: FontWeight.bold,
             ),
-            Icon(
+            horizontalSpace(15),
+            const Icon(
               Icons.logout,
-              color: Colors.orange,
+              color: Colors.red,
             ),
           ],
         ),

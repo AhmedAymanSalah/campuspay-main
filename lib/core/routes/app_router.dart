@@ -5,7 +5,6 @@ import 'package:campuspay/features/home/ui/screen/bottom_nav_bar.dart';
 import 'package:campuspay/features/pay_screens/ui/screens/done_screen.dart';
 import 'package:campuspay/features/pay_screens/ui/screens/error_Screen.dart';
 import 'package:campuspay/features/profile/ui/screens/my_account_screen.dart';
-import 'package:campuspay/features/profile/ui/screens/settings_screen.dart';
 import 'package:campuspay/features/services/ui/screens/services_list_view.dart';
 import 'package:campuspay/features/transfer_money/screens/transfer_success.dart';
 
@@ -90,10 +89,6 @@ class AppRouter {
         // Return a MaterialPageRoute for the MyAccountScreen route.
         return MaterialPageRoute(builder: (_) => const MyAccountScreen());
 
-      case Routes.settingsScreen:
-        // Return a MaterialPageRoute for the SettingsScreen route.
-        return MaterialPageRoute(builder: (_) => const SettingsScreen());
-
       case Routes.servicesScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const ServicesScreen());
@@ -175,10 +170,9 @@ class AppRouter {
       case Routes.studentInfoScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const StudentInfoScreen());
-        case Routes.stopedEmailScreen:
+      case Routes.stopedEmailScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const StopedEmailScreen());
-    
     }
     return null;
   }
