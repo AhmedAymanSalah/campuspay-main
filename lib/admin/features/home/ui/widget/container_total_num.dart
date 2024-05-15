@@ -2,6 +2,7 @@ import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ContainerTotalNum extends StatelessWidget {
@@ -19,20 +20,25 @@ class ContainerTotalNum extends StatelessWidget {
         border: Border.all(color: ColorsManager.mainBlue),
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Column(
-        children: [
-          CustomTextWidget(
-            text: number,
-            color: ColorsManager.darkBlue,
-            fontWeight: FontWeight.bold,
-          ),
-          verticalSpace(8),
-          CustomTextWidget(
-            text: text,
-            color: ColorsManager.gray,
-            fontSize: 13.sp,
-          ),
-        ],
+      child: Expanded(
+        child: Column(
+          children: [
+            verticalSpace(7),
+            CustomTextWidget(
+              text: number,
+              color: ColorsManager.darkBlue,
+              fontWeight: FontWeight.bold,
+            ),
+            verticalSpace(8),
+            Expanded(
+              child: CustomTextWidget(
+                text: text,
+                color: ColorsManager.gray,
+                fontSize: 13.sp,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

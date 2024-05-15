@@ -1,12 +1,11 @@
 import 'package:campuspay/core/helpers/spacing.dart';
-import 'package:campuspay/core/widgets/custom_text_form_filed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../core/widgets/display_data_container.dart';
-import 'reson_request_textfiled.dart';
 
-class AllInfoTextFiled extends StatelessWidget {
-  const AllInfoTextFiled({super.key});
+import '../../../../../core/widgets/display_data_container.dart';
+
+class StudentInfoDisplayData extends StatelessWidget {
+  const StudentInfoDisplayData({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,19 +24,24 @@ class AllInfoTextFiled extends StatelessWidget {
         ),
         verticalSpace(15),
         const DisplayDataContainer(
+          titel: "Password",
+          prefixIcon: Icon(Icons.person_2_outlined),
+          text: "1234567898",
+        ),
+        verticalSpace(15),
+        const DisplayDataContainer(
           titel: "ID_Number",
           prefixIcon: Icon(Icons.person_2_outlined),
           text: "3020805210123456",
         ),
         verticalSpace(15),
-        CustomTextFormFiled(
-          hintText: "Mobile_number..",
-          textInputType: TextInputType.number,
+        DisplayDataContainer(
           titel: "Mobile_number",
           prefixIcon: Icon(
             Icons.person_2_outlined,
-            size: 20.h,
+            size: 20.sp,
           ),
+          text: "010231456987",
         ),
         verticalSpace(15),
         const DisplayDataContainer(
@@ -62,24 +66,6 @@ class AllInfoTextFiled extends StatelessWidget {
           titel: "zip_Code",
           prefixIcon: Icon(Icons.person_2_outlined),
           text: "58462",
-        ),
-        verticalSpace(15),
-        const ReasonRequestTextFiled(
-          content:
-              "ahewnkjscjkb skbkjdbjvk akbkjbsvj lkaknlknv lafjkaj alflkbajba kabfjabjbk akbfbabjabjkbjablja akbfjbajbjabjabjbjabjkbjkbjksbjsj skb fjkb",
-          title: "Reason request",
-        ),
-        verticalSpace(20),
-        const DisplayDataContainer(
-          titel: "Service name",
-          prefixIcon: Icon(Icons.person_2_outlined),
-          text: "Service name",
-        ),
-        verticalSpace(20),
-        const DisplayDataContainer(
-          titel: "Amount",
-          prefixIcon: Icon(Icons.person_2_outlined),
-          text: "15",
         ),
       ],
     );

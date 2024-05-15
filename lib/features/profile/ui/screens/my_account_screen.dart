@@ -1,3 +1,4 @@
+import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/widgets/app_button.dart';
 import 'package:campuspay/features/profile/ui/widgets/data_of_profile.dart';
@@ -5,6 +6,7 @@ import 'package:campuspay/features/profile/ui/widgets/image_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/routes/routes.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/widgets/custom_text_widget.dart';
 
@@ -36,7 +38,9 @@ class MyAccountScreen extends StatelessWidget {
                 AppTextButton(
                   buttonColor: ColorsManager.darkBlue,
                   text: 'Save Changes',
-                  onPressed: () {},
+                  onPressed: () {
+                    context.navigateToReplacement(Routes.feedbackPage);
+                  },
                   elevation: 0,
                 ),
               ],

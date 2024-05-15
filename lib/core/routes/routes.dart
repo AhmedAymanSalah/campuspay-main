@@ -48,9 +48,11 @@ class Routes {
 
   static const String topSpendingScreen = '/topSpendingScreen';
 
-  static const String moderatorHomeScreen = '/moderatorHomeScreen';
+  static const String feedbackPage = '/feedbackPage';
 
   //------------------------------------------------------------//
+
+    static const String moderatorHomeScreen = '/moderatorHomeScreen';
 
   static const String moderatorBottomNavBar = '/moderatorBottomNavBar';
 
@@ -73,4 +75,7 @@ class Routes {
   static const String serviceDoneScreen = '/serviceDoneScreen';
 
 
+  static const String studentInfoScreen = '/studentInfoScreen';
+
+  static const String stopedEmailScreen = '/stopedEmailScreen';
 }
