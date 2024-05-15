@@ -37,6 +37,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
         ),
         verticalSpace(18),
         AppTextFormField(
+          maxLines: 1,
           textInputType: TextInputType.visiblePassword,
           controller: widget.passwordController,
           prefixIcon: Icon(
