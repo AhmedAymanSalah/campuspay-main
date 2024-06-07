@@ -37,7 +37,7 @@ class AdminServicesScreen extends StatelessWidget {
               state is GetServiceSuccessStates ?Expanded(
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
-                  itemCount: cubit.getServiceModel.name!.length,
+                  itemCount: cubit.getServiceModel.length,
                   itemBuilder: (context, index) => GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -49,7 +49,7 @@ class AdminServicesScreen extends StatelessWidget {
                         ),
                       );
                     },
-                    child: BuildItemServicesScreen(model: cubit.getServiceModel,),
+                    child: BuildItemServicesScreen(model: cubit.getServiceModel[index],),
                   ),
                 ),
               ) : const Center(child: CircularProgressIndicator()),

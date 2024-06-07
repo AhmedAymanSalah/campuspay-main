@@ -1,8 +1,8 @@
 import 'package:campuspay/admin/features/admin_service/presentation/manage/cubit/cubit.dart';
 import 'package:campuspay/admin/features/layout/presentation/manage/cubit/Layout_cubit.dart';
+import 'package:campuspay/admin/features/layout/presentation/view/layout_view.dart';
 import 'package:campuspay/features/layout/presentation/manage/cubit/Layout_cubit.dart';
 import 'package:campuspay/features/login/presentation/manage/cubit/login_cubit.dart';
-import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_cubit.dart';
 import 'package:campuspay/moderator/features/layout/presentation/manage/cubit/Layout_cubit.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +37,7 @@ class Campuspay extends StatelessWidget {
         child: const MaterialApp(
           debugShowCheckedModeBanner: false,
          // initialRoute: Routes.myCustomSplashScreen,
-          home: LoginScreen(),
+          home: AdminLayoutView(),
           //onGenerateRoute: appRouter.generateRoute,
           //theme: ThemeData(useMaterial3: false),
         ),

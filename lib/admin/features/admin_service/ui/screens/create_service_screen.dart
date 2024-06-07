@@ -136,9 +136,10 @@ class _CreateServiceScreenState extends State<CreateServiceScreen> {
                           cubit.createService(
                             name: serviceName.text,
                             type: serviceType.text,
-                            squadYear: int.parse(serviceSquadYear.text),
+                            squadYear: serviceSquadYear.text,
                             collegeName: serviceCollegeName.text,
-                            cost: int.parse(serviceCost.text),
+                            cost: serviceCost.text,
+                            desc: serviceDesc.text,
                             context: context,
                           );
 
