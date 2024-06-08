@@ -21,7 +21,7 @@ class SocialRequestTextFiled extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
         verticalSpace(25),
-        const CustomTextFormFiled(
+         CustomTextFormFiled(
           hintText: "Name..",
           textInputType: TextInputType.name,
           titel: "Your father's name..",
@@ -31,7 +31,7 @@ class SocialRequestTextFiled extends StatelessWidget {
           ),
         ),
         verticalSpace(15),
-        const CustomTextFormFiled(
+        CustomTextFormFiled(
           hintText: "true Or fales",
           textInputType: TextInputType.name,
           titel: "your father dead",
@@ -41,7 +41,7 @@ class SocialRequestTextFiled extends StatelessWidget {
           ),
         ),
         verticalSpace(15),
-        const CustomTextFormFiled(
+         CustomTextFormFiled(
           hintText: "Job..",
           textInputType: TextInputType.number,
           titel: "father's job",
@@ -51,7 +51,7 @@ class SocialRequestTextFiled extends StatelessWidget {
           ),
         ),
         verticalSpace(20),
-        const CustomTextFormFiled(
+         CustomTextFormFiled(
           hintText: "State..",
           textInputType: TextInputType.number,
           titel: "father's state",
@@ -61,7 +61,7 @@ class SocialRequestTextFiled extends StatelessWidget {
           ),
         ),
         verticalSpace(20),
-        const CustomTextFormFiled(
+         CustomTextFormFiled(
           hintText: "Incom..",
           textInputType: TextInputType.number,
           titel: "father's Incom",
@@ -71,7 +71,7 @@ class SocialRequestTextFiled extends StatelessWidget {
           ),
         ),
         verticalSpace(20),
-        const CustomTextFormFiled(
+         CustomTextFormFiled(
           hintText: "Number..",
           textInputType: TextInputType.number,
           titel: "Num of your family members",
@@ -81,7 +81,7 @@ class SocialRequestTextFiled extends StatelessWidget {
           ),
         ),
         verticalSpace(20),
-        const CustomTextFormFiled(
+         CustomTextFormFiled(
           hintText: "Number..",
           textInputType: TextInputType.number,
           titel: "Number of your family members in Education",

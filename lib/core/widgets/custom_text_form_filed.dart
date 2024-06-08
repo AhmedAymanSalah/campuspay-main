@@ -11,7 +11,7 @@ import '../../../../core/widgets/app_text_form_field.dart';
 import 'custom_text_widget.dart';
 
 class CustomTextFormFiled extends StatelessWidget {
-  final String hintText;
+   String? hintText;
   final String? titel;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
@@ -22,11 +22,11 @@ class CustomTextFormFiled extends StatelessWidget {
   final int? maxLines;
   final Function(String?)? validator;
 
-  const CustomTextFormFiled({
+   CustomTextFormFiled({
     super.key,
     this.validator,
     this.maxLines,
-    required this.hintText,
+     this.hintText,
     this.titel = "",
     required this.textInputType,
     this.suffixIcon,
@@ -68,7 +68,7 @@ class CustomTextFormFiled extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(10),
           ),
-          hintText: hintText,
+          hintText: hintText!,
           textInputType: textInputType,
           validator: (value) {
             if (value == null || value.isEmpty) {

@@ -60,13 +60,13 @@ class TransferMoney extends StatelessWidget {
                       children: [
                         //const Spacer(),
                         verticalSpace(50),
-                        const CustomTextFormFiled(
+                         CustomTextFormFiled(
                           textInputType: TextInputType.number,
                           titel: "Recipient ID",
                           hintText: "Recipient",
                         ),
                         verticalSpace(30),
-                        const CustomTextFormFiled(
+                         CustomTextFormFiled(
                           textInputType: TextInputType.number,
                           titel: "Amount",
                           hintText: "Amount",

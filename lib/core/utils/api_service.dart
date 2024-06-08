@@ -51,20 +51,38 @@ class ApiService
     );
   }
 
-
   static Future<Response> putData({
     required String url,
     dynamic data,
+    dynamic query,
+    String? token,
+  }) async {
+    Options options = Options(
+      headers: {'Authorization': 'Bearer $token'},
+    );
+    return await dio.put(
+        url,
+        data: data,
+        queryParameters: query,
+        options: options
+    );
+  }
+
+
+
+  static Future<Response> deleteData({
+    required String url,
+    dynamic query,
     String? token,
   })async
   {
-    dio.options.headers={
-      'Content-Type':'application/json',
-      'Authorization':token ??'',
-    };
-    return await dio.put(
-      url,
-      data:data,
+    Options options = Options(
+      headers: {'Authorization': 'Bearer $token'},
+    );
+    return await dio.delete(
+        url,
+        queryParameters:query,
+        options:options
     );
   }
 }

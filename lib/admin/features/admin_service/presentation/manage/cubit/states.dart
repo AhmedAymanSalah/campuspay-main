@@ -16,3 +16,27 @@ class GetServiceErrorStates extends ServiceStates{
 
   GetServiceErrorStates(this.error);
 }
+
+class GetDetailsLoadingStates extends ServiceStates{}
+class GetDetailsSuccessStates extends ServiceStates{}
+class GetDetailsErrorStates extends ServiceStates{
+  final String error;
+
+  GetDetailsErrorStates(this.error);
+}
+
+class DeleteServiceLoadingStates extends ServiceStates{}
+class DeleteServiceSuccessStates extends ServiceStates{}
+class DeleteServiceErrorStates extends ServiceStates{
+  final String error;
+
+  DeleteServiceErrorStates(this.error);
+}
+
+class UpdateServiceLoadingStates extends ServiceStates{}
+class UpdateServiceSuccessStates extends ServiceStates{}
+class UpdateServiceErrorStates extends ServiceStates{
+  final String error;
+
+  UpdateServiceErrorStates(this.error);
+}
