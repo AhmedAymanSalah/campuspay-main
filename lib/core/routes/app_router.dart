@@ -101,9 +101,6 @@ class AppRouter {
       case Routes.caredsScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const CaredsScreen());
-      case Routes.transferSuccess:
-        // Return a MaterialPageRoute for the OnBoardingScreen route.
-        return MaterialPageRoute(builder: (_) => const TransferSuccess());
       case Routes.recentTransactionScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(

@@ -1,15 +1,18 @@
 import 'package:campuspay/core/helpers/app_images.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/theme/colors.dart';
+import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/core/widgets/app_button.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
+import 'package:campuspay/features/layout/presentation/view/layout_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TransferSuccess extends StatelessWidget {
-  const TransferSuccess({super.key});
+  const TransferSuccess({super.key, required this.title});
 
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,8 +67,8 @@ class TransferSuccess extends StatelessWidget {
                             text: "Total Transfer",
                             color: ColorsManager.gray,
                           ),
-                          const CustomTextWidget(
-                            text: "50.00 L.E",
+                           CustomTextWidget(
+                            text: "$title L.E",
                             color: ColorsManager.mainBlue,
                             fontWeight: FontWeight.bold,
                             fontSize: 30,
@@ -75,6 +78,7 @@ class TransferSuccess extends StatelessWidget {
                             text: "Back to Home",
                             onPressed: () {
                             //  context.navigateTo(Routes.bottomNavBar);
+                              navigateTo(context, const StudentLayoutView());
                             },
                             buttonColor: ColorsManager.darkBlue,
                           )

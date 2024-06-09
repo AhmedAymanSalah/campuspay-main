@@ -28,6 +28,8 @@ class CustomTextWidget extends StatelessWidget {
     return Text(
       text,
       textAlign: textAlign,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
       style: TextStyle(
         decoration: decoration,
         color: color,
