@@ -32,7 +32,6 @@ class Campuspay extends StatelessWidget {
           BlocProvider(create: (BuildContext context)=>LoginCubit(),),
           BlocProvider(create: (BuildContext context)=>ForgetPasswordCubit(),),
           BlocProvider(create: (BuildContext context)=>SignUpCubit(),),
-          BlocProvider(create: (BuildContext context)=>HomeCubit()..getHistoryTransaction(),),
         ],
         child: const MaterialApp(
           debugShowCheckedModeBanner: false,
