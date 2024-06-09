@@ -3,7 +3,7 @@ import 'package:campuspay/admin/features/admin_service/presentation/manage/cubit
 import 'package:campuspay/core/utils/api_service.dart';
 import 'package:campuspay/core/utils/components.dart';
 import 'package:campuspay/core/utils/constant.dart';
-import 'package:dio/dio.dart';
+import 'package:campuspay/features/pay_screens/data/model/pay_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -138,6 +138,28 @@ class ServiceCubit extends Cubit<ServiceStates>
       print(error.toString());
       emit(UpdateServiceErrorStates(error.toString()));
     //  Navigator.pop(context);
+    });
+  }
+
+
+  PayModel? payModel;
+  void pay({
+    required int serviceId,
+  }){
+    emit(PayLoadingStates());
+    ApiService.postData(
+      url: 'Services/Pay',
+      query: {
+        'serviceId':serviceId,
+      },
+      token: token,
+    )
+        .then((value){
+          payModel=PayModel.fromJson(value.data);
+      emit(PaySuccessStates(payModel: payModel!));
+    }).catchError((error){
+      print(error.toString());
+      emit(PayErrorStates(error.toString()));
     });
   }
 

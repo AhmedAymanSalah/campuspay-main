@@ -1,12 +1,10 @@
-// ignore_for_file: file_names
-
 import 'package:campuspay/core/helpers/app_images.dart';
-import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
-import 'package:campuspay/core/routes/routes.dart';
 import 'package:campuspay/core/theme/colors.dart';
+import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/core/widgets/app_button.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
+import 'package:campuspay/features/transfer_money/screens/transfer_success.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -77,7 +75,8 @@ class TransferMoney extends StatelessWidget {
                         AppTextButton(
                           text: "Transfer",
                           onPressed: () {
-                            context.navigateTo(Routes.transferSuccess);
+                         //   context.navigateTo(Routes.transferSuccess);
+                            navigateTo(context, TransferSuccess());
                           },
                           buttonColor: ColorsManager.darkBlue,
                         ),

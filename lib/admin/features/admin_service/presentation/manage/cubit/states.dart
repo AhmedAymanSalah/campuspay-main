@@ -1,3 +1,5 @@
+import 'package:campuspay/features/pay_screens/data/model/pay_model.dart';
+
 abstract class ServiceStates{}
 
 class InitialServiceStates extends ServiceStates{}
@@ -39,4 +41,16 @@ class UpdateServiceErrorStates extends ServiceStates{
   final String error;
 
   UpdateServiceErrorStates(this.error);
+}
+
+class PayLoadingStates extends ServiceStates{}
+class PaySuccessStates extends ServiceStates{
+  final PayModel payModel;
+
+  PaySuccessStates({required this.payModel});
+}
+class PayErrorStates extends ServiceStates{
+  final String error;
+
+  PayErrorStates(this.error);
 }

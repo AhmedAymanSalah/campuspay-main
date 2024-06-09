@@ -98,7 +98,7 @@ class _VerificationScreenState extends State<VerificationScreenForgetPassword> {
                     //   fontWeight: FontWeight.bold,
                     // ),
                     AppTextFormField(
-                      textInputType: TextInputType.emailAddress,
+                      textInputType: TextInputType.number,
                       prefixIcon: Icon(
                         Icons.code,
                         size: 20.sp,

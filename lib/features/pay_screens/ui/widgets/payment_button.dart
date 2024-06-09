@@ -42,7 +42,7 @@ class CustomPaymentButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: CustomTextWidget(
-                text: "\$$amountToPay",
+                text: "$amountToPay",
                 fontWeight: FontWeight.bold,
                 fontSize: 14.sp,
               ),

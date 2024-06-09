@@ -1,16 +1,17 @@
 import 'package:campuspay/core/theme/colors.dart';
-import 'package:campuspay/features/services/data/models/services_list_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../admin/features/admin_service/data/models/service/get_service_model.dart';
+import '../../../../core/helpers/app_images.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widgets/custom_text_widget.dart';
 
 class BuildItemServicesScreen extends StatelessWidget {
-  final int index;
 
-  const BuildItemServicesScreen({super.key, required this.index});
+  const BuildItemServicesScreen({super.key, required this.model});
 
+ final GetServiceModel model;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,11 +31,11 @@ class BuildItemServicesScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(32),
                   ),
                 ),
-                child: Image.asset(servicesList[index].image),
+                child: model.filePath !=null? Image.network(model.filePath!):Image.asset(Assets.imagesUniversity),
               ),
               horizontalSpace(8),
               CustomTextWidget(
-                text: servicesList[index].title,
+                text: model.name,
                 fontWeight: FontWeight.bold,
                 color: ColorsManager.darkBlue,
               ),
