@@ -38,7 +38,7 @@ class Campuspay extends StatelessWidget {
         child: const MaterialApp(
           debugShowCheckedModeBanner: false,
          // initialRoute: Routes.myCustomSplashScreen,
-          home: StudentLayoutView(),
+          home: LoginScreen(),
           //onGenerateRoute: appRouter.generateRoute,
           //theme: ThemeData(useMaterial3: false),
         ),
