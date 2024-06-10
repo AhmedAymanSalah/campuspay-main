@@ -69,7 +69,7 @@ class RecentTransactionScreen extends StatelessWidget {
                           ),
                           CustomTextWidget(
                             text: '${cubit.historyTransactionModel!
-                                .transactions![index].timeByHour!} hour',
+                                .transactions![index].time!} ',
                             fontSize: 11.sp,
                             color: ColorsManager.gray,
                           ),

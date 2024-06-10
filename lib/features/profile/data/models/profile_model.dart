@@ -1,5 +1,5 @@
 class GetProfileModel {
-  Null picture;
+  String? picture;
   String? email;
   String? fullName;
   String? ssn;

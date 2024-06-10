@@ -1,4 +1,5 @@
 import 'package:campuspay/admin/features/layout/presentation/manage/cubit/Layout_cubit.dart';
+import 'package:campuspay/admin/features/layout/presentation/view/layout_view.dart';
 import 'package:campuspay/features/home/presentation/manage/cubit/cubit.dart';
 import 'package:campuspay/features/layout/presentation/manage/cubit/Layout_cubit.dart';
 import 'package:campuspay/features/layout/presentation/view/layout_view.dart';
@@ -37,7 +38,7 @@ class Campuspay extends StatelessWidget {
         child: const MaterialApp(
           debugShowCheckedModeBanner: false,
          // initialRoute: Routes.myCustomSplashScreen,
-          home: LoginScreen(),
+          home: StudentLayoutView(),
           //onGenerateRoute: appRouter.generateRoute,
           //theme: ThemeData(useMaterial3: false),
         ),

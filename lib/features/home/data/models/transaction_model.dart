@@ -58,21 +58,17 @@ class HistoryTransactionModel {
 
 class Transactions {
   String? date;
-  int? timeByHour;
+  String? time;
   String? serviceName;
-  double? cost;
+  dynamic cost;
   String? serviceType;
 
   Transactions(
-      {this.date,
-        this.timeByHour,
-        this.serviceName,
-        this.cost,
-        this.serviceType});
+      {this.date, this.time, this.serviceName, this.cost, this.serviceType});
 
   Transactions.fromJson(Map<String, dynamic> json) {
     date = json['date'];
-    timeByHour = json['timeByHour'];
+    time = json['time'];
     serviceName = json['serviceName'];
     cost = json['cost'];
     serviceType = json['serviceType'];
@@ -81,7 +77,7 @@ class Transactions {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['date'] = this.date;
-    data['timeByHour'] = this.timeByHour;
+    data['time'] = this.time;
     data['serviceName'] = this.serviceName;
     data['cost'] = this.cost;
     data['serviceType'] = this.serviceType;
@@ -91,44 +87,44 @@ class Transactions {
 
 class Deposits {
   String? date;
-  int? timeByHour;
-  double? balance;
+  String? time;
+  dynamic balance;
 
-  Deposits({this.date, this.timeByHour, this.balance});
+  Deposits({this.date, this.time, this.balance});
 
   Deposits.fromJson(Map<String, dynamic> json) {
     date = json['date'];
-    timeByHour = json['timeByHour'];
+    time = json['time'];
     balance = json['balance'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['date'] = this.date;
-    data['timeByHour'] = this.timeByHour;
+    data['time'] = this.time;
     data['balance'] = this.balance;
     return data;
   }
 }
 
 class TransferFromMe {
-  double? balance;
+  dynamic balance;
   String? date;
-  int? timeByHour;
+  String? time;
   String? fromUserFullName;
   String? toUserFullName;
 
   TransferFromMe(
       {this.balance,
         this.date,
-        this.timeByHour,
+        this.time,
         this.fromUserFullName,
         this.toUserFullName});
 
   TransferFromMe.fromJson(Map<String, dynamic> json) {
     balance = json['balance'];
     date = json['date'];
-    timeByHour = json['timeByHour'];
+    time = json['time'];
     fromUserFullName = json['fromUserFullName'];
     toUserFullName = json['toUserFullName'];
   }
@@ -137,7 +133,7 @@ class TransferFromMe {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['balance'] = this.balance;
     data['date'] = this.date;
-    data['timeByHour'] = this.timeByHour;
+    data['time'] = this.time;
     data['fromUserFullName'] = this.fromUserFullName;
     data['toUserFullName'] = this.toUserFullName;
     return data;
@@ -145,23 +141,23 @@ class TransferFromMe {
 }
 
 class TransferToMe {
-  double? balance;
+  dynamic balance;
   String? date;
-  int? timeByHour;
+  String? time;
   String? fromUserFullName;
   String? toUserFullName;
 
   TransferToMe(
       {this.balance,
         this.date,
-        this.timeByHour,
+        this.time,
         this.fromUserFullName,
         this.toUserFullName});
 
   TransferToMe.fromJson(Map<String, dynamic> json) {
     balance = json['balance'];
     date = json['date'];
-    timeByHour = json['timeByHour'];
+    time = json['time'];
     fromUserFullName = json['fromUserFullName'];
     toUserFullName = json['toUserFullName'];
   }
@@ -170,7 +166,7 @@ class TransferToMe {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['balance'] = this.balance;
     data['date'] = this.date;
-    data['timeByHour'] = this.timeByHour;
+    data['time'] = this.time;
     data['fromUserFullName'] = this.fromUserFullName;
     data['toUserFullName'] = this.toUserFullName;
     return data;

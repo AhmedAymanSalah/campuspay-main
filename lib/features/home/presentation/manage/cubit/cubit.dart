@@ -101,4 +101,34 @@ class HomeCubit extends Cubit<HomeStates>
       emit(GetBalanceErrorStates(error.toString()));
     });
   }
+
+  BalanceModel? totalOfMoneyPayed;
+  void getTotalOfMoneyPayed() {
+    emit(GetBalanceLoadingStates());
+    ApiService.getData(
+      url: 'UserActivities/TotelOfMoneyPayed',
+      token: token,
+    ).then((value) {
+      totalOfMoneyPayed=BalanceModel.fromJson(value.data);
+      emit(GetBalanceSuccessStates());
+    }).catchError((error) {
+      print(error.toString());
+      emit(GetBalanceErrorStates(error.toString()));
+    });
+  }
+
+  BalanceModel? totalOfMoneyDeposited;
+  void getTotalOfMoneyDeposited() {
+    emit(GetBalanceLoadingStates());
+    ApiService.getData(
+      url: 'UserActivities/TotelOfMoneyDeposited',
+      token: token,
+    ).then((value) {
+      totalOfMoneyDeposited=BalanceModel.fromJson(value.data);
+      emit(GetBalanceSuccessStates());
+    }).catchError((error) {
+      print(error.toString());
+      emit(GetBalanceErrorStates(error.toString()));
+    });
+  }
 }

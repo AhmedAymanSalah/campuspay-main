@@ -13,7 +13,7 @@ class MyCacheAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context)=>HomeCubit()..getBalance(),
+      create: (BuildContext context)=>HomeCubit()..getBalance()..getTotalOfMoneyPayed()..getTotalOfMoneyDeposited(),
       child: BlocConsumer<HomeCubit,HomeStates>(
         listener: (BuildContext context, state) {  },
         builder: (BuildContext context, Object? state) {
@@ -46,7 +46,7 @@ class MyCacheAccount extends StatelessWidget {
                         ),
                       ),
                       CustomTextWidget(
-                        text: "${HomeCubit().get(context).balanceModel!.balance!} L.E",
+                        text: "${HomeCubit().get(context).balanceModel!.balance} L.E",
                         color: ColorsManager.darkBlue,
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
@@ -81,7 +81,7 @@ class MyCacheAccount extends StatelessWidget {
                               fontSize: 14.sp,
                             ),
                             CustomTextWidget(
-                              text: "3913 L.E",
+                              text: "${HomeCubit().get(context).totalOfMoneyDeposited!.balance} L.E",
                               color: ColorsManager.lightGray,
                               fontWeight: FontWeight.bold,
                               fontSize: 14.sp,
@@ -107,7 +107,7 @@ class MyCacheAccount extends StatelessWidget {
                               fontSize: 14.sp,
                             ),
                             CustomTextWidget(
-                              text: "3913 L.E",
+                              text: "${HomeCubit().get(context).totalOfMoneyPayed!.balance} L.E",
                               color: ColorsManager.lightGray,
                               fontWeight: FontWeight.bold,
                               fontSize: 14.sp,

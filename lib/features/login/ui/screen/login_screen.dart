@@ -1,5 +1,3 @@
-import 'package:campuspay/core/helpers/extentions.dart';
-import 'package:campuspay/core/routes/routes.dart';
 import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/features/forgetpassword/screens/forget_password_screen.dart';
 import 'package:campuspay/features/home/ui/screen/home_screen.dart';
@@ -68,10 +66,13 @@ class _LoginScreenState extends State<LoginScreen> {
             );
           }
         }
-        // if(state is LoginErrorStates){
-        //  // buildShowLoading(context);
-        //
-        // }
+        if(state is LoginErrorStates){
+         // buildShowLoading(context);
+          showToast(
+            text: state.error,
+            color: Colors.red,
+          );
+        }
       },
       builder: (BuildContext context, Object? state) {
         var cubit = LoginCubit().get(context);

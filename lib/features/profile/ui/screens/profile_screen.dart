@@ -26,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
               fontSize: 25,
             ),
             verticalSpace(22),
-            InfoListTileUser(),
+            const InfoListTileUser(),
             verticalSpace(22),
             const Divider(),
             verticalSpace(16),

@@ -96,9 +96,6 @@ class ServiceCubit extends Cubit<ServiceStates>
         'serviceId':serviceId,
       },
     ).then((value) {
-      // List<dynamic> data = value.data;
-      // getDetailsModel = data.map((itemJson) => GetDetailsModel.fromJson(itemJson)).toList();
-      //getDetailsModel=GetDetailsModel.fromJson(value.data);
       emit(DeleteServiceSuccessStates());
     }).catchError((error) {
       print(error.toString());

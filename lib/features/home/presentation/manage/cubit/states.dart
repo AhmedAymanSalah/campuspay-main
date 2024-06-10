@@ -33,3 +33,19 @@ class GetBalanceErrorStates extends HomeStates{
 
   GetBalanceErrorStates(this.error);
 }
+
+// class GetTotalOfMoneyPayedLoadingStates extends HomeStates{}
+// class GetTotalOfMoneyPayedSuccessStates extends HomeStates{}
+// class GetTotalOfMoneyPayedErrorStates extends HomeStates{
+//   final String error;
+//
+//   GetTotalOfMoneyPayedErrorStates(this.error);
+// }
+//
+// class GetTotalOfMoneyDepositedLoadingStates extends HomeStates{}
+// class GetTotalOfMoneyDepositedSuccessStates extends HomeStates{}
+// class GetTotalOfMoneyDepositedErrorStates extends HomeStates{
+//   final String error;
+//
+//   GetTotalOfMoneyDepositedErrorStates(this.error);
+// }

@@ -1,5 +1,6 @@
 import 'package:campuspay/admin/features/admin_service/presentation/manage/cubit/cubit.dart';
 import 'package:campuspay/admin/features/admin_service/presentation/manage/cubit/states.dart';
+import 'package:campuspay/admin/features/layout/presentation/view/layout_view.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/utils/components.dart';
 import 'package:campuspay/core/utils/constant.dart';
@@ -52,13 +53,14 @@ class _AdminServicresInfoScreenState extends State<AdminServicresInfoScreen> {
         listener: (BuildContext context, state) {
           if (state is DeleteServiceSuccessStates) {
             showToast(text: 'Delete Success', color: Colors.green);
-            navigateTo(context, const AdminServicesScreen());
+            navigateTo(context, const AdminLayoutView());
           }
           if (state is DeleteServiceErrorStates) {
             showToast(text: state.error, color: Colors.red);
           }
           if (state is UpdateServiceSuccessStates) {
             showToast(text: 'Update Success', color: Colors.green);
+            navigateTo(context, const AdminLayoutView());
           }
           if (state is UpdateServiceErrorStates) {
             showToast(text: state.error, color: Colors.red);
