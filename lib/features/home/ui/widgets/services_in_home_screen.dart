@@ -77,12 +77,12 @@ class ServicesInHomeScreen extends StatelessWidget {
         ),
         Column(
           children: [
-            BlocBuilder<HomeCubit, HomeState>(
+            BlocBuilder<HoCubit, HomeState>(
               builder: (context, state) {
                 return ContainerIconService(
                   image: Assets.imagesIconmyCache,
                   onTap: () {
-                    HomeCubit.get(context).emitMyCacheState();
+                    HoCubit.get(context).emitMyCacheState();
                   },
                 );
               },

@@ -17,8 +17,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(),
-      child: BlocBuilder<HomeCubit, HomeState>(
+      create: (context) => HoCubit(),
+      child: BlocBuilder<HoCubit, HomeState>(
         builder: (context, state) {
           return Scaffold(
             backgroundColor: Colors.white,
@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                   ServicesInHomeScreen(),
                   verticalSpace(10),
                   if (state is! MyCache) const BuildCreditCardWidget(),
-                  if (state is MyCache) const MyCacheAccount(),
+                  if (state is MyCache)  MyCacheAccount(),
                   const RecentTransactionsList(),
                 ],
               ),

@@ -52,19 +52,32 @@ class RecentTransactionScreen extends StatelessWidget {
                       ),
                       title: CustomTextWidget(
                         text: cubit.historyTransactionModel!
-                            .transactions![index].service!.name!,
+                            .transactions![index].serviceName!,
                         fontSize: 12.sp,
                         color: ColorsManager.darkGrey,
                       ),
-                      subtitle: CustomTextWidget(
-                        text: cubit.historyTransactionModel!
-                            .transactions![index].date!,
-                        fontSize: 11.sp,
-                        color: ColorsManager.gray,
+                      subtitle: Row(
+                        children: [
+                          CustomTextWidget(
+                            text: cubit.historyTransactionModel!
+                                .transactions![index].date!,
+                            fontSize: 11.sp,
+                            color: ColorsManager.gray,
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          CustomTextWidget(
+                            text: '${cubit.historyTransactionModel!
+                                .transactions![index].timeByHour!} hour',
+                            fontSize: 11.sp,
+                            color: ColorsManager.gray,
+                          ),
+                        ],
                       ),
                       trailing: CustomTextWidget(
                         text:
-                            '-${cubit.historyTransactionModel!.transactions![index].service!.cost!}',
+                            '-${cubit.historyTransactionModel!.transactions![index].cost!}',
                         fontSize: 12.sp,
                         color: ColorsManager.darkGrey,
                       )),

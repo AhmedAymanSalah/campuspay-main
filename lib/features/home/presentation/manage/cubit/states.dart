@@ -25,3 +25,11 @@ class SocialRequestErrorStates extends HomeStates{
 
   SocialRequestErrorStates(this.error);
 }
+
+class GetBalanceLoadingStates extends HomeStates{}
+class GetBalanceSuccessStates extends HomeStates{}
+class GetBalanceErrorStates extends HomeStates{
+  final String error;
+
+  GetBalanceErrorStates(this.error);
+}

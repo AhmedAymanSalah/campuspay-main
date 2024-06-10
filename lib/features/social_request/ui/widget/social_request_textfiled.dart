@@ -47,9 +47,10 @@ class _SocialRequestTextFiledState extends State<SocialRequestTextFiled> {
             navigateTo(context, const SubmitSccessScreen());
           }else if(state is SocialRequestErrorStates){
             showToast(text: "Send request success", color: Colors.red);
-          }else{
-            showToast(text: "Invalid boolean ${residentInFamilyController.text}", color: Colors.red);
           }
+          // else{
+          //   showToast(text: "Invalid boolean ${residentInFamilyController.text}", color: Colors.red);
+          // }
         },
         builder: (BuildContext context, Object? state) {
           var cubit = HomeCubit().get(context);

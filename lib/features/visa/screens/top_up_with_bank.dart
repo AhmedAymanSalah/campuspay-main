@@ -54,7 +54,7 @@ class TopUpWithBank extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15.h),
-                child: const BalanceWidget(),
+                child: const BalanceWidget(balance: 0,),
               ),
               verticalSpace(45),
               Expanded(

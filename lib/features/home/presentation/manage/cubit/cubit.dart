@@ -1,5 +1,6 @@
 import 'package:campuspay/core/utils/api_service.dart';
 import 'package:campuspay/core/utils/constant.dart';
+import 'package:campuspay/features/home/data/models/balance_model.dart';
 import 'package:campuspay/features/home/data/models/transaction_model.dart';
 import 'package:campuspay/features/home/presentation/manage/cubit/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -82,6 +83,22 @@ class HomeCubit extends Cubit<HomeStates>
     }).catchError((error){
       print(error.toString());
       emit(SocialRequestErrorStates(error.toString()));
+    });
+  }
+
+
+  BalanceModel? balanceModel;
+  void getBalance() {
+    emit(GetBalanceLoadingStates());
+    ApiService.getData(
+      url: 'Wallets/GetBalance',
+      token: token,
+    ).then((value) {
+      balanceModel=BalanceModel.fromJson(value.data);
+      emit(GetBalanceSuccessStates());
+    }).catchError((error) {
+      print(error.toString());
+      emit(GetBalanceErrorStates(error.toString()));
     });
   }
 }
