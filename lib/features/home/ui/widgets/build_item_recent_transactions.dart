@@ -28,7 +28,7 @@ class BuildItemRecentTransactions extends StatelessWidget {
                 width: double.infinity,
                 child: ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 3,
+                  itemCount: cubit.historyTransactionModel!.transactions!.length >=3 ?3 :cubit.historyTransactionModel!.transactions!.length,
                   separatorBuilder: (context, index) => Container(
                     height: 1,
                     color: const Color(0xFFF2F2F2),
@@ -80,10 +80,16 @@ class BuildItemRecentTransactions extends StatelessWidget {
                 ),
               );
             } else {
-              return const Center(
-                child: Text(
-                  'Not Transaction Found',
-                  style: TextStyle(fontSize: 30),
+              return const Padding(
+                padding: EdgeInsets.only(
+                  top: 20
+                ),
+                child: Center(
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    'Not Transaction Found',
+                    style: TextStyle(fontSize: 30),
+                  ),
                 ),
               );
             }
