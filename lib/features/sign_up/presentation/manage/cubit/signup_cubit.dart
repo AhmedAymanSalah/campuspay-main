@@ -45,7 +45,7 @@ class SignUpCubit extends Cubit<SignUpStates>
     ApiService.postData(
       url: 'Authentcation/StudentSignUp',
       query: {
-        'CollegeEmail':email,
+        'Email':email,
         'FullName':name,
         'SSN':ssn,
         'Password':password,

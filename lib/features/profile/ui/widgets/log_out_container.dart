@@ -6,6 +6,8 @@ import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/utils/shared_preference.dart';
+
 class LogOut extends StatelessWidget {
   const LogOut({super.key});
 
@@ -13,7 +15,10 @@ class LogOut extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        navigateAndFinish(context, const LoginScreen());
+        SharedPreference.removeData(key: 'token').then((value) => {
+          if (value)
+            navigateAndFinish(context, const LoginScreen()),
+        });
       },
       child: Container(
         height: 60.h,
