@@ -54,7 +54,7 @@ class ServiceDoneScreen extends StatelessWidget {
               const Spacer(),
               AppTextButton(
                 onPressed: () {
-                  navigateTo(context, const AdminLayoutView());
+                  navigateAndFinish(context, const AdminLayoutView());
                 },
                 text: "Back To Home",
                 buttonColor: ColorsManager.green,
