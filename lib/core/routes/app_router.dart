@@ -1,7 +1,6 @@
 import 'package:campuspay/features/home/logic/cubit/home_cubit.dart';
 import 'package:campuspay/features/pay_screens/ui/screens/done_screen.dart';
 import 'package:campuspay/features/pay_screens/ui/screens/error_Screen.dart';
-import 'package:campuspay/features/profile/ui/screens/my_account_screen.dart';
 import 'package:campuspay/features/services/ui/screens/services_list_view.dart';
 import 'package:campuspay/features/transfer_money/screens/transfer_success.dart';
 import '../../admin/features/admin_service/ui/screens/create_service_screen.dart';
@@ -49,14 +48,6 @@ class AppRouter {
         // Return a MaterialPageRoute for the AttentionScreen route.
         return MaterialPageRoute(builder: (_) => const AttentionScreen());
 
-      case Routes.homeScreen:
-        // Return a MaterialPageRoute for the HomeScreen route.
-        return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => HomeCubit(),
-                  child: const HomeScreen(),
-                ));
-
       // case Routes.bottomNavBar:
       //   // Return a MaterialPageRoute for the OnBoardingScreen route.
       //   return MaterialPageRoute(
@@ -76,9 +67,6 @@ class AppRouter {
         // Return a MaterialPageRoute for the MyAccountScreen route.
         return MaterialPageRoute(
             builder: (_) => const PasswordGhangeedScreen());
-      case Routes.myAccountScreen:
-        // Return a MaterialPageRoute for the MyAccountScreen route.
-        return MaterialPageRoute(builder: (_) => const MyAccountScreen());
 
       // case Routes.settingsScreen:
       //   // Return a MaterialPageRoute for the SettingsScreen route.
@@ -105,9 +93,6 @@ class AppRouter {
       case Routes.caredsScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const CaredsScreen());
-      case Routes.transferSuccess:
-        // Return a MaterialPageRoute for the OnBoardingScreen route.
-        return MaterialPageRoute(builder: (_) => const TransferSuccess());
       case Routes.recentTransactionScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(

@@ -1,10 +1,10 @@
 import 'package:campuspay/features/home/logic/cubit/home_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(const HomeState.initial());
+class HoCubit extends Cubit<HomeState> {
+  HoCubit() : super(const HomeState.initial());
 
-  static HomeCubit get(context) => BlocProvider.of(context);
+  static HoCubit get(context) => BlocProvider.of(context);
 
   bool isCached = false;
   void emitMyCacheState() {

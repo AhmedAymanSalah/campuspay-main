@@ -1,3 +1,4 @@
+import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
@@ -13,16 +14,17 @@ class TitelData extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: ColorsManager.whitblue, width: 3)),
-      child: const Row(
+      child:  Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomTextWidget(text: "ID"),
-          VerticalDivider(),
-          CustomTextWidget(text: "Name"),
-          VerticalDivider(),
-          CustomTextWidget(text: "Email Address"),
-          VerticalDivider(),
-          CustomTextWidget(text: "ID_Number"),
+          // CustomTextWidget(text: "ID"),
+          // VerticalDivider(),
+          horizontalSpace(8),
+          const Expanded(child: CustomTextWidget(text: "Name")),
+          const VerticalDivider(),
+          // CustomTextWidget(text: "Email Address"),
+          // VerticalDivider(),
+          const Expanded(flex: 3,child: CustomTextWidget(text: "ID_Number")),
         ],
       ),
     );

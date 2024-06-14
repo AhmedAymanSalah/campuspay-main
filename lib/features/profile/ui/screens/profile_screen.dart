@@ -12,31 +12,30 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 25.h),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              verticalSpace(50),
-              const CustomTextWidget(
-                text: "Profile",
-                color: ColorsManager.darkBlue,
-                fontWeight: FontWeight.bold,
-                fontSize: 25,
-              ),
-              verticalSpace(22),
-              const InfoListTileUser(),
-              verticalSpace(22),
-              const Divider(),
-              verticalSpace(16),
-              const ListItemsAllServices(),
-              verticalSpace(40),
-              const Divider(),
-              verticalSpace(70),
-              const LogOut(),
-            ],
-          ),
+    return  Padding(
+      padding:
+      EdgeInsets.symmetric(vertical: 20.h, horizontal: 25.h),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            verticalSpace(50),
+            const CustomTextWidget(
+              text: "Profile",
+              color: ColorsManager.darkBlue,
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+            ),
+            verticalSpace(22),
+            const InfoListTileUser(),
+            verticalSpace(22),
+            const Divider(),
+            verticalSpace(16),
+            const ListItemsAllServices(),
+            verticalSpace(40),
+            const Divider(),
+            verticalSpace(70),
+            const LogOut()
+          ],
         ),
       ),
     );

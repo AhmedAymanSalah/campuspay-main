@@ -2,14 +2,17 @@ import 'package:campuspay/admin/features/admin_service/data/models/service/get_s
 import 'package:campuspay/admin/features/admin_service/presentation/manage/cubit/states.dart';
 import 'package:campuspay/core/utils/api_service.dart';
 import 'package:campuspay/core/utils/components.dart';
+import 'package:campuspay/core/utils/constant.dart';
+import 'package:campuspay/features/pay_screens/data/model/pay_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../data/models/service/create_service_model.dart';
 
 class ServiceCubit extends Cubit<ServiceStates>
 {
   ServiceCubit():super (InitialServiceStates());
   ServiceCubit get(context)=>BlocProvider.of(context);
-
 
   void createService({
     required String name,
@@ -17,7 +20,7 @@ class ServiceCubit extends Cubit<ServiceStates>
     required String type,
     required int squadYear,
     required String collegeName,
-    required num cost,
+    required double cost,
     required context
 }){
     emit(CreateServiceLoadingStates());
@@ -32,9 +35,8 @@ class ServiceCubit extends Cubit<ServiceStates>
         'CollegeName':collegeName,
         'Cost':cost,
       },
-      token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJ5b3VzZWZhbGlzYWJlcjBAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIwZTE0MDhkYy05OTJhLTRmNjEtOWYzNy04YWNjMGZkZDYyMTYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoieW91c2VmMGFkbWluIiwicm9sZSI6IkFkbWluIiwiZXhwIjoxNzE2NTk4NzgyLCJpc3MiOiJHcmFkdXRpb25Qcm9qZWN0IiwiYXVkIjoiR3JhZHV0aW9uUHJvamVjdCJ9.I3Jp9NKdHbIi10Y6nTp-tP6JwLwfkdovD38nzlRafKw",
+      token: token,
     )
-   //print(r);
    .then((value){
       emit(CreateServiceSuccessStates());
     }).catchError((error){
@@ -45,20 +47,117 @@ class ServiceCubit extends Cubit<ServiceStates>
   }
 
 
-  late GetServiceModel getServiceModel;
-  void getService(){
+  late List<GetServiceModel> getServiceModel; // Change GetServiceModel to List<Item>
+
+  void getService() {
     emit(GetServiceLoadingStates());
     ApiService.getData(
       url: 'Services/GetAll',
-      token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJ5b3VzZWZhbGlzYWJlcjBAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIwZTE0MDhkYy05OTJhLTRmNjEtOWYzNy04YWNjMGZkZDYyMTYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoieW91c2VmMGFkbWluIiwicm9sZSI6IkFkbWluIiwiZXhwIjoxNzE2NTk4NzgyLCJpc3MiOiJHcmFkdXRpb25Qcm9qZWN0IiwiYXVkIjoiR3JhZHV0aW9uUHJvamVjdCJ9.I3Jp9NKdHbIi10Y6nTp-tP6JwLwfkdovD38nzlRafKw',
-    ).then((value)
-    {
-      getServiceModel=GetServiceModel.fromJson(value.data);
+      token: token, // Pass the authorization token here
+    ).then((value) {
+      List<dynamic> data = value.data;
+      getServiceModel = data.map((itemJson) => GetServiceModel.fromJson(itemJson)).toList();
       emit(GetServiceSuccessStates());
-    }
-    ).catchError((error){
+    }).catchError((error) {
       print(error.toString());
       emit(GetServiceErrorStates(error.toString()));
     });
   }
+
+
+   GetDetailsModel? getDetailsModel;
+  void getDetails({
+    required int serviceId,
+}) {
+    emit(GetDetailsLoadingStates());
+    ApiService.getData(
+      url: 'Services/GetDetails',
+      token: token,
+      query: {
+        'serviceId':serviceId,
+      },
+    ).then((value) {
+      getDetailsModel=GetDetailsModel.fromJson(value.data);
+      emit(GetDetailsSuccessStates());
+    }).catchError((error) {
+      print(error.toString());
+      emit(GetDetailsErrorStates(error.toString()));
+    });
+  }
+
+  void deleteService({
+    required int serviceId,
+  }) {
+    emit(DeleteServiceLoadingStates());
+    ApiService.deleteData(
+      url: 'Services/Delete',
+      token: token,
+      query: {
+        'serviceId':serviceId,
+      },
+    ).then((value) {
+      emit(DeleteServiceSuccessStates());
+    }).catchError((error) {
+      print(error.toString());
+      emit(DeleteServiceErrorStates(error.toString()));
+    });
+  }
+
+
+  void updateService({
+    required int serviceId,
+    required String name,
+    String? desc,
+    required String type,
+    required int squadYear,
+    required String collegeName,
+    required double cost,
+    required context
+  }){
+    emit(UpdateServiceLoadingStates());
+   // buildShowLoading(context);
+    ApiService.putData(
+      url: 'Services/Edit',
+      query: {
+        'serviceId':serviceId,
+        'Name':name,
+        'Description':desc,
+        'Type':type,
+        'SquadYear':squadYear,
+        'CollegeName':collegeName,
+        'Cost':cost,
+      },
+      token: token,
+    )
+        .then((value){
+      emit(UpdateServiceSuccessStates());
+    }).catchError((error){
+      print(error.toString());
+      emit(UpdateServiceErrorStates(error.toString()));
+    //  Navigator.pop(context);
+    });
+  }
+
+
+  PayModel? payModel;
+  void pay({
+    required int serviceId,
+  }){
+    emit(PayLoadingStates());
+    ApiService.postData(
+      url: 'Services/Pay',
+      query: {
+        'serviceId':serviceId,
+      },
+      token: token,
+    )
+        .then((value){
+          payModel=PayModel.fromJson(value.data);
+      emit(PaySuccessStates(payModel: payModel!));
+    }).catchError((error){
+      print(error.toString());
+      emit(PayErrorStates(error.toString()));
+    });
+  }
+
 }

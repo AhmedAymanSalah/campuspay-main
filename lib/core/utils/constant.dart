@@ -29,3 +29,8 @@ void showToast({
       builder: (context) => Widget),
       (route) => false,
 );
+
+
+final TextEditingController emailController = TextEditingController();
+final TextEditingController ssnController = TextEditingController();
+final TextEditingController nameController = TextEditingController();

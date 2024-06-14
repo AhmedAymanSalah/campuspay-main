@@ -6,15 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AdminSearch extends StatelessWidget {
-  const AdminSearch({super.key});
+  const AdminSearch({super.key, required this.cubit});
 
+  final cubit;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
-          const CustomTextFormFiled(
+          CustomTextFormFiled(
             color: ColorsManager.whitblue,
             hintText: "Search",
             textInputType: TextInputType.name,
@@ -36,8 +37,8 @@ class AdminSearch extends StatelessWidget {
                   color: ColorsManager.darkBlue,
                 ),
                 horizontalSpace(25),
-                const CustomTextWidget(
-                  text: "50",
+                CustomTextWidget(
+                  text: cubit,
                   fontWeight: FontWeight.bold,
                   color: ColorsManager.darkGrey,
                 ),

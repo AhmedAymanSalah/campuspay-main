@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:campuspay/admin/features/admin_service/data/models/service/get_service_model.dart';
+import 'package:campuspay/core/helpers/app_images.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,20 +25,20 @@ class BuildItemServicesScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              // Container(
-              //   width: 64,
-              //   height: 64,
-              //   decoration: ShapeDecoration(
-              //     color: const Color(0xFFEFF5FF),
-              //     shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(32),
-              //     ),
-              //   ),
-              //   child: Image.asset(servicesList[index].image),
-              // ),
+              Container(
+                width: 50,
+                height: 50,
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFEFF5FF),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(32),
+                  ),
+                ),
+                child:model.filePath !=null? Image.network(model.filePath!):Image.asset(Assets.imagesUniversity),
+              ),
               horizontalSpace(8),
               CustomTextWidget(
-                text: model.name!,
+                text: model.name,
                 fontWeight: FontWeight.bold,
                 color: ColorsManager.darkBlue,
               ),

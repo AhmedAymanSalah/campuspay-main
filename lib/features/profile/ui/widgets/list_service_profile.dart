@@ -18,7 +18,7 @@ class ListItemsAllServices extends StatelessWidget {
           title: "Update Profile",
           icon: Icons.person,
           onTap: () {
-            navigateTo(context, const UpdateProfileScreen());
+            navigateTo(context,  const UpdateProfileScreen());
           },
         ),
         verticalSpace(25),

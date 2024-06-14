@@ -1,6 +1,8 @@
 import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/theme/colors.dart';
+import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
+import 'package:campuspay/features/home/ui/screen/recent_transaction_screen.dart';
 import 'package:campuspay/features/home/ui/widgets/build_item_recent_transactions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,7 @@ class RecentTransactionsList extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        context.navigateTo(Routes.recentTransactionScreen);
+                        navigateTo(context, const RecentTransactionScreen());
                       },
                       child: CustomTextWidget(
                         text: "View all",
@@ -46,7 +48,7 @@ class RecentTransactionsList extends StatelessWidget {
               ),
             ],
           ),
-          BuildItemRecentTransactions(),
+           const BuildItemRecentTransactions(),
         ],
       ),
     );

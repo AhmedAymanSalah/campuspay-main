@@ -1,11 +1,11 @@
-import 'package:campuspay/core/helpers/extentions.dart';
+import 'package:campuspay/admin/features/layout/presentation/view/layout_view.dart';
+import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/helpers/app_images.dart';
 import '../../../../../core/helpers/spacing.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/widgets/app_button.dart';
 
@@ -46,7 +46,7 @@ class StopedEmailScreen extends StatelessWidget {
               const Spacer(),
               AppTextButton(
                 onPressed: () {
-                  context.navigateToReplacement(Routes.adminNavBar);
+                  navigateAndFinish(context, const AdminLayoutView());
                 },
                 text: "Back To Home",
                 buttonColor: ColorsManager.red,

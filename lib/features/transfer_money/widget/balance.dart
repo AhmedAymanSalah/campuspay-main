@@ -4,19 +4,20 @@ import '../../../core/theme/colors.dart';
 import '../../../core/widgets/custom_text_widget.dart';
 
 class BalanceWidget extends StatelessWidget {
-  const BalanceWidget({super.key});
+  const BalanceWidget({super.key, required this.balance});
 
+  final double balance;
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         CustomTextWidget(
+         const CustomTextWidget(
           text: "Balance",
           color: ColorsManager.gray,
         ),
          CustomTextWidget(
-          text: "5555  \$",
+          text: '$balance  L.E',
           color: ColorsManager.lightGray,
           fontWeight: FontWeight.bold,
           fontSize: 25,

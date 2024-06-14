@@ -1,5 +1,7 @@
 import 'package:campuspay/core/helpers/extentions.dart';
+import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
+import 'package:campuspay/features/layout/presentation/view/layout_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/helpers/app_images.dart';
@@ -45,7 +47,7 @@ class SubmitSccessScreen extends StatelessWidget {
               const Spacer(),
               AppTextButton(
                 onPressed: () {
-                  context.navigateToReplacement(Routes.bottomNavBar);
+                  navigateTo(context, const StudentLayoutView());
                 },
                 text: "Back To Home",
                 buttonColor: ColorsManager.green,

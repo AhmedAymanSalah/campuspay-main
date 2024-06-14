@@ -3,14 +3,15 @@ import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/widgets/custom_text_form_filed.dart';
 import 'package:flutter/material.dart';
 
-class DataProfileFormField extends StatelessWidget {
-  DataProfileFormField({super.key});
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController ssnController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
+import '../../../../core/utils/constant.dart';
 
+class DataProfileFormField extends StatelessWidget {
+  const DataProfileFormField({super.key,required this.cubit});
+
+  final cubit;
   @override
   Widget build(BuildContext context) {
+
     return Column(
       children: [
         CustomTextFormFiled(

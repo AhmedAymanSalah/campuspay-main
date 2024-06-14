@@ -100,7 +100,7 @@ class SignUpCubit extends Cubit<SignUpStates>
   }){
     emit(VerificationLoadingStates());
     ApiService.getData(
-      url: 'Authentcation/SendVerificationCode',
+      url: 'Authentcation/VerificationCode',
       query: {
         'verificationCode':verificationCode,
         'userId':userId,

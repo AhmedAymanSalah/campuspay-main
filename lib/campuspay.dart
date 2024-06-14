@@ -1,5 +1,5 @@
-import 'package:campuspay/admin/features/admin_service/presentation/manage/cubit/cubit.dart';
 import 'package:campuspay/admin/features/layout/presentation/manage/cubit/Layout_cubit.dart';
+import 'package:campuspay/admin/features/layout/presentation/view/layout_view.dart';
 import 'package:campuspay/features/layout/presentation/manage/cubit/Layout_cubit.dart';
 import 'package:campuspay/features/login/presentation/manage/cubit/login_cubit.dart';
 import 'package:campuspay/features/login/ui/screen/login_screen.dart';
@@ -33,12 +33,11 @@ class Campuspay extends StatelessWidget {
           BlocProvider(create: (BuildContext context)=>LoginCubit(),),
           BlocProvider(create: (BuildContext context)=>ForgetPasswordCubit(),),
           BlocProvider(create: (BuildContext context)=>SignUpCubit(),),
-          BlocProvider(create: (BuildContext context)=>ServiceCubit()..getService(),),
         ],
         child: const MaterialApp(
           debugShowCheckedModeBanner: false,
          // initialRoute: Routes.myCustomSplashScreen,
-          home: SplashScreen(),
+          home: LoginScreen(),
           //onGenerateRoute: appRouter.generateRoute,
           //theme: ThemeData(useMaterial3: false),
         ),

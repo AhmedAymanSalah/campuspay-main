@@ -4,9 +4,13 @@ import 'package:campuspay/core/helpers/app_images.dart';
 import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/theme/colors.dart';
+import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:campuspay/features/home/logic/cubit/home_cubit.dart';
 import 'package:campuspay/features/home/logic/cubit/home_state.dart';
+import 'package:campuspay/features/social_request/ui/screen/social_request_screen.dart';
+import 'package:campuspay/features/transfer_money/screens/transfer_money_Screen.dart';
+import 'package:campuspay/features/visa/screens/cardes_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,7 +32,7 @@ class ServicesInHomeScreen extends StatelessWidget {
             ContainerIconService(
               image: Assets.imagesPaybill,
               onTap: () {
-                context.navigateTo(Routes.socialRequestScreen);
+                navigateTo(context, const SocialRequestScreen());
               },
             ),
             verticalSpace(16),
@@ -44,7 +48,7 @@ class ServicesInHomeScreen extends StatelessWidget {
             ContainerIconService(
               image: Assets.imagesTransfer,
               onTap: () {
-                context.navigateTo(Routes.transferMoney);
+                navigateTo(context, const TransferMoney());
               },
             ),
             verticalSpace(16),
@@ -60,7 +64,7 @@ class ServicesInHomeScreen extends StatelessWidget {
             ContainerIconService(
               image: Assets.imagesIconmyCache,
               onTap: () {
-                context.navigateTo(Routes.caredsScreen);
+                navigateTo(context, const CaredsScreen());
               },
             ),
             verticalSpace(16),
@@ -73,12 +77,12 @@ class ServicesInHomeScreen extends StatelessWidget {
         ),
         Column(
           children: [
-            BlocBuilder<HomeCubit, HomeState>(
+            BlocBuilder<HoCubit, HomeState>(
               builder: (context, state) {
                 return ContainerIconService(
                   image: Assets.imagesIconmyCache,
                   onTap: () {
-                    HomeCubit.get(context).emitMyCacheState();
+                    HoCubit.get(context).emitMyCacheState();
                   },
                 );
               },

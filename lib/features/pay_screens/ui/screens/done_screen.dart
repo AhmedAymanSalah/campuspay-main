@@ -1,13 +1,13 @@
 // ignore_for_file: file_names
 
 import 'package:campuspay/core/helpers/app_images.dart';
-import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/theme/colors.dart';
+import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/core/widgets/app_button.dart';
+import 'package:campuspay/features/layout/presentation/view/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/routes/routes.dart';
 
 class DoneScreen extends StatelessWidget {
   const DoneScreen({super.key});
@@ -28,7 +28,8 @@ class DoneScreen extends StatelessWidget {
               AppTextButton(
                 text: "Done",
                 onPressed: () {
-                  context.navigateTo(Routes.errorScreen);
+               //   context.navigateTo(Routes.errorScreen);
+                  navigateTo(context, const StudentLayoutView());
                 },
                 buttonColor: ColorsManager.green,
               )

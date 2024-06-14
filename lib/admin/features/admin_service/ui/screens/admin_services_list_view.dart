@@ -16,57 +16,60 @@ class AdminServicesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ServiceCubit,ServiceStates>(
-      listener: (BuildContext context, state) {  },
-      builder: (BuildContext context, Object? state) {
-        var cubit=ServiceCubit().get(context);
-        return Scaffold(
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            title: const CustomTextWidget(
-              text: "Current Services",
-              color: ColorsManager.darkBlue,
-              fontWeight: FontWeight.bold,
+    return BlocProvider(
+      create: (BuildContext context)=>ServiceCubit()..getService(),
+      child: BlocConsumer<ServiceCubit,ServiceStates>(
+        listener: (BuildContext context, state) {  },
+        builder: (BuildContext context, Object? state) {
+          var cubit=ServiceCubit().get(context);
+          return Scaffold(
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              title: const CustomTextWidget(
+                text: "Current Services",
+                color: ColorsManager.darkBlue,
+                fontWeight: FontWeight.bold,
+              ),
+              centerTitle: true,
             ),
-            centerTitle: true,
-          ),
-          body: Column(
-            children: [
-              state is GetServiceSuccessStates ?Expanded(
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: cubit.getServiceModel.name!.length,
-                  itemBuilder: (context, index) => GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AdminServicresInfoScreen(
-                            service: servicesList[index],
+            body: Column(
+              children: [
+                state is GetServiceSuccessStates ?Expanded(
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: cubit.getServiceModel.length,
+                    itemBuilder: (context, index) => GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AdminServicresInfoScreen(
+                              service: servicesList[index], serviceId: cubit.getServiceModel[index].id,
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      },
+                      child: BuildItemServicesScreen(model: cubit.getServiceModel[index],),
+                    ),
+                  ),
+                ) : const Center(child: CircularProgressIndicator()),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: AppTextButton(
+                    onPressed: () {
+                      navigateTo(context, const CreateServiceScreen());
                     },
-                    child: BuildItemServicesScreen(model: cubit.getServiceModel,),
+                    text: "Create Service",
+                    buttonColor: ColorsManager.darkBlue,
                   ),
                 ),
-              ) : const Center(child: CircularProgressIndicator()),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: AppTextButton(
-                  onPressed: () {
-                    navigateTo(context, const CreateServiceScreen());
-                  },
-                  text: "Create Service",
-                  buttonColor: ColorsManager.darkBlue,
-                ),
-              ),
-            ],
-          ),
-        );
-      },
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }
