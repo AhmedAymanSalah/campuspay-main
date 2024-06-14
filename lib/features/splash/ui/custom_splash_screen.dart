@@ -1,13 +1,15 @@
 import 'dart:async';
 
-import '../../../core/helpers/extentions.dart';
+import 'package:campuspay/donator/featuers/home/ui/screens/donator_home_screen.dart';
+
+import '../../../core/utils/constant.dart';
 import '../../../core/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/helpers/app_images.dart';
-import '../../../core/routes/routes.dart';
 import '../../../core/theme/colors.dart';
+import '../../../donator/featuers/social_research_requests/ui/screens/social_research_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -62,7 +64,8 @@ class _SplashScreenState extends State<SplashScreen>
       setState(() {
         // Navigator.pushReplacement(
         //     context, PageTransition(const OnboardingPage1()));
-        context.navigateToReplacement(Routes.onBoardingScreen);
+        // context.navigateToReplacement(Routes.onBoardingScreen);
+        navigateAndFinish(context, const SocialResearchScreen());
       });
     });
   }

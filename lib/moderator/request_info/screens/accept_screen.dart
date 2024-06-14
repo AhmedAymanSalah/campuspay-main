@@ -1,5 +1,5 @@
-import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
+import 'package:campuspay/moderator/features/home/ui/screens/moderator_botton_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,7 +7,7 @@ import '../../../../core/helpers/app_images.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/widgets/app_button.dart';
-import '../../../core/routes/routes.dart';
+import '../../../core/utils/constant.dart';
 
 class RequestAcceptScreen extends StatelessWidget {
   const RequestAcceptScreen({super.key});
@@ -52,7 +52,7 @@ class RequestAcceptScreen extends StatelessWidget {
               const Spacer(),
               AppTextButton(
                 onPressed: () {
-                  context.navigateToReplacement(Routes.moderatorBottomNavBar);
+                  navigateAndFinish(context, const ModeratorBottomNavBar());
                 },
                 text: "Back To Home",
                 buttonColor: ColorsManager.green,

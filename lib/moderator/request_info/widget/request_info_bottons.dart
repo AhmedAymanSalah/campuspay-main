@@ -1,9 +1,10 @@
-import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/theme/colors.dart';
+import 'package:campuspay/core/utils/constant.dart';
+import 'package:campuspay/moderator/request_info/screens/accept_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/routes/routes.dart';
 import '../../../../core/widgets/app_button.dart';
+import '../screens/request_refused.dart';
 
 class RequestInfoBotton extends StatelessWidget {
   const RequestInfoBotton({super.key});
@@ -15,7 +16,7 @@ class RequestInfoBotton extends StatelessWidget {
         Expanded(
           child: AppTextButton(
             onPressed: () {
-              context.navigateTo(Routes.requestAcceptScreen);
+              navigateTo(context, const RequestAcceptScreen());
             },
             text: "Accept",
             buttonColor: ColorsManager.green,
@@ -24,7 +25,7 @@ class RequestInfoBotton extends StatelessWidget {
         Expanded(
           child: AppTextButton(
             onPressed: () {
-              context.navigateTo(Routes.requestRefusedScreen);
+              navigateTo(context, const RequestRefusedScreen());
             },
             text: "Refuse",
             buttonColor: ColorsManager.red,
