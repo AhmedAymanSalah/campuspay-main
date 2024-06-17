@@ -5,13 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 
+import '../../../../../moderator/features/request_data/ui/data/get_all_request.dart';
 import '../../data/users_data_list.dart';
 
 class ContainerData extends StatelessWidget {
-  final int index;
+  final GetAllRequestModel model;
   const ContainerData({
     super.key,
-    required this.index,
+    required this.model,
   });
 
   @override
@@ -31,8 +32,8 @@ class ContainerData extends StatelessWidget {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CustomTextWidget(text: donatorRequestDataList[index].name),
-                  CustomTextWidget(text: donatorRequestDataList[index].amount),
+                  CustomTextWidget(text: model.name!),
+                  CustomTextWidget(text: '${model.cost!}'),
                 ]),
           )),
     );

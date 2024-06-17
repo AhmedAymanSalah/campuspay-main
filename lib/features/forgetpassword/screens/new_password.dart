@@ -34,7 +34,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
         if (state is ResetPasswordSuccessStates) {
           buildShowLoading(context);
           showToast(
-            text: state.resetPasswordModel.massage!,
+            text: state.resetPasswordModel.message!,
             color: Colors.green,
           );
           Navigator.push(
@@ -57,96 +57,101 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
             appBar: AppBar(
               elevation: 0,
             ),
-            body: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 50.h),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  verticalSpace(65),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      CustomTextWidget(
-                        text: "New Password",
-                        fontSize: 24.sp,
-                        color: ColorsManager.darkBlue,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      verticalSpace(10),
-                      CustomTextWidget(
-                        text:
-                            "Create a new password that is safe and easy to remember",
-                        fontSize: 14.sp,
-                        color: ColorsManager.gray,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ],
-                  ),
-                  verticalSpace(50),
-                  CustomTextFormFiled(
-                    controller: passwordController,
-                    textInputType: TextInputType.visiblePassword,
-                    isObscureText: cubit.obscureText,
-                    suffixIcon: GestureDetector(
-                      onTap: () {
-                        cubit.changeObscureText();
-                      },
-                      child: Icon(
-                        cubit.obscureText
-                            ? Icons.visibility
-                            : Icons.visibility_off,
-                      ),
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 50.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    verticalSpace(65),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomTextWidget(
+                          text: "New Password",
+                          fontSize: 24.sp,
+                          color: ColorsManager.darkBlue,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        verticalSpace(10),
+                        CustomTextWidget(
+                          text:
+                              "Create a new password that is safe and easy to remember",
+                          fontSize: 14.sp,
+                          color: ColorsManager.gray,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ],
                     ),
-                    titel: "New Password",
-                    prefixIcon: Icon(
-                      Icons.lock_outline,
-                      size: 18.sp,
-                    ),
-                    hintText: "Enter New Password",
-                  ),
-                  verticalSpace(25),
-                  CustomTextFormFiled(
-                    controller: confirmPasswordController,
-                    textInputType: TextInputType.visiblePassword,
-                    isObscureText: cubit.obscureText1,
-                    suffixIcon: GestureDetector(
-                      onTap: () {
-                        cubit.changeObscureText1();
-                      },
-                      child: Icon(
-                        cubit.obscureText1
-                            ? Icons.visibility
-                            : Icons.visibility_off,
+                    verticalSpace(50),
+                    CustomTextFormFiled(
+                      maxLines: 1,
+                      controller: passwordController,
+                      textInputType: TextInputType.visiblePassword,
+                      isObscureText: cubit.obscureText,
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          cubit.changeObscureText();
+                        },
+                        child: Icon(
+                          cubit.obscureText
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
                       ),
+                      titel: "New Password",
+                      prefixIcon: Icon(
+                        Icons.lock_outline,
+                        size: 18.sp,
+                      ),
+                      hintText: "Enter New Password",
                     ),
-                    titel: "Confirm Password",
-                    prefixIcon: Icon(
-                      Icons.lock_outline,
-                      size: 18.sp,
+                    verticalSpace(25),
+                    CustomTextFormFiled(
+                      maxLines: 1,
+                      controller: confirmPasswordController,
+                      textInputType: TextInputType.visiblePassword,
+                      isObscureText: cubit.obscureText1,
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          cubit.changeObscureText1();
+                        },
+                        child: Icon(
+                          cubit.obscureText1
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
+                      ),
+                      titel: "Confirm Password",
+                      prefixIcon: Icon(
+                        Icons.lock_outline,
+                        size: 18.sp,
+                      ),
+                      hintText: "Password Confirmation",
                     ),
-                    hintText: "Password Confirmation",
-                  ),
-                  const Spacer(),
-                  AppTextButton(
-                    text: "Confirm New Password",
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        if (passwordController.text ==
-                            confirmPasswordController.text) {
-                          cubit.resetPassword(
-                            userId: cubit.forgetPasswordModel.userId!,
-                            newPassword: passwordController.text, context: context,
-                          );
-                        } else {
-                          showToast(
-                            text: 'Password is Mismatch',
-                            color: Colors.red,
-                          );
+                   // const Spacer(),
+                    verticalSpace(25),
+                    AppTextButton(
+                      text: "Confirm New Password",
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          if (passwordController.text ==
+                              confirmPasswordController.text) {
+                            cubit.resetPassword(
+                              userId: cubit.forgetPasswordModel.userId!,
+                              newPassword: passwordController.text, context: context,
+                            );
+                          } else {
+                            showToast(
+                              text: 'Password is Mismatch',
+                              color: Colors.red,
+                            );
+                          }
                         }
-                      }
-                    },
-                  )
-                ],
+                      },
+                    )
+                  ],
+                ),
               ),
             ),
           ),

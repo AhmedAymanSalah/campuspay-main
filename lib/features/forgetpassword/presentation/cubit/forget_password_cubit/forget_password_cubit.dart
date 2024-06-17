@@ -37,12 +37,12 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
     buildShowLoading(context);
     ApiService.postData(
       url: 'Authentcation/ForgetPassword',
-      data: {
+      query: {
         'email':email,
       },
     ).then((value){
       forgetPasswordModel=ForgetPasswordModel.fromJson(value.data);
-      print(forgetPasswordModel.massage);
+      print(forgetPasswordModel.message);
       emit(ForgetPasswordSuccessStates(forgetPasswordModel));
     }).catchError((error){
       print(error.toString());
@@ -61,7 +61,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
     buildShowLoading(context);
     ApiService.getData(
       url: 'Authentcation/VerificationCode',
-      data: {
+      query: {
         'verificationCode':verificationCode,
         'userId':userId
       },
@@ -85,13 +85,13 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
     buildShowLoading(context);
     ApiService.postData(
       url: 'Authentcation/ResetPassword',
-      data: {
+      query: {
         'userId':userId,
         'newPassword':newPassword,
       },
     ).then((value){
       resetPasswordModel=ResetPasswordModel.fromJson(value.data);
-      print(resetPasswordModel.massage);
+      print(resetPasswordModel.message);
       emit(ResetPasswordSuccessStates(resetPasswordModel: resetPasswordModel));
     }).catchError((error){
       print(error.toString());

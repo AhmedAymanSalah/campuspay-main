@@ -34,7 +34,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         if (state is ForgetPasswordSuccessStates) {
           buildShowLoading(context);
           showToast(
-            text: state.forgetPasswordModel.massage!,
+            text: state.forgetPasswordModel.message!,
             color: Colors.green,
           );
           Navigator.push(

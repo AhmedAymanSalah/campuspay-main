@@ -1,17 +1,17 @@
 class VerificationModel {
-  String? massage;
+  String? message;
   bool? status;
 
-  VerificationModel({ this.massage,this.status});
+  VerificationModel({ this.message,this.status});
 
   VerificationModel.fromJson(Map<String, dynamic> json) {
-    massage = json['massage'];
+    message = json['message'];
     status = json['status'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['massage'] = this.massage;
+    data['message'] = this.message;
     data['status'] = this.status;
     return data;
   }

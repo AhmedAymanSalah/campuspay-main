@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import '../../../../../core/widgets/app_button.dart';
 
 class DonatorRequestInfoBotton extends StatelessWidget {
-  const DonatorRequestInfoBotton({super.key});
+  const DonatorRequestInfoBotton({super.key, required this.function});
+  final Function function;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,8 @@ class DonatorRequestInfoBotton extends StatelessWidget {
         Expanded(
           child: AppTextButton(
             onPressed: () {
-              navigateTo(context, const DoneScreen());
+              function();
+              //navigateTo(context, const DoneScreen());
             },
             text: "Pay",
             buttonColor: ColorsManager.green,

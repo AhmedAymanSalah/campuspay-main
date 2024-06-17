@@ -28,14 +28,14 @@ class LoginCubit extends Cubit<LoginStates>
     buildShowLoading(context);
     ApiService.postData(
       url: 'Authentcation/LogIn',
-      data: {
+      query: {
         'Email':email,
         'Password':password,
       },
     ).then((value){
       loginModel=LoginModel.fromJson(value.data);
       print(loginModel.status);
-      print(loginModel.massage);
+      print(loginModel.message);
       print(loginModel.token);
       emit(LoginSuccessStates(loginModel));
     }).catchError((error){

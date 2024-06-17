@@ -1,6 +1,7 @@
 import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/routes/routes.dart';
 import 'package:campuspay/core/utils/constant.dart';
+import 'package:campuspay/donator/featuers/layout/presentation/view/layout_view.dart';
 import 'package:campuspay/features/forgetpassword/screens/forget_password_screen.dart';
 import 'package:campuspay/features/home/ui/screen/home_screen.dart';
 import 'package:campuspay/features/login/presentation/manage/cubit/login_cubit.dart';
@@ -44,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
           if (state.loginModel.status!) {
             buildShowLoading(context);
             showToast(
-              text: state.loginModel.massage!,
+              text: state.loginModel.message!,
               color: Colors.green,
             );
             SharedPreference.saveData(
@@ -58,18 +59,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   }else if(state.loginModel.type =='Moderator'){
                     navigateAndFinish(context, const ModeratorLayoutView());
                   }else if(state.loginModel.type =='Donor'){
-                    navigateAndFinish(context, const HomeScreen());
+                    navigateAndFinish(context, const DonatorLayoutView());
                   }
             });
           } else {
             showToast(
-              text: state.loginModel.massage!,
+              text: state.loginModel.message!,
               color: Colors.red,
             );
           }
         }
         if(state is LoginErrorStates){
-         // buildShowLoading(context);
           showToast(
             text: state.error,
             color: Colors.red,

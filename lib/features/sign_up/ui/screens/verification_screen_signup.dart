@@ -32,7 +32,7 @@ class _VerificationScreenState extends State<VerificationScreenSignUp> {
       listener: (BuildContext context, state) {
         if (state is VerificationSuccessStates) {
           showToast(
-            text: state.verificationModel.massage!,
+            text: state.verificationModel.message!,
             color: Colors.green,
           );
           Navigator.push(context,
