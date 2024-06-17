@@ -95,7 +95,7 @@ class SignUpCubit extends Cubit<SignUpStates>
 
   late VerificationModel verificationModel;
   void verificationCode({
-    required String verificationCode,
+    required int verificationCode,
     required String userId,
   }){
     emit(VerificationLoadingStates());

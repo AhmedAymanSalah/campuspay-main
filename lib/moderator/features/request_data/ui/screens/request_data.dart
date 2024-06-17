@@ -1,6 +1,8 @@
+import 'package:campuspay/moderator/cubit/cubit.dart';
+import 'package:campuspay/moderator/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
-import 'package:campuspay/moderator/features/request_data/ui/data/users_data_list.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../request_info/screens/request_info.dart';
 import '../widget/container_data_users.dart';
 import '../widget/container_titel_info.dart';
@@ -14,39 +16,68 @@ class RequestDataScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const RequestTitel(),
-                const Search(),
-                verticalSpace(20),
-                const TitelData(),
-                verticalSpace(20),
-                ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: usersDataList.length,
-                  itemBuilder: (context, index) => GestureDetector(
-                    onTap: () {
-                      // Navigate to service detail screen when tapped
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const RequestInfo(
-                            // service: usersDataList[index],
-                          ),
+        body: BlocProvider(
+          create: (BuildContext context) => ModeratorCubit()..getAllRequest(),
+          child: BlocConsumer<ModeratorCubit, ModeratorStates>(
+            listener: (BuildContext context, state) {},
+            builder: (BuildContext context, ModeratorStates state) {
+              var cubit = ModeratorCubit.get(context);
+              if (state is GetAllRequestSuccessStates) {
+                return SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const RequestTitel(),
+                        Search(
+                          num: cubit.getAllRequestModel.length,
                         ),
-                      );
-                    },
-                    child: DataUsers(index: index),
+                        verticalSpace(20),
+                        const TitelData(),
+                        verticalSpace(20),
+                        cubit.getAllRequestModel.isNotEmpty
+                            ? ListView.builder(
+                                physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: cubit.getAllRequestModel.length,
+                                itemBuilder: (context, index) =>
+                                    GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => RequestInfo(
+                                          serviceId: cubit
+                                              .getAllRequestModel[index].id!,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: DataUsers(
+                                      model: cubit.getAllRequestModel[index]),
+                                ),
+                              )
+                            : const Center(
+                                child: Text(
+                                  'No Request Found',
+                                  style: TextStyle(fontSize: 30),
+                                ),
+                              ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
+                );
+              } else if (state is GetAllRequestErrorStates) {
+                return Text(
+                  state.error,
+                  style: const TextStyle(fontSize: 20),
+                );
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
+            },
           ),
         ),
       ),

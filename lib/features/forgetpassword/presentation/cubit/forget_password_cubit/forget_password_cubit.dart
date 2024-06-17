@@ -37,7 +37,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
     buildShowLoading(context);
     ApiService.postData(
       url: 'Authentcation/ForgetPassword',
-      query: {
+      data: {
         'email':email,
       },
     ).then((value){
@@ -53,7 +53,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
 
   late VerificationModel verificationModel;
   void verificationCode({
-    required String verificationCode,
+    required int verificationCode,
     required String userId,
     required context,
   }){
@@ -61,7 +61,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
     buildShowLoading(context);
     ApiService.getData(
       url: 'Authentcation/VerificationCode',
-      query: {
+      data: {
         'verificationCode':verificationCode,
         'userId':userId
       },
@@ -85,7 +85,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
     buildShowLoading(context);
     ApiService.postData(
       url: 'Authentcation/ResetPassword',
-      query: {
+      data: {
         'userId':userId,
         'newPassword':newPassword,
       },

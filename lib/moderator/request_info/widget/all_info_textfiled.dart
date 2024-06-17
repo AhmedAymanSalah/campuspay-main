@@ -1,85 +1,75 @@
 import 'package:campuspay/core/helpers/spacing.dart';
-import 'package:campuspay/core/widgets/custom_text_form_filed.dart';
+import 'package:campuspay/moderator/features/request_data/ui/data/get_details_request.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/widgets/display_data_container.dart';
-import 'reson_request_textfiled.dart';
 
 class AllInfoTextFiled extends StatelessWidget {
-  const AllInfoTextFiled({super.key});
+  const AllInfoTextFiled({super.key, required this.model});
+  final GetDetailsRequestModel model;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const DisplayDataContainer(
+         DisplayDataContainer(
           titel: "Name",
-          prefixIcon: Icon(Icons.person_2_outlined),
-          text: "ahmed Ayman",
+          prefixIcon: const Icon(Icons.person_2_outlined),
+          text: model.fullName,
         ),
         verticalSpace(15),
-        const DisplayDataContainer(
-          titel: "Email",
-          prefixIcon: Icon(Icons.email_outlined),
-          text: "aa3901@fayoum.edu.eg",
+         DisplayDataContainer(
+          titel: "Father Name",
+          prefixIcon: const Icon(Icons.email_outlined),
+          text: model.fatherName,
         ),
         verticalSpace(15),
-        const DisplayDataContainer(
-          titel: "ID_Number",
-          prefixIcon: Icon(Icons.person_2_outlined),
-          text: "3020805210123456",
+         DisplayDataContainer(
+          titel: "Father Income",
+          prefixIcon: const Icon(Icons.person_2_outlined),
+          text: model.fatherIncome,
         ),
         verticalSpace(15),
-        CustomTextFormFiled(
-          hintText: "Mobile_number..",
-          textInputType: TextInputType.number,
-          titel: "Mobile_number",
-          prefixIcon: Icon(
-            Icons.person_2_outlined,
-            size: 20.h,
-          ),
-        ),
-        verticalSpace(15),
-        const DisplayDataContainer(
+         DisplayDataContainer(
           titel: "City",
-          prefixIcon: Icon(Icons.person_2_outlined),
-          text: "Giza",
+          prefixIcon: const Icon(Icons.person_2_outlined),
+          text: model.city,
         ),
         verticalSpace(15),
-        const DisplayDataContainer(
-          titel: "State",
-          prefixIcon: Icon(Icons.person_2_outlined),
-          text: "Student",
+         DisplayDataContainer(
+          titel: "Father State",
+          prefixIcon: const Icon(Icons.person_2_outlined),
+          text: model.fatherState,
         ),
         verticalSpace(15),
-        const DisplayDataContainer(
-          titel: "Job",
-          prefixIcon: Icon(Icons.person_2_outlined),
-          text: "Student",
+         DisplayDataContainer(
+          titel: "Father Job",
+          prefixIcon: const Icon(Icons.person_2_outlined),
+          text: model.fatherJob,
         ),
         verticalSpace(15),
-        const DisplayDataContainer(
-          titel: "zip_Code",
+         DisplayDataContainer(
+          titel: "Number Of Family Members",
           prefixIcon: Icon(Icons.person_2_outlined),
-          text: "58462",
+          text:'${ model.numberOfFamilyMembers}',
         ),
         verticalSpace(15),
-        const ReasonRequestTextFiled(
-          content:
-              "ahewnkjscjkb skbkjdbjvk akbkjbsvj lkaknlknv lafjkaj alflkbajba kabfjabjbk akbfbabjabjkbjablja akbfjbajbjabjabjbjabjkbjkbjksbjsj skb fjkb",
-          title: "Reason request",
+        DisplayDataContainer(
+          titel: "Number Of Family Members In Edu",
+          prefixIcon: const Icon(Icons.person_2_outlined),
+          text:'${ model.numberOfFamilyMembersInEdu}',
+        ),
+        verticalSpace(15),
+        verticalSpace(20),
+         DisplayDataContainer(
+          titel: "College name",
+          prefixIcon: const Icon(Icons.person_2_outlined),
+          text: model.collegeName,
         ),
         verticalSpace(20),
-        const DisplayDataContainer(
-          titel: "Service name",
-          prefixIcon: Icon(Icons.person_2_outlined),
-          text: "Service name",
-        ),
-        verticalSpace(20),
-        const DisplayDataContainer(
+         DisplayDataContainer(
           titel: "Amount",
-          prefixIcon: Icon(Icons.person_2_outlined),
-          text: "15",
+          prefixIcon: const Icon(Icons.person_2_outlined),
+          text: "${model.cost}",
         ),
       ],
     );

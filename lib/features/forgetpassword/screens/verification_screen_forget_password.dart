@@ -119,7 +119,7 @@ class _VerificationScreenState extends State<VerificationScreenForgetPassword> {
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           cubit.verificationCode(
-                            verificationCode: controller.text,
+                            verificationCode: int.parse(controller.text),
                             userId: cubit.forgetPasswordModel.userId!,
                             context: context,
                           );

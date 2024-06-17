@@ -1,13 +1,12 @@
 import 'package:campuspay/core/theme/colors.dart';
-import 'package:campuspay/core/utils/constant.dart';
-import 'package:campuspay/moderator/request_info/screens/accept_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/app_button.dart';
-import '../screens/request_refused.dart';
 
 class RequestInfoBotton extends StatelessWidget {
-  const RequestInfoBotton({super.key});
+  const RequestInfoBotton({super.key, required this.acceptFunction, required this.rejectFunction});
+  final Function acceptFunction;
+  final Function rejectFunction;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class RequestInfoBotton extends StatelessWidget {
         Expanded(
           child: AppTextButton(
             onPressed: () {
-              navigateTo(context, const RequestAcceptScreen());
+              acceptFunction();
             },
             text: "Accept",
             buttonColor: ColorsManager.green,
@@ -25,7 +24,7 @@ class RequestInfoBotton extends StatelessWidget {
         Expanded(
           child: AppTextButton(
             onPressed: () {
-              navigateTo(context, const RequestRefusedScreen());
+              rejectFunction();
             },
             text: "Refuse",
             buttonColor: ColorsManager.red,

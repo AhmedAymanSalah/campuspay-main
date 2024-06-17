@@ -5,10 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/widgets/custom_text_widget.dart';
+import '../data/get_all_request.dart';
 
 class DataUsers extends StatelessWidget {
-  final int index;
-  const DataUsers({super.key, required this.index});
+ // final int index;
+  final GetAllRequestModel model;
+  const DataUsers({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -24,30 +26,30 @@ class DataUsers extends StatelessWidget {
           children: [
             horizontalSpace(8),
             CustomTextWidget(
-              text: usersDataList[index].id,
+              text: '${model.id}',
               color: ColorsManager.darkBlue,
             ),
             const VerticalDivider(),
             Expanded(
               child: CustomTextWidget(
-                text: usersDataList[index].name,
+                text: model.name!,
                 color: ColorsManager.darkBlue,
               ),
             ),
             const VerticalDivider(),
             Expanded(
               child: CustomTextWidget(
-                text: usersDataList[index].email,
+                text: model.type!,
                 color: ColorsManager.darkBlue,
               ),
             ),
-            const VerticalDivider(),
-            Expanded(
-              child: CustomTextWidget(
-                text: usersDataList[index].idNamber,
-                color: ColorsManager.darkBlue,
-              ),
-            ),
+            // const VerticalDivider(),
+            // Expanded(
+            //   child: CustomTextWidget(
+            //     text: usersDataList[index].idNamber,
+            //     color: ColorsManager.darkBlue,
+            //   ),
+            // ),
           ],
         ),
       ),

@@ -119,7 +119,7 @@ class _VerificationScreenState extends State<VerificationScreenSignUp> {
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           cubit.verificationCode(
-                            verificationCode: controller.text,
+                            verificationCode: int.parse(controller.text),
                             userId: cubit.signUpModel.userId!,
                           );
                           print(controller.text);
