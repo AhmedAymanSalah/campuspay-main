@@ -4,6 +4,7 @@ import 'package:campuspay/features/layout/presentation/manage/cubit/Layout_cubit
 import 'package:campuspay/features/login/presentation/manage/cubit/login_cubit.dart';
 import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 import 'package:campuspay/features/sign_up/presentation/manage/cubit/signup_cubit.dart';
+import 'package:campuspay/features/splash/ui/custom_splash_screen.dart';
 import 'package:campuspay/moderator/cubit/cubit.dart';
 import 'package:campuspay/moderator/features/layout/presentation/manage/cubit/Layout_cubit.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ class Campuspay extends StatelessWidget {
         ],
         child:   const MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: DonatorLayoutView(),
+          home: SplashScreen(),
         ),
       ),
     );
