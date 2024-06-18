@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Search extends StatelessWidget {
-  const Search({super.key});
+  const Search({super.key, required this.num});
+  final int num;
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +37,8 @@ class Search extends StatelessWidget {
                   color: ColorsManager.darkBlue,
                 ),
                 horizontalSpace(25),
-                const CustomTextWidget(
-                  text: "50",
+                 CustomTextWidget(
+                  text: '$num',
                   fontWeight: FontWeight.bold,
                   color: ColorsManager.darkGrey,
                 ),

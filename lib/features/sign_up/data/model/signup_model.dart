@@ -1,18 +1,18 @@
 class SignUpModel {
   String? userId;
-  String? massage;
+  String? message;
 
-  SignUpModel({this.userId, this.massage});
+  SignUpModel({this.userId, this.message});
 
   SignUpModel.fromJson(Map<String, dynamic> json) {
     userId = json['userId'];
-    massage = json['massage'];
+    message = json['message'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['userId'] = this.userId;
-    data['massage'] = this.massage;
+    data['message'] = this.message;
     return data;
   }
 }

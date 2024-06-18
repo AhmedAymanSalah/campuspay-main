@@ -32,7 +32,7 @@ class _VerificationScreenState extends State<VerificationScreenSignUp> {
       listener: (BuildContext context, state) {
         if (state is VerificationSuccessStates) {
           showToast(
-            text: state.verificationModel.massage!,
+            text: state.verificationModel.message!,
             color: Colors.green,
           );
           Navigator.push(context,
@@ -119,7 +119,7 @@ class _VerificationScreenState extends State<VerificationScreenSignUp> {
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           cubit.verificationCode(
-                            verificationCode: controller.text,
+                            verificationCode: int.parse(controller.text),
                             userId: cubit.signUpModel.userId!,
                           );
                           print(controller.text);

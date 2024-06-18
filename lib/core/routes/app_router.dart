@@ -112,10 +112,6 @@ class AppRouter {
             child: const ModeratorBottomNavBar(),
           ),
         );
-
-      case Routes.allInfoScreen:
-        // Return a MaterialPageRoute for the OnBoardingScreen route.
-        return MaterialPageRoute(builder: (_) => const AllInfoScreen());
       case Routes.requestAcceptScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const RequestAcceptScreen());

@@ -39,13 +39,13 @@ class _SignupScreenState extends State<SignupScreen> {
           buildShowLoading(context);
           if (state is SignUpSuccessStates) {
             showToast(
-            text: state.signUpModel.massage!,
+            text: state.signUpModel.message!,
             color: Colors.green,
           );
           }
           if(state is SignUpDonorSuccessStates){
             showToast(
-              text: state.signUpModel.massage!,
+              text: state.signUpModel.message!,
               color: Colors.green,
             );
           }

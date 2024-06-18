@@ -6,7 +6,7 @@ import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../core/utils/constant.dart';
-import '../../features/home/ui/screens/moderator_botton_nav_bar.dart';
+import '../../features/layout/presentation/view/layout_view.dart';
 
 class RequestRefusedScreen extends StatelessWidget {
   const RequestRefusedScreen({super.key});
@@ -45,7 +45,7 @@ class RequestRefusedScreen extends StatelessWidget {
               const Spacer(),
               AppTextButton(
                 onPressed: () {
-                  navigateAndFinish(context, const ModeratorBottomNavBar());
+                  navigateAndFinish(context, const ModeratorLayoutView());
                 },
                 text: "Back To Home",
                 buttonColor: ColorsManager.red,

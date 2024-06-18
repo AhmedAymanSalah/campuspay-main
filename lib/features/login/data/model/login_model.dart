@@ -1,15 +1,15 @@
 class LoginModel {
   String? type;
   String? token;
-  String? massage;
+  String? message;
   bool? status;
 
-  LoginModel({this.type, this.token, this.massage,this.status});
+  LoginModel({this.type, this.token, this.message,this.status});
 
   LoginModel.fromJson(Map<String, dynamic> json) {
     type = json['type'];
     token = json['token'];
-    massage = json['massage'];
+    message = json['message'];
     status = json['status'];
   }
 
@@ -17,7 +17,7 @@ class LoginModel {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['type'] = this.type;
     data['token'] = this.token;
-    data['massage'] = this.massage;
+    data['message'] = this.message;
     data['status'] = this.status;
     return data;
   }

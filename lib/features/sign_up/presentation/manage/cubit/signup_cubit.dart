@@ -53,7 +53,7 @@ class SignUpCubit extends Cubit<SignUpStates>
       },
     ).then((value){
       signUpModel=SignUpModel.fromJson(value.data);
-      print(signUpModel.massage);
+      print(signUpModel.message);
       emit(SignUpSuccessStates(signUpModel: signUpModel));
     }).catchError((error){
       emit(SignUpErrorStates(error.toString()));
@@ -84,7 +84,7 @@ class SignUpCubit extends Cubit<SignUpStates>
       },
     ).then((value){
       signUpDonorModel=SignUpModel.fromJson(value.data);
-      print(signUpDonorModel.massage);
+      print(signUpDonorModel.message);
       emit(SignUpDonorSuccessStates(signUpModel: signUpDonorModel));
     }).catchError((error){
       emit(SignUpDonorErrorStates(error.toString()));
@@ -95,7 +95,7 @@ class SignUpCubit extends Cubit<SignUpStates>
 
   late VerificationModel verificationModel;
   void verificationCode({
-    required String verificationCode,
+    required int verificationCode,
     required String userId,
   }){
     emit(VerificationLoadingStates());
@@ -107,7 +107,7 @@ class SignUpCubit extends Cubit<SignUpStates>
       },
     ).then((value){
       verificationModel=VerificationModel.fromJson(value.data);
-      print(signUpModel.massage);
+      print(signUpModel.message);
       emit(VerificationSuccessStates(verificationModel: verificationModel));
     }).catchError((error){
       print(error.toString());

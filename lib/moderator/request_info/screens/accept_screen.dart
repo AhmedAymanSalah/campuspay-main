@@ -1,5 +1,5 @@
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
-import 'package:campuspay/moderator/features/home/ui/screens/moderator_botton_nav_bar.dart';
+import 'package:campuspay/moderator/features/layout/presentation/view/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -52,7 +52,7 @@ class RequestAcceptScreen extends StatelessWidget {
               const Spacer(),
               AppTextButton(
                 onPressed: () {
-                  navigateAndFinish(context, const ModeratorBottomNavBar());
+                  navigateAndFinish(context, const ModeratorLayoutView());
                 },
                 text: "Back To Home",
                 buttonColor: ColorsManager.green,

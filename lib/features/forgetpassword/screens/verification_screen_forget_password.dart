@@ -32,7 +32,7 @@ class _VerificationScreenState extends State<VerificationScreenForgetPassword> {
         if (state is VerificationForgetPasswordSuccessStates) {
           buildShowLoading(context);
           showToast(
-            text: state.verificationModel.massage!,
+            text: state.verificationModel.message!,
             color: Colors.green,
           );
           Navigator.push(context,
@@ -119,7 +119,7 @@ class _VerificationScreenState extends State<VerificationScreenForgetPassword> {
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           cubit.verificationCode(
-                            verificationCode: controller.text,
+                            verificationCode: int.parse(controller.text),
                             userId: cubit.forgetPasswordModel.userId!,
                             context: context,
                           );

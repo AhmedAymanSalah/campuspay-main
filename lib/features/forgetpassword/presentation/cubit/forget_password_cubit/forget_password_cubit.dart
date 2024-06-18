@@ -42,7 +42,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
       },
     ).then((value){
       forgetPasswordModel=ForgetPasswordModel.fromJson(value.data);
-      print(forgetPasswordModel.massage);
+      print(forgetPasswordModel.message);
       emit(ForgetPasswordSuccessStates(forgetPasswordModel));
     }).catchError((error){
       print(error.toString());
@@ -53,7 +53,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
 
   late VerificationModel verificationModel;
   void verificationCode({
-    required String verificationCode,
+    required int verificationCode,
     required String userId,
     required context,
   }){
@@ -91,7 +91,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates>
       },
     ).then((value){
       resetPasswordModel=ResetPasswordModel.fromJson(value.data);
-      print(resetPasswordModel.massage);
+      print(resetPasswordModel.message);
       emit(ResetPasswordSuccessStates(resetPasswordModel: resetPasswordModel));
     }).catchError((error){
       print(error.toString());

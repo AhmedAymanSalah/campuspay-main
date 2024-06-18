@@ -8,6 +8,7 @@ import 'package:campuspay/moderator/features/request_data/ui/screens/request_dat
 
 import '../../../../../../features/profile/ui/screens/profile_screen.dart';
 import '../../../../home/ui/screens/donator_home_screen.dart';
+import '../../../../social_research_requests/ui/screens/social_research_screen.dart';
 import 'donator_layout_states.dart';
 
 class DonatorLayoutCubit extends Cubit<DonatorLayoutStates>
@@ -25,7 +26,7 @@ class DonatorLayoutCubit extends Cubit<DonatorLayoutStates>
 
   List<Widget>screens= [
     const DonatorHomeScreen(),
-    const RequestDataScreen(),
+    const SocialResearchScreen(),
     const Chat(),
     const ProfileScreen(),
   ];

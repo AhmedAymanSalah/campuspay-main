@@ -110,7 +110,7 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
                           curve: Curves.linearToEaseOut);
                     });
                   } else {
-                    context.navigateToReplacement(Routes.attentionPage);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
                   }
                 },
               ),

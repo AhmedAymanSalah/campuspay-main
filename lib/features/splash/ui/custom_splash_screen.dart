@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:campuspay/donator/featuers/home/ui/screens/donator_home_screen.dart';
+import 'package:campuspay/features/onboarding/ui/screens/onboarding_screen.dart';
 
 import '../../../core/utils/constant.dart';
 import '../../../core/widgets/custom_text_widget.dart';
@@ -65,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen>
         // Navigator.pushReplacement(
         //     context, PageTransition(const OnboardingPage1()));
         // context.navigateToReplacement(Routes.onBoardingScreen);
-        navigateAndFinish(context, const SocialResearchScreen());
+        navigateAndFinish(context, const OnBoardingScreen());
       });
     });
   }
