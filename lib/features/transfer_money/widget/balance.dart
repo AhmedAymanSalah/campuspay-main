@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/theme/colors.dart';
 import '../../../core/widgets/custom_text_widget.dart';
@@ -12,15 +13,16 @@ class BalanceWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         const CustomTextWidget(
+        CustomTextWidget(
           text: "Balance",
-          color: ColorsManager.gray,
-        ),
-         CustomTextWidget(
-          text: '$balance  L.E',
           color: ColorsManager.lightGray,
+          fontSize: 20.sp,
+        ),
+        CustomTextWidget(
+          text: '$balance  L.E',
+          color: ColorsManager.morelighterGray,
           fontWeight: FontWeight.bold,
-          fontSize: 25,
+          fontSize: 26.sp,
         ),
       ],
     );

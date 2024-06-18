@@ -3,23 +3,19 @@
 
 import 'package:campuspay/core/helpers/app_images.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
+import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/features/visa/screens/top_up_success.dart';
 import 'package:campuspay/features/visa/widget/row_widget.dart';
 import 'package:flutter/material.dart';
-
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../core/widgets/app_button.dart';
-import '../data/model/card_model.dart';
 import '../widget/Container.dart';
 
 class ConformScreen extends StatelessWidget {
-  final CardData card;
   const ConformScreen({
     super.key,
-    required this.card,
   });
 
   @override
@@ -62,10 +58,7 @@ class ConformScreen extends StatelessWidget {
             const Spacer(),
             AppTextButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const TopUpSuccess()),
-                );
+                navigateTo(context, const TopUpSuccess());
               },
               text: "confirm",
               buttonColor: ColorsManager.darkBlue,

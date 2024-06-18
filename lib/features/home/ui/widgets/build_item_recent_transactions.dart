@@ -28,7 +28,10 @@ class BuildItemRecentTransactions extends StatelessWidget {
                 width: double.infinity,
                 child: ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: cubit.historyTransactionModel!.transactions!.length >=3 ?3 :cubit.historyTransactionModel!.transactions!.length,
+                  itemCount:
+                      cubit.historyTransactionModel!.transactions!.length >= 3
+                          ? 3
+                          : cubit.historyTransactionModel!.transactions!.length,
                   separatorBuilder: (context, index) => Container(
                     height: 1,
                     color: const Color(0xFFF2F2F2),
@@ -48,7 +51,7 @@ class BuildItemRecentTransactions extends StatelessWidget {
                     title: CustomTextWidget(
                       text: cubit.historyTransactionModel!.transactions![index]
                           .serviceName!,
-                      fontSize: 12.sp,
+                      fontSize: 14.sp,
                       color: ColorsManager.darkGrey,
                     ),
                     subtitle: Row(
@@ -56,7 +59,7 @@ class BuildItemRecentTransactions extends StatelessWidget {
                         CustomTextWidget(
                           text: cubit.historyTransactionModel!
                               .transactions![index].date!,
-                          fontSize: 11.sp,
+                          fontSize: 12.sp,
                           color: ColorsManager.gray,
                         ),
                         const SizedBox(
@@ -65,7 +68,7 @@ class BuildItemRecentTransactions extends StatelessWidget {
                         CustomTextWidget(
                           text:
                               '${cubit.historyTransactionModel!.transactions![index].time!} ',
-                          fontSize: 11.sp,
+                          fontSize: 12.sp,
                           color: ColorsManager.gray,
                         ),
                       ],
@@ -73,7 +76,7 @@ class BuildItemRecentTransactions extends StatelessWidget {
                     trailing: CustomTextWidget(
                       text:
                           '-${cubit.historyTransactionModel!.transactions![index].cost!}',
-                      fontSize: 12.sp,
+                      fontSize: 13.sp,
                       color: ColorsManager.darkGrey,
                     ),
                   ),
@@ -81,9 +84,7 @@ class BuildItemRecentTransactions extends StatelessWidget {
               );
             } else {
               return const Padding(
-                padding: EdgeInsets.only(
-                  top: 20
-                ),
+                padding: EdgeInsets.only(top: 20),
                 child: Center(
                   child: Text(
                     textAlign: TextAlign.center,

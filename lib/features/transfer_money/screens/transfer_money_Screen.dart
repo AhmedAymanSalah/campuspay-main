@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:campuspay/core/helpers/app_images.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/theme/colors.dart';
@@ -29,14 +31,20 @@ class _TransferMoneyState extends State<TransferMoney> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context)=>HomeCubit()..getBalance(),
+      create: (BuildContext context) => HomeCubit()..getBalance(),
       child: BlocConsumer<HomeCubit, HomeStates>(
         listener: (BuildContext context, state) {
-          if(state is TransferToSuccessStates){
+          if (state is TransferToSuccessStates) {
             showToast(text: 'Transfer Success', color: Colors.green);
-            navigateTo(context,  TransferSuccess(title: amountController.text,));
-          }else if(state is TransferToErrorStates){
-            showToast(text: 'Please check from recipient Id or balance not enough', color: Colors.red);
+            navigateTo(
+                context,
+                TransferSuccess(
+                  title: amountController.text,
+                ));
+          } else if (state is TransferToErrorStates) {
+            showToast(
+                text: 'Please check from recipient Id or balance not enough',
+                color: Colors.red);
           }
         },
         builder: (BuildContext context, Object? state) {
@@ -53,73 +61,83 @@ class _TransferMoneyState extends State<TransferMoney> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            body:state is GetBalanceSuccessStates? Container(
-              height: double.infinity.h,
-              width: double.infinity.h,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(Assets.imagesBackgrond),
-                      fit: BoxFit.cover)),
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      top: 65.h, left: 25.h, bottom: 30.h, right: 25.h),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                       BalanceWidget(balance: cubit.balanceModel!.balance!,),
-                      verticalSpace(45),
-                      Container(
-                        height: 500.h,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(25)),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 20.h, horizontal: 20.h),
-                          child: Column(
-                            children: [
-                              //const Spacer(),
-                              verticalSpace(50),
-                              CustomTextFormFiled(
-                                textInputType: TextInputType.number,
-                                titel: "Recipient ID",
-                                hintText: "Recipient",
-                                controller: recipientController,
+            body: state is GetBalanceSuccessStates
+                ? Container(
+                    height: double.infinity.h,
+                    width: double.infinity.h,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(Assets.imagesBackgrond),
+                            fit: BoxFit.cover)),
+                    child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            top: 65.h, left: 25.h, bottom: 30.h, right: 25.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            verticalSpace(25),
+                            BalanceWidget(
+                              balance: cubit.balanceModel!.balance!,
+                            ),
+                            verticalSpace(45),
+                            Container(
+                              height: 500.h,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(25)),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 20.h, horizontal: 20.h),
+                                child: Column(
+                                  children: [
+                                    //const Spacer(),
+                                    verticalSpace(50),
+                                    CustomTextFormFiled(
+                                      textInputType: TextInputType.number,
+                                      titel: "Recipient ID",
+                                      hintText: "Recipient",
+                                      controller: recipientController,
+                                    ),
+                                    verticalSpace(30),
+                                    CustomTextFormFiled(
+                                      textInputType: TextInputType.number,
+                                      titel: "Amount",
+                                      hintText: "Amount",
+                                      controller: amountController,
+                                      suffixIcon:
+                                          const Icon(Icons.attach_money),
+                                    ),
+                                    //verticalSpace(50),
+                                    const Spacer(),
+                                    state is! TransferToLoadingStates
+                                        ? AppTextButton(
+                                            text: "Transfer",
+                                            onPressed: () {
+                                              cubit.transferTo(
+                                                balance: double.parse(
+                                                    amountController.text),
+                                                SSN: recipientController.text,
+                                              );
+                                            },
+                                            buttonColor: ColorsManager.darkBlue,
+                                          )
+                                        : const Center(
+                                            child: CircularProgressIndicator()),
+                                    const Spacer(),
+                                  ],
+                                ),
                               ),
-                              verticalSpace(30),
-                              CustomTextFormFiled(
-                                textInputType: TextInputType.number,
-                                titel: "Amount",
-                                hintText: "Amount",
-                                controller: amountController,
-                                suffixIcon: const Icon(Icons.attach_money),
-                              ),
-                              //verticalSpace(50),
-                              const Spacer(),
-                             state is! TransferToLoadingStates? AppTextButton(
-                                text: "Transfer",
-                                onPressed: () {
-                                  cubit.transferTo(
-                                    balance: double.parse(amountController.text),
-                                    SSN: recipientController.text,
-                                  );
-                                },
-                                buttonColor: ColorsManager.darkBlue,
-                              ):const Center(child: CircularProgressIndicator()),
-                              const Spacer(),
-                            ],
-                          ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ):const Center(child: CircularProgressIndicator()),
+                      ),
+                    ),
+                  )
+                : const Center(child: CircularProgressIndicator()),
           );
         },
       ),

@@ -1,4 +1,3 @@
-import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
@@ -9,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/routes/routes.dart';
 
 class RecentTransactionsList extends StatelessWidget {
   const RecentTransactionsList({super.key});

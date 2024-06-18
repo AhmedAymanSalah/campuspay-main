@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:campuspay/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,17 +8,17 @@ import '../../manage/cubit/Layout_cubit.dart';
 import '../../manage/cubit/Layout_states.dart';
 
 class BottomNavBar extends StatelessWidget {
-   BottomNavBar({super.key});
+  BottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocConsumer<StudentLayoutCubit,StudentLayoutStates>(
-      listener: (BuildContext context, state) {  },
+    return BlocConsumer<StudentLayoutCubit, StudentLayoutStates>(
+      listener: (BuildContext context, state) {},
       builder: (BuildContext context, Object? state) {
-        var cubit=StudentLayoutCubit().get(context);
+        var cubit = StudentLayoutCubit().get(context);
         return Container(
-          color: const Color(0xff2B475E),
+          color: ColorsManager.darkBlue,
           height: size.width * .155,
           child: ListView.builder(
             itemCount: 4,
@@ -39,12 +40,12 @@ class BottomNavBar extends StatelessWidget {
                     duration: const Duration(milliseconds: 1500),
                     curve: Curves.fastLinearToSlowEaseIn,
                     margin: EdgeInsets.only(
-                      top: index ==cubit.currentIndex ? 0 : size.width * .029,
+                      top: index == cubit.currentIndex ? 0 : size.width * .029,
                       right: size.width * .0422,
                       left: size.width * .0422,
                     ),
                     width: size.width * .153,
-                    height: index ==cubit.currentIndex ? size.width * .014 : 0,
+                    height: index == cubit.currentIndex ? size.width * .014 : 0,
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.vertical(
@@ -60,9 +61,11 @@ class BottomNavBar extends StatelessWidget {
       },
     );
   }
+
   List<IconData> listOfIcons = [
     Icons.home_rounded,
-    Icons.category_rounded,
-    Icons.favorite,
-    Icons.settings];
+    Icons.history,
+    Icons.home_repair_service,
+    Icons.settings
+  ];
 }

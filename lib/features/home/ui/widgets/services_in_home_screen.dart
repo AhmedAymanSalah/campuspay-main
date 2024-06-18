@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:campuspay/core/helpers/app_images.dart';
-import 'package:campuspay/core/helpers/extentions.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/utils/constant.dart';
@@ -10,12 +9,11 @@ import 'package:campuspay/features/home/logic/cubit/home_cubit.dart';
 import 'package:campuspay/features/home/logic/cubit/home_state.dart';
 import 'package:campuspay/features/social_request/ui/screen/social_request_screen.dart';
 import 'package:campuspay/features/transfer_money/screens/transfer_money_Screen.dart';
-import 'package:campuspay/features/visa/screens/cardes_screen.dart';
+import 'package:campuspay/features/visa/screens/top_up_with_bank.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/routes/routes.dart';
 
 class ServicesInHomeScreen extends StatelessWidget {
   ServicesInHomeScreen({
@@ -64,7 +62,7 @@ class ServicesInHomeScreen extends StatelessWidget {
             ContainerIconService(
               image: Assets.imagesIconmyCache,
               onTap: () {
-                navigateTo(context, const CaredsScreen());
+                navigateTo(context, const TopUpWithBank());
               },
             ),
             verticalSpace(16),

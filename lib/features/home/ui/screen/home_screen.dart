@@ -20,28 +20,35 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context)=>HomeCubit()..getBalance()..getTotalOfMoneyPayed()..getTotalOfMoneyDeposited(),
-      child: BlocConsumer<HomeCubit,HomeStates>(
-        listener: (BuildContext context, state) {  },
+      create: (BuildContext context) => HomeCubit()
+        ..getBalance()
+        ..getTotalOfMoneyPayed()
+        ..getTotalOfMoneyDeposited(),
+      child: BlocConsumer<HomeCubit, HomeStates>(
+        listener: (BuildContext context, state) {},
         builder: (BuildContext context, Object? state) {
           return BlocProvider(
             create: (context) => HoCubit(),
             child: BlocBuilder<HoCubit, HomeState>(
               builder: (context, state) {
-                return Scaffold(
-                  backgroundColor: Colors.white,
-                  body: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: ListView(
-                      physics: const BouncingScrollPhysics(),
-                      children: [
-                        const WelcomeUserListTile(),
-                        ServicesInHomeScreen(),
-                        verticalSpace(10),
-                        if (state is! MyCache) const BuildCreditCardWidget(),
-                        if (state is MyCache)  MyCacheAccount(),
-                        const RecentTransactionsList(),
-                      ],
+                return SafeArea(
+                  child: Scaffold(
+                    backgroundColor: Colors.white,
+                    body: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: ListView(
+                        physics: const BouncingScrollPhysics(),
+                        children: [
+                          const WelcomeUserListTile(),
+                          verticalSpace(20),
+                          ServicesInHomeScreen(),
+                          verticalSpace(25),
+                          if (state is! MyCache) const BuildCreditCardWidget(),
+                          if (state is MyCache) const MyCacheAccount(),
+                          verticalSpace(15),
+                          const RecentTransactionsList(),
+                        ],
+                      ),
                     ),
                   ),
                 );

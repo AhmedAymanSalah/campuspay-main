@@ -34,7 +34,7 @@ class CustomInfoContainer extends StatelessWidget {
               borderRadius: BorderRadius.circular(25),
               color: Colors.white,
             ),
-            padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -45,7 +45,8 @@ class CustomInfoContainer extends StatelessWidget {
                     child: CustomTextWidget(
                       text: content,
                       fontSize: 12.sp,
-                      textAlign: TextAlign.center,
+                      maxLines: 8,
+                      //textAlign: TextAlign.center,
                       color: ColorsManager.darkBlue,
                       fontWeight: FontWeight.bold,
                     ),

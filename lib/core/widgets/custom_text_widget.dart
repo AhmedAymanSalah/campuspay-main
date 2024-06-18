@@ -11,6 +11,7 @@ class CustomTextWidget extends StatelessWidget {
   final String? fontFamily; // Font family parameter
   final TextAlign? textAlign;
   final TextDecoration? decoration;
+  final int? maxLines;
 
   const CustomTextWidget({
     super.key,
@@ -21,6 +22,7 @@ class CustomTextWidget extends StatelessWidget {
     this.fontFamily = 'Roboto Slab',
     this.textAlign,
     this.decoration,
+    this.maxLines=1,
   });
 
   @override
@@ -28,7 +30,7 @@ class CustomTextWidget extends StatelessWidget {
     return Text(
       text,
       textAlign: textAlign,
-      maxLines: 1,
+      maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
         decoration: decoration,
