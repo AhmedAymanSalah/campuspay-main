@@ -9,10 +9,13 @@ import '../../../core/theme/colors.dart';
 
 class CustomNumberTextField extends StatelessWidget {
   final String labelText;
+  final TextEditingController? controller;
+
 
   const CustomNumberTextField({
     super.key,
     this.labelText = "",
+    required this.controller,
   });
 
   @override
@@ -33,6 +36,7 @@ class CustomNumberTextField extends StatelessWidget {
         ),
         verticalSpace(20),
         TextFormField(
+          controller: controller ,
           onChanged: (value) {
             if (value.length == 4) {
               FocusScope.of(context).nextFocus();

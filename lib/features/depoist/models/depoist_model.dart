@@ -6,13 +6,13 @@ class DepoistModel {
 
   DepoistModel({this.balance,});
 
-  DepoistModel.fromJson(Map<String, double> json) {
+  DepoistModel.fromJson(Map<String, dynamic> json) {
     balance = json['balance'];
    
   }
 
-  Map<String, double> toJson() {
-    final Map<String, double> data = <String, double>{};
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['balance'] = balance!;
    
     return data;

@@ -1,6 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-// ignore_for_file: file_names
-
 import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/features/depoist/presentation/depoist_cubit.dart';
 import 'package:campuspay/features/depoist/presentation/depoist_states.dart';
@@ -25,11 +22,19 @@ class TopUpWithBank extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = TextEditingController();
     return BlocProvider(
       create: (BuildContext context) => DepoistCubit(),
       child: BlocConsumer<DepoistCubit, DepoistStates>(
-        listener: (BuildContext context, state) {},
-        builder: (BuildContext context, Object? state) {
+        listener: (BuildContext context, state) {
+          if (state is DepoistSuccessStates) {
+            navigateTo(context, const ConformScreen());
+          } else if (state is DepoistErrorStates) {
+            showToast(text: state.error, color: Colors.red);
+          }
+        },
+        builder: (BuildContext context, state) {
+          //var cubit = BlocProvider.of<HomeCubit>(context);
           return Scaffold(
             extendBodyBehindAppBar: true,
             appBar: AppBar(
@@ -80,16 +85,22 @@ class TopUpWithBank extends StatelessWidget {
                           child: ListView(
                             children: [
                               verticalSpace(40),
-                              const CustomNumberTextField(),
+                              CustomNumberTextField(
+                                controller: controller,
+                              ),
                               verticalSpace(50),
                               const Spacer(),
                               AppTextButton(
-                                  text: "Continue",
-                                  buttonColor: ColorsManager.darkBlue,
-                                  onPressed: () {
-                                    DepoistCubit().get(context);
-                                    navigateTo(context, const ConformScreen());
-                                  }),
+                                text: "Continue",
+                                buttonColor: ColorsManager.darkBlue,
+                                onPressed: () {
+                                  BlocProvider.of<DepoistCubit>(context)
+                                      .userDepoist(
+                                    balance: double.parse(controller.text),
+                                    context: context,
+                                  );
+                                },
+                              ),
                               const Spacer(),
                             ],
                           ),

@@ -18,7 +18,7 @@ class DataProfileFormField extends StatelessWidget {
           textInputType: TextInputType.name,
           controller: nameController,
           titel: "Full Name",
-          hintText: "Ahmed Ayman",
+          hintText: "Full Name..",
           prefixIcon: const Icon(
             Icons.person,
             color: ColorsManager.mainBlue,
@@ -30,7 +30,7 @@ class DataProfileFormField extends StatelessWidget {
           textInputType: TextInputType.emailAddress,
           controller: emailController,
           titel: "Email Address",
-          hintText: "aa3901@fayoum.edu.eg",
+          hintText: "Your Email Address..",
           prefixIcon: const Icon(
             Icons.person,
             color: ColorsManager.mainBlue,
@@ -42,7 +42,7 @@ class DataProfileFormField extends StatelessWidget {
           textInputType: TextInputType.number,
           controller: ssnController,
           titel: "SSN",
-          hintText: "30208025462814",
+          hintText: "**************",
           prefixIcon: const Icon(
             Icons.person,
             color: ColorsManager.mainBlue,
