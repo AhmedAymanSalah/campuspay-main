@@ -10,7 +10,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../features/pay_screens/ui/screens/done_screen.dart';
 import '../widget/donator_request_info_textfiled.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class DonatorRequestInfo extends StatefulWidget {
   const DonatorRequestInfo({super.key, required this.serviceId});

@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
 
 import '../../../../../moderator/features/request_data/ui/data/get_all_request.dart';
-import '../../data/users_data_list.dart';
 
 class ContainerData extends StatelessWidget {
   final GetAllRequestModel model;

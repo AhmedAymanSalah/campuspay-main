@@ -1,6 +1,4 @@
 import 'package:campuspay/core/theme/colors.dart';
-import 'package:campuspay/core/utils/constant.dart';
-import 'package:campuspay/features/pay_screens/ui/screens/done_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/app_button.dart';

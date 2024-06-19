@@ -1,6 +1,5 @@
 import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 
-import '../../../../core/helpers/extentions.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/custom_text_widget.dart';
 import '../../data/models/onboarding_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../../../core/routes/routes.dart';
 
 import '../../data/models/list_data.dart';
 

@@ -3,8 +3,6 @@ import 'package:campuspay/admin/features/accounts/presentation/manage/cubit/stat
 import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../core/widgets/display_data_container.dart';
 
 class StudentInfoDisplayData extends StatelessWidget {

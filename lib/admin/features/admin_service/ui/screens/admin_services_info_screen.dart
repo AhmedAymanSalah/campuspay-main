@@ -14,7 +14,6 @@ import 'package:campuspay/features/services/data/models/services_model.dart';
 
 import '../../../../../core/helpers/spacing.dart';
 import '../../../../../core/widgets/custom_text_widget.dart';
-import 'admin_services_list_view.dart';
 
 class AdminServicresInfoScreen extends StatefulWidget {
   final ServicesModel service;
