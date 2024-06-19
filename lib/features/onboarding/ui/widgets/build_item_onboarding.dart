@@ -1,3 +1,5 @@
+import 'package:campuspay/core/utils/constant.dart';
+import 'package:campuspay/features/attention/ui/attention_screen.dart';
 import 'package:campuspay/features/login/ui/screen/login_screen.dart';
 
 import '../../../../core/helpers/spacing.dart';
@@ -108,14 +110,14 @@ class _BuildItemOnBoardingState extends State<BuildItemOnBoarding> {
                           curve: Curves.linearToEaseOut);
                     });
                   } else {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
+                    navigateTo(context,  const AttentionScreen());
                   }
                 },
               ),
               AppTextButton(
                 text: "Sign In",
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
+                 navigateTo(context,  const LoginScreen());
                 },
                 buttonColor: Colors.white,
                 textColor: ColorsManager.mainBlue,

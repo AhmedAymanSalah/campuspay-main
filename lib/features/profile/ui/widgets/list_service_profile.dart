@@ -18,7 +18,7 @@ class ListItemsAllServices extends StatelessWidget {
           title: "Update Profile",
           icon: Icons.person,
           onTap: () {
-            navigateTo(context,  const UpdateProfileScreen());
+            navigateTo(context, const UpdateProfileScreen());
           },
         ),
         verticalSpace(25),
@@ -28,6 +28,15 @@ class ListItemsAllServices extends StatelessWidget {
           icon: Icons.feedback,
           onTap: () {
             navigateTo(context, const FeedbackPage());
+          },
+        ),
+        verticalSpace(25),
+        SettingsTile(
+          color: Colors.blueAccent,
+          title: "Contact us",
+          icon: Icons.contact_phone_sharp,
+          onTap: () {
+            //navigateTo(context, const FeedbackPage());
           },
         ),
         verticalSpace(25),

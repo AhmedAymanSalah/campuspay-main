@@ -62,7 +62,9 @@ class ConformScreen extends StatelessWidget {
                   double parsedAmount =
                       double.parse(amount); // Parse amount to double
                   int amountInInt = parsedAmount.toInt();
-                  await PaymentManager.makePayment(amountInInt, "EGP");
+                  await PaymentManager.makePayment(
+                    amountInInt,'EGP' 
+                  );
 
                   // Payment successful, navigate to success screen
                   navigateTo(
