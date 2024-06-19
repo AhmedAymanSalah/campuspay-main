@@ -28,7 +28,7 @@ class TopUpWithBank extends StatelessWidget {
       child: BlocConsumer<DepoistCubit, DepoistStates>(
         listener: (BuildContext context, state) {
           if (state is DepoistSuccessStates) {
-            navigateTo(context, const ConformScreen());
+            navigateTo(context,  ConformScreen(amount: controller.text,));
           } else if (state is DepoistErrorStates) {
             showToast(text: state.error, color: Colors.red);
           }

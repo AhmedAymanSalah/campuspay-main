@@ -37,6 +37,7 @@ dependencies:
   easy_localization: null
   flutter:
     sdk: flutter
+  flutter_stripe: ^8.0.0
   flutter_asset_generator: ^1.1.0
   flutter_bloc: ^8.1.4
   flutter_credit_card: ^4.0.1

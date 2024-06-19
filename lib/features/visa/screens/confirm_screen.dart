@@ -6,6 +6,7 @@ import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/features/visa/screens/top_up_success.dart';
 import 'package:campuspay/features/visa/widget/row_widget.dart';
+import 'package:campuspay/stripe%20payment/payment_managers.dart';
 import 'package:flutter/material.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/widgets/custom_text_widget.dart';
@@ -14,9 +15,8 @@ import '../../../core/widgets/app_button.dart';
 import '../widget/Container.dart';
 
 class ConformScreen extends StatelessWidget {
-  const ConformScreen({
-    super.key,
-  });
+  final String amount;
+  const ConformScreen({super.key, required this.amount});
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +40,8 @@ class ConformScreen extends StatelessWidget {
           children: [
             const Spacer(),
             Image.asset(Assets.imagesBluePay),
-            const CustomTextWidget(
-              text: "50.00 L.E",
+            CustomTextWidget(
+              text: "$amount L.E",
               color: ColorsManager.darkBlue,
               fontWeight: FontWeight.bold,
             ),
@@ -53,12 +53,35 @@ class ConformScreen extends StatelessWidget {
             const ContainerWidget(),
             verticalSpace(20.h),
             const RowWidget(text: "Account Balance", data: "363.81 L.E"),
-            const RowWidget(text: "Top Up Amount", data: "127.00 L.E"),
+            RowWidget(text: "Deposit Amount", data: "$amount L.E"),
             const RowWidget(text: "Date", data: "Aug 19, 2024 · 10:34 PM"),
             const Spacer(),
             AppTextButton(
-              onPressed: () {
-                navigateTo(context, const TopUpSuccess());
+              onPressed: () async {
+                try {
+                  double parsedAmount =
+                      double.parse(amount); // Parse amount to double
+                  int amountInInt = parsedAmount.toInt();
+                  await PaymentManager.makePayment(amountInInt, "EGP");
+
+                  // Payment successful, navigate to success screen
+                  navigateTo(
+                    // ignore: use_build_context_synchronously
+                    context,
+                    TopUpSuccess(
+                      amount: amount,
+                    ),
+                  );
+
+                  // Print success message (optional)
+                  // ignore: avoid_print
+                  print('Payment successful');
+                } catch (e) {
+                  // Payment failed, handle the error gracefully
+                  // ignore: avoid_print
+                  print('Payment failed: $e');
+                  // You may show an error message or handle it as per your app's design
+                }
               },
               text: "confirm",
               buttonColor: ColorsManager.darkBlue,

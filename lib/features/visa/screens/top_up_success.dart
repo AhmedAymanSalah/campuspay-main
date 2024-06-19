@@ -11,7 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TopUpSuccess extends StatelessWidget {
-  const TopUpSuccess({super.key});
+  final String amount;
+
+  const TopUpSuccess({super.key, required this.amount});
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +56,7 @@ class TopUpSuccess extends StatelessWidget {
                           color: Colors.blue,
                         ),
                         const CustomTextWidget(
-                          text: "Top Up Success",
+                          text: "Deposit Success",
                           color: ColorsManager.darkBlue,
                           fontWeight: FontWeight.bold,
                         ),
@@ -62,11 +64,11 @@ class TopUpSuccess extends StatelessWidget {
                         const Divider(),
                         verticalSpace(40),
                         const CustomTextWidget(
-                          text: "Total Top Up",
+                          text: "Total deposit",
                           color: ColorsManager.gray,
                         ),
-                        const CustomTextWidget(
-                          text: "50.00 L.E",
+                        CustomTextWidget(
+                          text: "$amount L.E",
                           color: ColorsManager.mainBlue,
                           fontWeight: FontWeight.bold,
                           fontSize: 30,
