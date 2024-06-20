@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "71665473956",
+    "project_id": "graduation-cae93",
+    "storage_bucket": "graduation-cae93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71665473956:android:f82e43a5c4786a849ec931",
+        "android_client_info": {
+          "package_name": "com.example.campuspay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOg9XP2ahDmTXrx8lUejQuOs3ZGMqwEh8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

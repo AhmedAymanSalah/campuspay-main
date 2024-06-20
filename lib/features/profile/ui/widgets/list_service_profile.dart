@@ -1,3 +1,4 @@
+import 'package:campuspay/chat/ui/screens/chatPage.dart';
 import 'package:campuspay/core/helpers/spacing.dart';
 import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/features/feedback/ui/screens/feedback_screen.dart';
@@ -36,7 +37,7 @@ class ListItemsAllServices extends StatelessWidget {
           title: "Contact us",
           icon: Icons.contact_phone_sharp,
           onTap: () {
-            //navigateTo(context, const FeedbackPage());
+            navigateTo(context,  ChatPage());
           },
         ),
         verticalSpace(25),

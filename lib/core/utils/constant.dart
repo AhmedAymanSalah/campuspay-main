@@ -34,3 +34,8 @@ void showToast({
 final TextEditingController emailController = TextEditingController();
 final TextEditingController ssnController = TextEditingController();
 final TextEditingController nameController = TextEditingController();
+
+const kPrimaryColor = Color(0xff2B475E);
+const kMessagesCollections = 'messages';
+const kMessage = 'message';
+const kCreatedAt = 'createdAt';

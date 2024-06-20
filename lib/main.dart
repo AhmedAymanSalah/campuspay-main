@@ -2,7 +2,9 @@
 
 import 'package:campuspay/core/utils/api_service.dart';
 import 'package:campuspay/core/utils/shared_preference.dart';
+import 'package:campuspay/firebase_options.dart';
 import 'package:campuspay/stripe%20payment/stripe_key.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 import 'core/routes/app_router.dart';
@@ -24,6 +26,9 @@ void main() async {
   // }else{
   //   widget =const LoginScreen();
   // }
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   Stripe.publishableKey = ApiKeys.publishableKey;
   runApp(Campuspay(appRouter: AppRouter()));
 }
