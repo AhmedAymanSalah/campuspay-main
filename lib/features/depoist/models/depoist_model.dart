@@ -1,15 +1,11 @@
 class DepoistModel {
-  double? balance;
+  final double balance;
 
-  DepoistModel({this.balance});
+  DepoistModel({required this.balance});
 
-  DepoistModel.fromJson(Map<String, dynamic> json) {
-    balance = json['balance']?.toDouble();
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['balance'] = balance;
-    return data;
+  factory DepoistModel.fromJson(Map<String, dynamic> json) {
+    return DepoistModel(
+      balance: json['balance'] ?? 0.0, // Adjust as per your JSON structure
+    );
   }
 }

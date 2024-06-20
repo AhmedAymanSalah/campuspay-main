@@ -8,9 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/components.dart';
-
 class DepoistCubit extends Cubit<DepoistStates> {
   DepoistCubit() : super(DepoistitialStates());
+  
+  late DepoistModel depoistModel; // Initialize here
+
   DepoistCubit get(context) => BlocProvider.of(context);
 
   bool obscureText = true;
@@ -20,7 +22,6 @@ class DepoistCubit extends Cubit<DepoistStates> {
     emit(DepoistChangeObscureTextStates());
   }
 
-  late DepoistModel depoistModel;
   void userDepoist({
     required double balance,
     required context,
@@ -28,19 +29,17 @@ class DepoistCubit extends Cubit<DepoistStates> {
     emit(DepoistLoadingStates());
     buildShowLoading(context);
     ApiService.postData(
-      url: 'Wallets/Deposit',
-      token:token,
+      url: 'Wallets/DepositV3',
+      token: token,
       query: {
         'balance': balance,
       },
     ).then((value) {
       depoistModel = DepoistModel.fromJson(value.data);
-      // ignore: avoid_print
       print(depoistModel.balance);
 
       emit(DepoistSuccessStates(depoistModel));
     }).catchError((error) {
-      // ignore: avoid_print
       print(error.toString());
       emit(DepoistErrorStates(error.toString()));
       Navigator.pop(context);

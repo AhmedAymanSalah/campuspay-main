@@ -137,7 +137,9 @@ class _TransferMoneyState extends State<TransferMoney> {
                       ),
                     ),
                   )
-                : const Center(child: CircularProgressIndicator()),
+                : const Center(
+                    child: CircularProgressIndicator(),
+                  ),
           );
         },
       ),
