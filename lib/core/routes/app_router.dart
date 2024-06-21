@@ -12,8 +12,7 @@ import '../../features/social_request/ui/screen/social_request_screen.dart';
 import '../../features/social_request/ui/screen/submit_sccessed_screen.dart';
 import '../../features/status/ui/screens/top_spending_screen.dart';
 import '../../features/transfer_money/screens/transfer_money_Screen.dart';
-import '../../moderator/features/home/logic/moderator_nav_bar_cubit/moderator_nav_bar_cubit.dart';
-import '../../moderator/features/home/ui/screens/moderator_botton_nav_bar.dart';
+
 import '../../moderator/features/home/ui/screens/moderator_home_Screen.dart';
 import '../../moderator/features/request_data/ui/screens/request_data.dart';
 import '../../moderator/request_info/screens/accept_screen.dart';
@@ -21,7 +20,6 @@ import '../../moderator/request_info/screens/request_refused.dart';
 import 'routes.dart';
 import '../../features/attention/ui/attention_Screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/onboarding/ui/screens/onboarding_screen.dart';
 import '../../features/splash/ui/custom_splash_screen.dart';
 
@@ -99,14 +97,14 @@ class AppRouter {
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const ModeratorHomeScreen());
 
-      case Routes.moderatorBottomNavBar:
-        // Return a MaterialPageRoute for the OnBoardingScreen route.
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => ModeratorBottomNavBarCubit(),
-            child: const ModeratorBottomNavBar(),
-          ),
-        );
+      // case Routes.moderatorBottomNavBar:
+      //   // Return a MaterialPageRoute for the OnBoardingScreen route.
+      //   return MaterialPageRoute(
+      //     builder: (_) => BlocProvider(
+      //       create: (context) => ModeratorBottomNavBarCubit(),
+      //       child: const ModeratorBottomNavBar(),
+      //     ),
+      //   );
       case Routes.requestAcceptScreen:
         // Return a MaterialPageRoute for the OnBoardingScreen route.
         return MaterialPageRoute(builder: (_) => const RequestAcceptScreen());

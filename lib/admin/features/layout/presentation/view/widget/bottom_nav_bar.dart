@@ -7,15 +7,15 @@ import '../../manage/cubit/Layout_cubit.dart';
 import '../../manage/cubit/Layout_states.dart';
 
 class BottomNavBar extends StatelessWidget {
-   BottomNavBar({super.key});
+  BottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocConsumer<LayoutCubit,LayoutStates>(
-      listener: (BuildContext context, state) {  },
+    return BlocConsumer<LayoutCubit, LayoutStates>(
+      listener: (BuildContext context, state) {},
       builder: (BuildContext context, Object? state) {
-        var cubit=LayoutCubit().get(context);
+        var cubit = LayoutCubit().get(context);
         return Container(
           color: const Color(0xff2B475E),
           height: size.width * .155,
@@ -39,12 +39,12 @@ class BottomNavBar extends StatelessWidget {
                     duration: const Duration(milliseconds: 1500),
                     curve: Curves.fastLinearToSlowEaseIn,
                     margin: EdgeInsets.only(
-                      top: index ==cubit.currentIndex ? 0 : size.width * .029,
+                      top: index == cubit.currentIndex ? 0 : size.width * .029,
                       right: size.width * .0422,
                       left: size.width * .0422,
                     ),
                     width: size.width * .153,
-                    height: index ==cubit.currentIndex ? size.width * .014 : 0,
+                    height: index == cubit.currentIndex ? size.width * .014 : 0,
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.vertical(
@@ -60,9 +60,11 @@ class BottomNavBar extends StatelessWidget {
       },
     );
   }
+
   List<IconData> listOfIcons = [
     Icons.home_rounded,
-    Icons.category_rounded,
-    Icons.favorite,
-    Icons.settings];
+    Icons.verified_user,
+    Icons.add_circle_outlined,
+    Icons.settings
+  ];
 }

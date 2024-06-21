@@ -21,6 +21,7 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     var email = ModalRoute.of(context)!.settings.arguments as String?;
 
     return BlocProvider(

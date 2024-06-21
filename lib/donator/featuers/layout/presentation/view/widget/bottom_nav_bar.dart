@@ -64,7 +64,7 @@ class BottomNavBar extends StatelessWidget {
   List<IconData> listOfIcons = [
     Icons.home_rounded,
     Icons.category_rounded,
-    Icons.favorite,
+    Icons.credit_card,
     Icons.settings,
   ];
 }

@@ -38,17 +38,24 @@ class PayScreen extends StatelessWidget {
             child: BlocConsumer<ServiceCubit, ServiceStates>(
               listener: (BuildContext context, state) {
                 if (state is PaySuccessStates) {
+                  // ignore: unrelated_type_equality_checks
                   if (state.payModel.balance == 'balance not enough') {
                     showToast(
-                        text: state.payModel.balance!, color: Colors.green);
+                        text: "${state.payModel.balance!}",
+                        color: Colors.green);
                     navigateTo(context, const ErrorScreen());
+                  // ignore: unrelated_type_equality_checks
                   } else if (state.payModel.balance != 'balance not enough') {
                     showToast(
-                        text: state.payModel.balance!, color: Colors.green);
+                        text: "${state.payModel.balance!}",
+                        color: Colors.green);
                     navigateTo(context, const DoneScreen());
                   }
                 } else if (state is PayErrorStates) {
-                  showToast(text: state.error, color: Colors.red);
+                  showToast(
+                      text: "balance not enough",
+                      color: const Color.fromARGB(255, 94, 7, 0));
+                  navigateTo(context, const ErrorScreen());
                 }
               },
               builder: (BuildContext context, Object? state) {

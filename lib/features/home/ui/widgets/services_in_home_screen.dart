@@ -14,7 +14,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class ServicesInHomeScreen extends StatelessWidget {
   ServicesInHomeScreen({
     super.key,
@@ -67,7 +66,7 @@ class ServicesInHomeScreen extends StatelessWidget {
             ),
             verticalSpace(16),
             CustomTextWidget(
-              text: "Top Up",
+              text: "Deposit",
               color: ColorsManager.gray,
               fontSize: 12.sp,
             ),

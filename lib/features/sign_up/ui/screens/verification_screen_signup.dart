@@ -38,9 +38,9 @@ class _VerificationScreenState extends State<VerificationScreenSignUp> {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const SignUpVerified()));
         }
-        if(state is VerificationErrorStates){
+        if (state is VerificationErrorStates) {
           showToast(
-            text:'Code is Incorrect',
+            text: 'Code is Incorrect',
             color: Colors.red,
           );
         }
@@ -81,7 +81,7 @@ class _VerificationScreenState extends State<VerificationScreenSignUp> {
                         verticalSpace(20),
                         CustomTextWidget(
                           text:
-                              "Please enter the code we just sent to email ak***@fayoum.edu.eg",
+                              "Please enter the code we just sent to email *****@fayoum.edu.eg",
                           fontSize: 14.sp,
                           color: ColorsManager.lightGray,
                           fontWeight: FontWeight.bold,
@@ -118,10 +118,17 @@ class _VerificationScreenState extends State<VerificationScreenSignUp> {
                     AppTextButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          cubit.verificationCode(
-                            verificationCode: int.parse(controller.text),
-                            userId: cubit.signUpModel.userId!,
-                          );
+                          if (cubit.type == 'Student') {
+                            cubit.verificationCode(
+                              verificationCode: int.parse(controller.text),
+                              userId: cubit.signUpModel.userId!,
+                            );
+                          } else if (cubit.type == 'Donor') {
+                            cubit.verificationCode(
+                              verificationCode: int.parse(controller.text),
+                              userId: cubit.signUpDonorModel.userId!,
+                            );
+                          }
                           print(controller.text);
                           //context.navigateTo(Routes.newPasswordScreen);
                         }

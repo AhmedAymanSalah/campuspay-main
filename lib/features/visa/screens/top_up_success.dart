@@ -16,7 +16,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class TopUpSuccess extends StatelessWidget {
   final String amount;
 
-  const TopUpSuccess({Key? key, required this.amount}) : super(key: key);
+  const TopUpSuccess({super.key, required this.amount});
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +47,7 @@ class TopUpSuccess extends StatelessWidget {
           return Scaffold(
             extendBodyBehindAppBar: true,
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               elevation: 0,
               backgroundColor: Colors.transparent,
             ),
@@ -138,7 +139,7 @@ class TopUpSuccess extends StatelessWidget {
                         Positioned(
                           bottom: 430.h,
                           right: 100.h,
-                          child: Image(
+                          child: const Image(
                             image: AssetImage(Assets.imagesIcon1),
                             fit: BoxFit.cover,
                             width: 130,

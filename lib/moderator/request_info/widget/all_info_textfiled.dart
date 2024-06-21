@@ -11,62 +11,62 @@ class AllInfoTextFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-         DisplayDataContainer(
+        DisplayDataContainer(
           titel: "Name",
           prefixIcon: const Icon(Icons.person_2_outlined),
-          text: model.fullName,
+          text: model.fullName ?? "",
         ),
         verticalSpace(15),
-         DisplayDataContainer(
+        DisplayDataContainer(
           titel: "Father Name",
           prefixIcon: const Icon(Icons.email_outlined),
-          text: model.fatherName,
+          text: model.fatherName ?? "",
         ),
         verticalSpace(15),
-         DisplayDataContainer(
+        DisplayDataContainer(
           titel: "Father Income",
           prefixIcon: const Icon(Icons.person_2_outlined),
-          text: model.fatherIncome,
+          text: model.fatherIncome ?? "",
         ),
         verticalSpace(15),
-         DisplayDataContainer(
+        DisplayDataContainer(
           titel: "City",
           prefixIcon: const Icon(Icons.person_2_outlined),
-          text: model.city,
+          text: model.city ?? "",
         ),
         verticalSpace(15),
-         DisplayDataContainer(
+        DisplayDataContainer(
           titel: "Father State",
           prefixIcon: const Icon(Icons.person_2_outlined),
-          text: model.fatherState,
+          text: model.fatherState ?? "",
         ),
         verticalSpace(15),
-         DisplayDataContainer(
+        DisplayDataContainer(
           titel: "Father Job",
           prefixIcon: const Icon(Icons.person_2_outlined),
-          text: model.fatherJob,
+          text: model.fatherJob ?? "",
         ),
         verticalSpace(15),
-         DisplayDataContainer(
+        DisplayDataContainer(
           titel: "Number Of Family Members",
-          prefixIcon: Icon(Icons.person_2_outlined),
-          text:'${ model.numberOfFamilyMembers}',
+          prefixIcon: const Icon(Icons.person_2_outlined),
+          text: '${model.numberOfFamilyMembers}',
         ),
         verticalSpace(15),
         DisplayDataContainer(
           titel: "Number Of Family Members In Edu",
           prefixIcon: const Icon(Icons.person_2_outlined),
-          text:'${ model.numberOfFamilyMembersInEdu}',
+          text: '${model.numberOfFamilyMembersInEdu}',
         ),
         verticalSpace(15),
         verticalSpace(20),
-         DisplayDataContainer(
+        DisplayDataContainer(
           titel: "College name",
           prefixIcon: const Icon(Icons.person_2_outlined),
-          text: model.collegeName,
+          text: model.collegeName ?? "",
         ),
         verticalSpace(20),
-         DisplayDataContainer(
+        DisplayDataContainer(
           titel: "Amount",
           prefixIcon: const Icon(Icons.person_2_outlined),
           text: "${model.cost}",

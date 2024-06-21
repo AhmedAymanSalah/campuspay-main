@@ -1,3 +1,5 @@
+import 'package:campuspay/core/theme/colors.dart';
+import 'package:campuspay/core/widgets/custom_text_widget.dart';
 import 'package:campuspay/moderator/cubit/cubit.dart';
 import 'package:campuspay/moderator/cubit/states.dart';
 import 'package:flutter/material.dart';
@@ -60,11 +62,12 @@ class RequestDataScreen extends StatelessWidget {
                                 ),
                               )
                             : const Center(
-                                child: Text(
-                                  'No Request Found',
-                                  style: TextStyle(fontSize: 30),
-                                ),
-                              ),
+                                child: CustomTextWidget(
+                                text: "No Request Found",
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: ColorsManager.darkBlue,
+                              )),
                       ],
                     ),
                   ),

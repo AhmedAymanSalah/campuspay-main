@@ -4,10 +4,9 @@ import 'package:campuspay/core/helpers/app_images.dart';
 import 'package:campuspay/core/theme/colors.dart';
 import 'package:campuspay/core/utils/constant.dart';
 import 'package:campuspay/core/widgets/app_button.dart';
-import 'package:campuspay/donator/featuers/layout/presentation/view/layout_view.dart';
+import 'package:campuspay/features/layout/presentation/view/layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class DoneScreen extends StatelessWidget {
   const DoneScreen({super.key});
@@ -15,7 +14,9 @@ class DoneScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+      ),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
@@ -28,8 +29,7 @@ class DoneScreen extends StatelessWidget {
               AppTextButton(
                 text: "Done",
                 onPressed: () {
-               //   context.navigateTo(Routes.errorScreen);
-                  navigateTo(context, const DonatorLayoutView());
+                  navigateAndFinish(context, const StudentLayoutView());
                 },
                 buttonColor: ColorsManager.green,
               )

@@ -1,5 +1,5 @@
 class PayModel {
-  String? balance;
+  double? balance;
 
   PayModel(
       {this.balance});

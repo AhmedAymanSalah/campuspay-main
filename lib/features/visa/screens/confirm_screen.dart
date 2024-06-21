@@ -80,7 +80,7 @@ class ConformScreen extends StatelessWidget {
                           await PaymentManager.makePayment(amountInInt, 'EGP');
 
                           // Payment successful, navigate to success screen
-                          navigateTo(
+                          navigateAndFinish(
                             // ignore: use_build_context_synchronously
                             context,
                             TopUpSuccess(

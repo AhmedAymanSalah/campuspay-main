@@ -2,10 +2,10 @@
 
 import 'package:campuspay/features/home/ui/screen/home_screen.dart';
 import 'package:campuspay/features/home/ui/screen/recent_transaction_screen.dart';
+import 'package:campuspay/features/profile/ui/screens/profile_screen.dart';
 import 'package:campuspay/features/services/ui/screens/services_list_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../../features/profile/ui/screens/profile_screen.dart';
 import 'Layout_states.dart';
 
 class StudentLayoutCubit extends Cubit<StudentLayoutStates> {

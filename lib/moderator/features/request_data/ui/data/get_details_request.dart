@@ -11,7 +11,7 @@ class GetDetailsRequestModel {
   int? squadYear;
   String? collegeName;
   // ignore: unnecessary_question_mark
-  Null? dateOfBirth;
+  String? dateOfBirth;
   double? cost;
   String? city;
   String? state;
